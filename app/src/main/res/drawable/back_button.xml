@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#FF3030"/> <!-- Pressed color -->
+                </shape>
+            </item>
+            <item android:drawable="@drawable/arrow_back" android:gravity="center"/>
+        </layer-list>
+    </item>
+    <!-- Default state -->
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <solid android:color="#FF0000"/>
+                </shape>
+            </item>
+            <item android:drawable="@drawable/arrow_back" android:gravity="center"/>
+        </layer-list>
+    </item>
+</selector>
