@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.easy_a.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import easy_a.controllers.ScrollingFragment
 
 class MainScreen : AppCompatActivity()
 {
@@ -21,7 +22,7 @@ class MainScreen : AppCompatActivity()
         setRelativeSizes()
 
         //set to this on startup
-        //navigateToFragment(HomeFragment())
+        navigateToFragment(ScrollingFragment())
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
