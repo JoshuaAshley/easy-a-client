@@ -72,7 +72,7 @@
 
         <!-- RecyclerView for workouts -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewExercises"
+            android:id="@+id/recyclerViewQuestions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
