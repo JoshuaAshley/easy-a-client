@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -13,7 +12,7 @@
         android:theme="@style/Theme.Easy_A"
         tools:targetApi="31">
 
-        <!-- Add SplashActivity and mark it as the launcher -->
+        <!-- SplashActivity is the launcher -->
         <activity
             android:name=".controllers.SplashActivity"
             android:exported="true">
@@ -23,10 +22,10 @@
             </intent-filter>
         </activity>
 
-        <!-- MainScreen activity (no longer the launcher) -->
-        <activity
-            android:name=".controllers.MainScreen"
-            android:exported="true" />
+        <!-- MainScreen -->
+        <activity android:name=".controllers.MainScreen" android:exported="true" />
 
+        <!-- LoginScreen -->
+        <activity android:name=".controllers.LoginScreen" />
     </application>
 </manifest>
