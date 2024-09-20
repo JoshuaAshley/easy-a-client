@@ -30,10 +30,12 @@
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hi, Welcome Back!"
+            android:text="Hi, Welcome Back! 👋"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:layout_marginTop="16dp" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:gravity="center" />
 
         <!-- Subtitle text -->
         <TextView
@@ -42,8 +44,9 @@
             android:layout_height="wrap_content"
             android:text="Hello again, you’ve been missed!"
             android:textColor="@color/gray"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp" />
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:gravity="center" />
 
         <!-- Email Input -->
         <com.google.android.material.textfield.TextInputLayout
@@ -175,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/white"
-            android:drawableStart="@drawable/google_logo"
+            android:drawableStart="@drawable/google_icon"
             android:drawablePadding="8dp"
             android:text="Login with Google"
             android:textColor="@color/black" />
