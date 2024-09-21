@@ -87,4 +87,9 @@ class RegisterScreen : AppCompatActivity() {
         val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+\$).{8,}\$"
         return password.matches(passwordRegex.toRegex())
     }
+    // Method to handle login link click
+    fun navigateToLogin(view: View) {
+        val intent = Intent(this, LoginScreen::class.java)
+        startActivity(intent)
+    }
 }

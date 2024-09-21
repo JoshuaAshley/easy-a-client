@@ -227,7 +227,8 @@
                 android:textSize="14sp"
                 android:clickable="true"
                 android:focusable="true"
-                android:paddingStart="4dp" />
+                android:paddingStart="4dp"
+                android:onClick="btnSignUpClicked" />
         </LinearLayout>
 
     </LinearLayout>

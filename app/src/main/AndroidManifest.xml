@@ -24,6 +24,7 @@
 
         <!-- MainScreen -->
         <activity android:name=".controllers.MainScreen" android:exported="true" />
+        <activity android:name=".controllers.RegisterScreen" />
 
         <!-- LoginScreen -->
         <activity android:name=".controllers.LoginScreen" />
