@@ -46,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintTop_toBottomOf="@id/top_bar">
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        android:layout_marginTop="40dp"> <!-- Add margin to lower content -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -153,7 +154,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <!-- Timer Text -->
                     <TextView
@@ -174,8 +175,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/easya_blue"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/pomodoro_timer_text"
-                        android:layout_marginTop="24dp"> <!-- Added margin here -->
+                        app:layout_constraintTop_toBottomOf="@id/pomodoro_timer_text">
 
                         <!-- Pause Button -->
                         <ImageView
@@ -214,6 +214,22 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
+            <!-- Mark as Done Button -->
+            <Button
+                android:id="@+id/mark_as_done_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Mark as done"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/easya_blue"
+                app:layout_constraintTop_toBottomOf="@id/pomodoro_timer_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.85"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
