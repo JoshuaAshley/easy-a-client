@@ -181,22 +181,24 @@
         </LinearLayout>
 
         <!-- Google Login Button -->
+
+        <!-- Don’t have an account? Sign Up Section -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/googleLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Login with Google"
-            android:textStyle="bold"
-            android:textColor="@color/black"
             android:padding="12dp"
+            android:text="Login with Google"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:backgroundTint="@color/gray"
             app:cornerRadius="16dp"
-            app:backgroundTint="@color/white"
-            app:icon="@drawable/google_icon"
+            app:icon="@drawable/google_logo"
             app:iconGravity="textStart"
-            app:iconPadding="8dp" />
+            app:iconPadding="8dp"
+            app:iconSize="30dp" />
 
-        <!-- Don’t have an account? Sign Up Section -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
