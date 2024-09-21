@@ -11,12 +11,12 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)  // Link to your splash screen XML layout
 
-        // Simulate a delay for the splash screen (3 seconds)
+        // Simulate a delay for the splash screen (2 seconds)
         Handler().postDelayed({
-            // Move to the LoginScreen after the delay
-            val intent = Intent(this, LoginScreen::class.java)
+            // Move directly to the MainScreen instead of the LoginScreen
+            val intent = Intent(this, MainScreen::class.java)
             startActivity(intent)
             finish()  // Close the SplashActivity so it is not accessible again
-        }, 2000)  // 3000 milliseconds = 3 seconds
+        }, 2000)  // 2000 milliseconds = 2 seconds
     }
 }
