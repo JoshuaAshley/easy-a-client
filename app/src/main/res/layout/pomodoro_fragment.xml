@@ -8,7 +8,6 @@
     android:background="@color/dark_gray"
     tools:context="com.example.easy_a.controllers.PomodoroScreen">
 
-    <!-- Top Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
@@ -19,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Logo -->
         <ImageView
             android:id="@+id/logoImage"
             android:layout_width="122dp"
@@ -29,7 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Profile Icon -->
         <ImageView
             android:id="@+id/profileIcon"
             android:layout_width="87dp"
@@ -40,21 +37,19 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Content Area -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/content_area"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintTop_toBottomOf="@id/top_bar"
-        android:layout_marginTop="40dp"> <!-- Add margin to lower content -->
+        android:layout_marginTop="40dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <!-- Rounded background with preparation time -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/logged_time_card"
                 android:layout_width="0dp"
@@ -73,7 +68,6 @@
                     android:layout_height="wrap_content"
                     android:padding="16dp">
 
-                    <!-- Total Logged Preparation Time Label -->
                     <TextView
                         android:id="@+id/preparation_time_label"
                         android:layout_width="wrap_content"
@@ -88,7 +82,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <!-- Total Logged Preparation Time Value -->
                     <TextView
                         android:id="@+id/preparation_time_value"
                         android:layout_width="wrap_content"
@@ -106,12 +99,11 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Choose Study Duration -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/choose_study_duration_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="@color/easya_blue"
                 app:cardElevation="4dp"
@@ -138,12 +130,11 @@
                     app:layout_constraintStart_toStartOf="parent" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Pomodoro Timer Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/pomodoro_timer_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:cardCornerRadius="16dp"
                 app:cardBackgroundColor="@color/gray"
                 app:cardElevation="4dp"
@@ -156,7 +147,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <!-- Timer Text -->
                     <TextView
                         android:id="@+id/pomodoro_timer_text"
                         android:layout_width="wrap_content"
@@ -169,7 +159,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <!-- Button Section -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -177,7 +166,6 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/pomodoro_timer_text">
 
-                        <!-- Pause Button -->
                         <ImageView
                             android:id="@+id/pause_button"
                             android:layout_width="60dp"
@@ -188,7 +176,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <!-- Play Button -->
                         <ImageView
                             android:id="@+id/play_button"
                             android:layout_width="60dp"
@@ -200,7 +187,6 @@
                             app:layout_constraintStart_toEndOf="@id/pause_button"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                        <!-- Add Button -->
                         <ImageView
                             android:id="@+id/add_button"
                             android:layout_width="60dp"
@@ -215,12 +201,11 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Mark as Done Button -->
             <Button
                 android:id="@+id/mark_as_done_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:text="Mark as done"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -235,7 +220,6 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
