@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/black"
+    android:background="@color/dark_gray"
     tools:context="com.example.easy_a.controllers.RegisterScreen">
 
     <LinearLayout
