@@ -17,6 +17,6 @@ class SplashActivity : AppCompatActivity() {
             val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
             finish()  // Close the SplashActivity so it is not accessible again
-        }, 3000)  // 3000 milliseconds = 3 seconds
+        }, 2000)  // 3000 milliseconds = 3 seconds
     }
 }

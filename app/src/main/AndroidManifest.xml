@@ -28,5 +28,9 @@
 
         <!-- LoginScreen -->
         <activity android:name=".controllers.LoginScreen" />
+
+        <!-- PomodoroScreen -->
+        <activity android:name=".controllers.PomodoroScreen" />
+
     </application>
 </manifest>

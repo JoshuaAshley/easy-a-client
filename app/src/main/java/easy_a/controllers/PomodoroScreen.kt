@@ -1,4 +1,4 @@
-package easy_a.controllers
+package com.example.easy_a.controllers
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.easy_a.R
 
-class Pomodoro : Fragment() {
+class PomodoroScreen : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
