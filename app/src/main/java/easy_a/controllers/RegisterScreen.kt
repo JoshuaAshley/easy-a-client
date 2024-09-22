@@ -9,14 +9,19 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.easy_a.R
-import com.example.easy_a.R.id.confirmPasswordTextInputLayout
-import com.example.easy_a.R.id.passwordTextInputLayout
 import com.google.android.material.textfield.TextInputLayout
+import easy_a.controllers.RetrofitClient
+import easy_a.controllers.UserResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterScreen : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
+    private lateinit var firstNameEditText: EditText
+    private lateinit var lastNameEditText: EditText
     private lateinit var passwordTextInputLayout: TextInputLayout
     private lateinit var confirmPasswordTextInputLayout: TextInputLayout
 
@@ -29,6 +34,8 @@ class RegisterScreen : AppCompatActivity() {
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
         confirmPasswordEditText = findViewById(R.id.confirmPassword)
+        firstNameEditText = findViewById(R.id.firstName)
+        lastNameEditText = findViewById(R.id.lastName)
         passwordTextInputLayout = findViewById(R.id.passwordTextInputLayout)
         confirmPasswordTextInputLayout = findViewById(R.id.confirmPasswordTextInputLayout)
     }
@@ -45,6 +52,8 @@ class RegisterScreen : AppCompatActivity() {
         val email = emailEditText.text.toString().trim()
         val password = passwordEditText.text.toString()
         val confirmPassword = confirmPasswordEditText.text.toString()
+        val firstName = firstNameEditText.text.toString()
+        val lastName = lastNameEditText.text.toString()
 
         // Clear previous errors
         emailEditText.error = null
@@ -68,13 +77,32 @@ class RegisterScreen : AppCompatActivity() {
             return
         }
 
-        // Proceed with registration logic (to be implemented)
-        Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+        if (email.isNotEmpty() && password.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty()) {
+            // Call register API using Retrofit
+            RetrofitClient.apiService.registerUser(email, password, firstName, lastName)
+                .enqueue(object : Callback<UserResponse> {
+                    override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+                        if (response.isSuccessful) {
+                            // Registration successful
+                            val user = response.body()
+                            Toast.makeText(this@RegisterScreen, "Welcome ${user?.firstName}", Toast.LENGTH_SHORT).show()
 
-        // Navigate to the Login screen after successful registration
-        val intent = Intent(this, LoginScreen::class.java)
-        startActivity(intent)
-        finish() // Close the current activity
+                            // Optionally: Navigate to the login screen
+                            val intent = Intent(this@RegisterScreen, LoginScreen::class.java)
+                            startActivity(intent)
+                        } else {
+                            // Registration failed
+                            Toast.makeText(this@RegisterScreen, "Registration failed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                        Toast.makeText(this@RegisterScreen, "Registration failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+        } else {
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Email validation logic
@@ -84,9 +112,10 @@ class RegisterScreen : AppCompatActivity() {
 
     // Password validation logic
     private fun isValidPassword(password: String): Boolean {
-        val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+\$).{8,}\$"
+        val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$"
         return password.matches(passwordRegex.toRegex())
     }
+
     // Method to handle login link click
     fun navigateToLogin(view: View) {
         val intent = Intent(this, LoginScreen::class.java)
