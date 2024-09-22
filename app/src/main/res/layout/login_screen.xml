@@ -194,10 +194,12 @@
             android:textStyle="bold"
             app:backgroundTint="@color/gray"
             app:cornerRadius="16dp"
-            app:icon="@drawable/google_logo"
+            app:icon="@drawable/google_ic"
             app:iconGravity="textStart"
             app:iconPadding="8dp"
+            app:iconTint="@null"
             app:iconSize="30dp" />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
