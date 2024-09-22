@@ -1,5 +1,6 @@
 package easy_a.controllers
 
+import easy_a.models.UserResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

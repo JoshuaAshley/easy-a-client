@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.easy_a.R
 import com.google.android.material.textfield.TextInputLayout
 import easy_a.controllers.RetrofitClient
-import easy_a.controllers.UserResponse
+import easy_a.models.UserResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

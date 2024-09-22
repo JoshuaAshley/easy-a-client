@@ -1,4 +1,4 @@
-package easy_a.controllers
+package easy_a.models
 
 data class RegisterRequest(
     val Email: String,
