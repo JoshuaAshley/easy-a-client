@@ -23,6 +23,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+retrofit-gson = "com.squareup.retrofit2:converter-gson:2.9.0"
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
