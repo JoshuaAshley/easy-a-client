@@ -22,6 +22,8 @@ class RegisterScreen : AppCompatActivity() {
     private lateinit var confirmPasswordEditText: EditText
     private lateinit var firstNameEditText: EditText
     private lateinit var lastNameEditText: EditText
+    private lateinit var genderEditText: EditText // Optional
+    private lateinit var dobEditText: EditText // Optional
     private lateinit var passwordTextInputLayout: TextInputLayout
     private lateinit var confirmPasswordTextInputLayout: TextInputLayout
 
@@ -36,6 +38,8 @@ class RegisterScreen : AppCompatActivity() {
         confirmPasswordEditText = findViewById(R.id.confirmPassword)
         firstNameEditText = findViewById(R.id.firstName)
         lastNameEditText = findViewById(R.id.lastName)
+        genderEditText = findViewById(R.id.gender) // Optional
+        dobEditText = findViewById(R.id.dob) // Optional
         passwordTextInputLayout = findViewById(R.id.passwordTextInputLayout)
         confirmPasswordTextInputLayout = findViewById(R.id.confirmPasswordTextInputLayout)
     }
@@ -54,6 +58,8 @@ class RegisterScreen : AppCompatActivity() {
         val confirmPassword = confirmPasswordEditText.text.toString()
         val firstName = firstNameEditText.text.toString()
         val lastName = lastNameEditText.text.toString()
+        val gender = if (genderEditText.text.toString().trim().isNotEmpty()) genderEditText.text.toString().trim() else null // Optional
+        val dob = if (dobEditText.text.toString().trim().isNotEmpty()) dobEditText.text.toString().trim() else null // Optional
 
         // Clear previous errors
         emailEditText.error = null
@@ -78,8 +84,8 @@ class RegisterScreen : AppCompatActivity() {
         }
 
         if (email.isNotEmpty() && password.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty()) {
-            // Call register API using Retrofit
-            RetrofitClient.apiService.registerUser(email, password, firstName, lastName)
+            // Call register API using Retrofit, adding optional fields like Gender and DateOfBirth
+            RetrofitClient.apiService.registerUser(email, password, firstName, lastName, gender, dob)
                 .enqueue(object : Callback<UserResponse> {
                     override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                         if (response.isSuccessful) {
@@ -92,7 +98,8 @@ class RegisterScreen : AppCompatActivity() {
                             startActivity(intent)
                         } else {
                             // Registration failed
-                            Toast.makeText(this@RegisterScreen, "Registration failed", Toast.LENGTH_SHORT).show()
+                            val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+                            Toast.makeText(this@RegisterScreen, "Registration failed: $errorMessage", Toast.LENGTH_LONG).show()
                         }
                     }
 
@@ -101,7 +108,7 @@ class RegisterScreen : AppCompatActivity() {
                     }
                 })
         } else {
-            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please fill all the required fields", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -21,6 +21,9 @@ interface ApiService {
         @Field("Email") email: String,
         @Field("Password") password: String,
         @Field("FirstName") firstName: String,
-        @Field("LastName") lastName: String
+        @Field("LastName") lastName: String,
+        @Field("Gender") gender: String? = null,
+        @Field("DateOfBirth") dateOfBirth: String? = null,
+        @Field("ProfilePicture") profilePicture: String? = null
     ): Call<UserResponse>
 }
