@@ -1,4 +1,4 @@
-package easy_a.controllers
+package com.example.easy_a.controllers
 
 import android.os.Bundle
 import android.view.LayoutInflater

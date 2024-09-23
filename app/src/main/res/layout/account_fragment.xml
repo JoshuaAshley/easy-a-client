@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".controllers.AccountFragment">
+    tools:context="com.example.easy_a.controllers.AccountFragment">
 
     <RelativeLayout
         android:id="@+id/main"
@@ -170,7 +170,7 @@
                 android:id="@+id/genderSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/gender_array"
+
                 android:textSize="16dp"/>
             <View
                 android:layout_width="match_parent"
