@@ -1,0 +1,150 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.easy_a.controllers.StudyCreateFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/back_button"
+                android:onClick="btnBackClicked"/>
+
+            <!-- Spacer view to push buttons to either end -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Help Button -->
+            <Button
+                android:id="@+id/btnHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Help"
+                android:textColor="#FFFFFF"
+                android:onClick="btnHelpClicked"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start a new Paper,"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textColor="#065BFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="Loading..."/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paper Name:"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Workout Name Input -->
+        <EditText
+            android:id="@+id/editPaperName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/textfield"
+            android:hint="Give your paper a neat name"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#A9A9A9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/editDescription"
+            android:layout_width="match_parent"
+            android:layout_height="166dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/textfield"
+            android:hint="Give your paper an interesting description of no more than 150 characters in length."
+            android:gravity="top|start"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#A9A9A9" />
+
+        <TextView
+            android:id="@+id/txtPDFName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnUploadPDF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload PDF of Question Paper"
+            android:textAllCaps="false"
+            android:background="@drawable/button"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnCreatePaper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Question Paper"
+            android:textAllCaps="false"
+            android:background="@drawable/button"
+            android:layout_marginTop="16dp"
+            android:onClick="btnCreatePaperClicked"/>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>
