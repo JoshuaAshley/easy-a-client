@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,19 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Easy_A"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".controllers.MainScreen"-->
-<!--            android:exported="false"-->
-<!--            android:theme="@style/Theme.Easy_A" />-->
+
+        <!-- SplashActivity is the launcher -->
         <activity
-            android:name=".controllers.MainScreen"
+            android:name=".controllers.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- MainScreen -->
+        <activity android:name=".controllers.MainScreen" android:exported="true" />
+        <activity android:name=".controllers.RegisterScreen" />
+
+        <!-- LoginScreen -->
+        <activity android:name=".controllers.LoginScreen" />
+
+        <!-- PomodoroScreen -->
+        <activity android:name=".controllers.PomodoroScreen" />
+
+    </application>
 </manifest>

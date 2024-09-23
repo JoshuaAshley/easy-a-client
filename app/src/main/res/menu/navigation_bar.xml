@@ -3,29 +3,34 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/home_icon"
-        android:title="home" />
+        android:title="home"
+        android:iconTint="@color/white" />
 
     <!-- Item 2 -->
     <item
         android:id="@+id/add"
-        android:icon="@drawable/add_icon"
-        android:title="add"/>
+        android:icon="@drawable/upload_file"
+        android:title="add"
+        android:iconTint="@color/white" />
 
     <!-- Item 3 -->
     <item
         android:id="@+id/progress"
-        android:icon="@drawable/progress_icon"
-        android:title="progress"/>
+        android:icon="@drawable/pie_chart"
+        android:title="progress"
+        android:iconTint="@color/white" />
 
     <!-- Item 4 -->
     <item
         android:id="@+id/view"
-        android:icon="@drawable/view_icon"
-        android:title="view"/>
+        android:icon="@drawable/message_icon"
+        android:title="view"
+        android:iconTint="@color/white" />
 
     <!-- Item 5 -->
     <item
         android:id="@+id/account"
-        android:icon="@drawable/account_icon"
-        android:title="account"/>
+        android:icon="@drawable/settings"
+        android:title="account"
+        android:iconTint="@color/white" />
 </menu>
