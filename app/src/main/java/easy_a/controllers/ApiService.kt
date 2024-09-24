@@ -20,8 +20,8 @@ interface ApiService {
     fun registerUser(
         @Field("Email") email: String,
         @Field("Password") password: String,
-        @Field("FirstName") firstName: String,
-        @Field("LastName") lastName: String,
+        @Field("FirstName") firstName: String? = null,
+        @Field("LastName") lastName: String? = null,
         @Field("Gender") gender: String? = null,
         @Field("DateOfBirth") dateOfBirth: String? = null,
         @Field("ProfilePicture") profilePicture: String? = null

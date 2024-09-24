@@ -1,38 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_easy_a_launcher"
+        android:label="Easy A"
+        android:roundIcon="@mipmap/ic_easy_a_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Easy_A"
+        android:theme="@style/Theme.AppCompat.SplashScreen"
         tools:targetApi="31">
 
-        <!-- SplashActivity is the launcher -->
         <activity
-            android:name=".controllers.SplashActivity"
+            android:name="easy_a.controllers.MainScreen"
+            android:exported="false" />
+        <activity
+            android:name="easy_a.controllers.RegisterScreen"
+            android:exported="false" />
+        <activity
+            android:name="easy_a.controllers.LoginScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- MainScreen -->
-        <activity android:name=".controllers.MainScreen" android:exported="true" />
-        <activity android:name=".controllers.RegisterScreen" />
-
-        <!-- LoginScreen -->
-        <activity android:name=".controllers.LoginScreen" />
-
-        <!-- PomodoroScreen -->
-        <activity android:name=".controllers.PomodoroScreen" />
 
     </application>
 </manifest>

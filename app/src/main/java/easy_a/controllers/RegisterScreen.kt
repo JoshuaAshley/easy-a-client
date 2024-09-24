@@ -1,4 +1,4 @@
-package com.example.easy_a.controllers
+package easy_a.controllers
 
 import android.content.Intent
 import android.os.Bundle
@@ -36,10 +36,6 @@ class RegisterScreen : AppCompatActivity() {
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
         confirmPasswordEditText = findViewById(R.id.confirmPassword)
-        firstNameEditText = findViewById(R.id.firstName)
-        lastNameEditText = findViewById(R.id.lastName)
-        genderEditText = findViewById(R.id.gender) // Optional
-        dobEditText = findViewById(R.id.dob) // Optional
         passwordTextInputLayout = findViewById(R.id.passwordTextInputLayout)
         confirmPasswordTextInputLayout = findViewById(R.id.confirmPasswordTextInputLayout)
     }
@@ -85,13 +81,13 @@ class RegisterScreen : AppCompatActivity() {
 
         if (email.isNotEmpty() && password.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty()) {
             // Call register API using Retrofit, adding optional fields like Gender and DateOfBirth
-            RetrofitClient.apiService.registerUser(email, password, firstName, lastName, gender, dob)
+            RetrofitClient.apiService.registerUser(email, password)
                 .enqueue(object : Callback<UserResponse> {
                     override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                         if (response.isSuccessful) {
                             // Registration successful
                             val user = response.body()
-                            Toast.makeText(this@RegisterScreen, "Welcome ${user?.firstName}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RegisterScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
 
                             // Optionally: Navigate to the login screen
                             val intent = Intent(this@RegisterScreen, LoginScreen::class.java)

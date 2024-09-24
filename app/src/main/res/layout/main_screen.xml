@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.MainScreen"
+    tools:context="easy_a.controllers.MainScreen"
     android:background="#151515">
 
     <View
@@ -30,21 +30,21 @@
         <ImageView
             android:id="@+id/logoImage"
             android:layout_width="80dp"
-        android:layout_height="75dp"
-        android:src="@drawable/easya_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="75dp"
+            android:src="@drawable/easya_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Smaller Profile Icon -->
-        <ImageView
+        <ImageButton
             android:id="@+id/profileIcon"
             android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/avatar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="50dp"
+            android:background="@drawable/avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Fragment container for dynamically added fragments -->

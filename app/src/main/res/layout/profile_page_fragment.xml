@@ -23,7 +23,6 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/editProfileTitle"
             android:background="#ACACAC"
             android:layout_marginTop="8dp" />
 
@@ -31,7 +30,6 @@
             android:id="@+id/profileInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/titleDivider"
             android:orientation="vertical"
             android:layout_marginTop="16dp">
 
@@ -115,8 +113,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/firstNameInputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="#FFFFFF">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/firstNameEditText"
@@ -160,7 +157,6 @@
                 android:id="@+id/genderSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/gender_array"
                 android:textSize="16dp"/>
             <View
                 android:layout_width="match_parent"

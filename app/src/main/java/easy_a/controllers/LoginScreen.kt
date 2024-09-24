@@ -1,4 +1,4 @@
-package com.example.easy_a.controllers
+package easy_a.controllers
 
 import android.content.Context
 import android.content.Intent
@@ -63,7 +63,7 @@ class LoginScreen : AppCompatActivity() {
                         if (response.isSuccessful) {
                             // Login successful
                             val user = response.body()
-                            Toast.makeText(this@LoginScreen, "Welcome ${user?.firstName}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
 
                             // If Remember Me is checked, save credentials to SharedPreferences
                             if (rememberMe) {
