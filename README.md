@@ -30,6 +30,8 @@
 
 ## EasyA API
 
+repository:
+
 ## Installation
 
 To install ProActive, follow these simple steps:
