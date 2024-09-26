@@ -1,5 +1,6 @@
-# ProActive: Taking Charge Through Healthy Habits!
-![Logo for pro](https://github.com/INDWG/OPSC7311-POE/assets/92745810/cca305bd-a969-4e85-af20-0d17f394f95a)
+# EasyA: Pass With Flying Colours
+![Frame 121](https://github.com/user-attachments/assets/f84890cb-514c-4db9-ba08-305aacbbe40b)
+
 
 ## Table of Contents
 
@@ -44,7 +45,7 @@
 To install ProActive, follow these simple steps:
 
 1. Open Android Studio and select 'Get from VCS'.
-2. Clone the repository: https://github.com/JoshuaAshley/easy-a-client.git
+2. Clone the repository: https://github.com/INDWG/OPSC7311-POE.git
 3. Wait for GRADLE to build.
 4. Run the project by clicking on green play button icon.
 5. Run the app on your device or emulator.
@@ -72,11 +73,10 @@ For support, please email TeamProActive225@gmail.com
 
 [Part 2](https://youtu.be/1pTOvOUIwjE)
 
-[Part 3 Final](https://youtu.be/Krcgxu2s83o)
 
 ## Figma
 
-[Figma Prototype Link](https://www.figma.com/design/eI1s7gijrcDyq7rXr9v3j5/ProActive-Prototype?node-id=0-1&t=VmzsIfQYZepJAoTx-0)
+[Figma Prototype Link](https://www.figma.com/design/eI1s7gijrcDyq7rXr9v3j5/OPSC?node-id=615-1352&t=jbwTeSKWsHo7zC4t-1)
 
 ## Authors
 
