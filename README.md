@@ -6,7 +6,8 @@
 
 1. [Features](#features)
 2. [EasyA API](#easya-api)
-3. [Installation](#installation)
+3. [EasyA Swagger](#easya-swagger)
+4. [Installation](#installation)
 1. [Usage](#usage)
 2. [Support](#support)
 2. [Video Demonstration](#video-demonstartion)
@@ -31,6 +32,8 @@
 ## EasyA API
 
 repository: https://github.com/JoshuaAshley/easy-a-api.git
+
+## EasyA Swagger
 
 ## Installation
 
