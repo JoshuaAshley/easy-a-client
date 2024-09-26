@@ -24,13 +24,6 @@
 - **Log**: Users are able to track their previous workouts and exercises with their progress pictures within a selectable date range.
 - **Total Hours**: Users are able to track total number of hours spent on each category during a selectable period.
 
-### PART 3 Features
-
-- **Graph**: A bar graph showing total hours worked each day over a selectable period. Graph also displays Minimum and Maximum Goals.
-- **Visual Format**: A Custom Calendar created to show how well the user is doing with staying between their Minimum and Maximum Hour Goals over the past month.
-- **Online Database**: Google Firebase has been used to handle and store all data.
-- **App Icon**: App icon and final image assets added.
-
 #### Extras
 
 - **Pie Chart**: A Pie Chart that displays percentage of workouts done or not done for each day for a month.
@@ -46,9 +39,10 @@ To install ProActive, follow these simple steps:
 
 1. Open Android Studio and select 'Get from VCS'.
 2. Clone the repository: https://github.com/INDWG/OPSC7311-POE.git
-3. Wait for GRADLE to build.
-4. Run the project by clicking on green play button icon.
-5. Run the app on your device or emulator.
+3. Clone the repository: https://github.com/INDWG/OPSC7311-POE.git
+4. Wait for GRADLE to build.
+5. Run the Client Project by clicking on green play button icon.
+6. Run the app on your device or emulator.
 
 ## Usage
 
