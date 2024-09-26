@@ -34,7 +34,7 @@ repository: https://github.com/JoshuaAshley/easy-a-api.git
 
 ## Installation
 
-To install ProActive, follow these simple steps:
+To install EasyA, follow these simple steps:
 
 1. Open Android Studio and select 'Get from VCS'.
 3. Clone the repository: https://github.com/JoshuaAshley/easy-a-client.git
