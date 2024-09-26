@@ -38,7 +38,7 @@
 To install ProActive, follow these simple steps:
 
 1. Open Android Studio and select 'Get from VCS'.
-2. Clone the repository: https://github.com/INDWG/OPSC7311-POE.git
+2. Clone the repository: https://github.com/JoshuaAshley/easy-a-api.git
 3. Clone the repository: https://github.com/JoshuaAshley/easy-a-client.git
 4. Wait for GRADLE to build.
 5. Run the Client Project by clicking on green play button icon.
