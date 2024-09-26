@@ -30,7 +30,7 @@
 
 ## EasyA API
 
-repository:
+repository: https://github.com/JoshuaAshley/easy-a-api.git
 
 ## Installation
 
