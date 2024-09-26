@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.easy_a.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -24,6 +26,9 @@ import easy_a.models.UserResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class LoginScreen : AppCompatActivity() {
 
@@ -62,11 +67,14 @@ class LoginScreen : AppCompatActivity() {
         password = findViewById(R.id.password)
 
         // Check if credentials are stored in SharedPreferences and set them in the input fields
-        val savedEmail = sharedPreferences.getString("email", "") ?: ""
-        val savedPassword = sharedPreferences.getString("password", "") ?: ""
-        if (savedEmail.isNotEmpty() && savedPassword.isNotEmpty()) {
-            email.setText(savedEmail)
-            password.setText(savedPassword)
+        val savedEmail = sharedPreferences.getString("savedEmail", "") ?: ""
+        val savedPassword = sharedPreferences.getString("savedPassword", "") ?: ""
+        // Set the saved email and password in the respective EditText fields
+        email.setText(savedEmail)
+        password.setText(savedPassword)
+
+        // Optional: Check the Remember Me checkbox if credentials exist
+        if (savedEmail.isNotEmpty()) {
             findViewById<CheckBox>(R.id.rememberMeCheckBox).isChecked = true
         }
     }
@@ -81,6 +89,7 @@ class LoginScreen : AppCompatActivity() {
     fun btnLoginClicked(view: View) {
         val inputEmail = email.text.toString()
         val inputPassword = password.text.toString()
+        val rememberMe = findViewById<CheckBox>(R.id.rememberMeCheckBox).isChecked
 
         if (inputEmail.isNotEmpty() && inputPassword.isNotEmpty()) {
             // Call login API using Retrofit
@@ -93,17 +102,32 @@ class LoginScreen : AppCompatActivity() {
                         if (response.isSuccessful) {
                             val user = response.body()
 
+                            // Format date of birth
+                            val dateOfBirthString = user?.dateOfBirth // Assuming this is your original date string
+                            val formattedDateOfBirth = formatDateOfBirth(dateOfBirthString)
+
                             // Save user details and token in SharedPreferences
                             val editor = sharedPreferences.edit()
                             editor.putString("token", user?.token)
+                            editor.putString("uid", user?.uid)
                             editor.putString("email", user?.email)
                             editor.putString("firstname", user?.firstName)
                             editor.putString("lastname", user?.lastName)
                             editor.putString("gender", user?.gender)
-                            editor.putString("dateOfBirth", user?.dateOfBirth)
+                            editor.putString("dateOfBirth", formattedDateOfBirth) // Store the formatted date
                             editor.putString("profilePictureUrl", user?.profilePicture)
 
-                            editor.apply()
+                            if (rememberMe) {
+                                editor.putString("savedEmail", inputEmail)
+                                editor.putString("savedPassword", inputPassword)
+                            } else {
+                                // Clear saved credentials if unchecked
+                                editor.remove("savedEmail")
+                                editor.remove("savedPassword")
+                            }
+
+                            editor.apply() // Ensure this line is called after all changes to SharedPreferences.
+
 
                             Toast.makeText(this@LoginScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
 
@@ -125,25 +149,68 @@ class LoginScreen : AppCompatActivity() {
         }
     }
 
+    // Helper function to format the date
+    private fun formatDateOfBirth(dateString: String?): String? {
+        return dateString?.let {
+            // Remove the "Timestamp: " prefix if it exists
+            val cleanDateString = it.replace("Timestamp: ", "").trim()
+
+            // Parse the original timestamp format
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+            val date: Date? = inputFormat.parse(cleanDateString)
+
+            // Format it to the desired format
+            val outputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            date?.let { outputFormat.format(it) }
+        }
+    }
+
     // Called when Forgot Password is clicked
-    fun onForgotPasswordClicked(view: View) {
+    fun onForgotPasswordClicked(view: View)
+    {
+        // Create an EditText programmatically to allow the user to input their email.
         val emailInput = EditText(this).apply {
-            inputType = android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-            hint = "Enter your email"
+            inputType =
+                InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS  // Set the input type to accept email addresses.
+            hint = "Enter your email"  // Set a hint to guide users on what to enter.
         }
 
-        android.app.AlertDialog.Builder(this)
-            .setTitle("Forgot Password")
-            .setMessage("Enter your registered email")
-            .setView(emailInput)
-            .setPositiveButton("Submit") { dialog, _ ->
-                val enteredEmail = emailInput.text.toString()
-                Toast.makeText(this, "Reset link sent to $enteredEmail", Toast.LENGTH_SHORT).show()
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
-            .create()
-            .show()
+        // Build and display an AlertDialog which contains the EditText for email input.
+        AlertDialog.Builder(this).setTitle("Reset Password")  // Set the title of the dialog.
+            .setMessage("Enter your email to receive reset instructions")  // Set a message explaining what the dialog is for.
+            .setView(emailInput)  // Embed the EditText in the dialog.
+            .setPositiveButton("Send") { dialog, which ->  // Define a 'Send' button and its behavior.
+                val email = emailInput.text.toString()  // Retrieve the email entered by the user.
+                if (email.isNotEmpty())
+                {  // Check if the email field is not empty.
+                    // Request Firebase to send a password reset email.
+                    FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful)
+                            {  // Check if the email was sent successfully.
+                                Toast.makeText(
+                                    this,
+                                    "Reset instructions sent to your email",
+                                    Toast.LENGTH_LONG
+                                ).show()  // Show a success message.
+                            } else
+                            {  // Handle the case where sending the email failed.
+                                Toast.makeText(
+                                    this,
+                                    "Failed to send reset email",
+                                    Toast.LENGTH_LONG
+                                ).show()  // Show an error message.
+                            }
+                        }
+                } else
+                {  // If the email field is empty, prompt the user to fill it.
+                    Toast.makeText(this, "Email field cannot be empty", Toast.LENGTH_LONG).show()
+                }
+            }.setNegativeButton(
+                "Cancel",
+                null
+            )  // Define a 'Cancel' button that simply dismisses the dialog.
+            .show()  // Display the dialog.
     }
 
     // Called when the Google Login button is clicked
@@ -207,6 +274,7 @@ class LoginScreen : AppCompatActivity() {
 
                     val editor = sharedPreferences.edit()
                     editor.putString("token", uid)
+                    editor.putString("uid", uid)
                     editor.putString("email", email)
                     editor.putString("firstname", firstName)
                     editor.putString("lastname", lastName)

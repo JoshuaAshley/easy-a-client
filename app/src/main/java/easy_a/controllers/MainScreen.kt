@@ -18,7 +18,11 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.squareup.picasso.Picasso
 import easy_a.controllers.ScrollingFragment
 
-class MainScreen : AppCompatActivity() {
+interface ProfileUpdateListener {
+    fun onProfileUpdated(newProfilePictureUrl: String?)
+}
+
+class MainScreen : AppCompatActivity(), ProfileUpdateListener {
     private lateinit var sessionManager: SessionManager
     private lateinit var profileIcon: ShapeableImageView
 
@@ -157,5 +161,10 @@ class MainScreen : AppCompatActivity() {
 
     fun profileIconClicked(view: View) {
         navigateToFragment(AccountFragment())
+    }
+
+    override fun onProfileUpdated(newProfilePictureUrl: String?) {
+        // Load the new profile picture using Picasso
+        loadProfilePicture(newProfilePictureUrl)
     }
 }

@@ -113,6 +113,7 @@ class RegisterScreen : AppCompatActivity() {
                             val editor = sharedPreferences.edit()
 
                             editor.putString("token", user?.token)
+                            editor.putString("uid", user?.uid)
                             editor.putString("email", user?.email)
                             editor.putString("firstname", user?.firstName)
                             editor.putString("lastname", user?.lastName)
@@ -207,6 +208,7 @@ class RegisterScreen : AppCompatActivity() {
 
                     val editor = sharedPreferences.edit()
                     editor.putString("token", token)
+                    editor.putString("uid", uid)
                     editor.putString("email", email)
                     editor.putString("firstname", firstName)
                     editor.putString("lastname", lastName)

@@ -17,6 +17,11 @@ class SessionManager(context: Context) {
         return sharedPreferences.getString("token", null)
     }
 
+    // Get the stored token
+    fun getUid(): String? {
+        return sharedPreferences.getString("uid", null)
+    }
+
     // Get user details (add more methods as needed)
     fun getEmail(): String? {
         return sharedPreferences.getString("email", null)

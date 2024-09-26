@@ -6,9 +6,11 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.ActivityNotFoundException
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,6 +22,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -32,7 +35,19 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
+import easy_a.models.UserResponse
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.ByteArrayOutputStream
+import java.text.ParseException
 
 class AccountFragment : Fragment() {
 
@@ -62,6 +77,7 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.account_fragment, container, false)
+
 
         sessionManager = SessionManager(requireContext())
 
@@ -102,7 +118,7 @@ class AccountFragment : Fragment() {
         saveButton =
             view.findViewById(R.id.btnSaveButton) // Replace 'saveButton' with the ID of your button
         saveButton.setOnClickListener {
-            //btnSaveButtonClicked(this) // Pass the fragment instance to the click handler
+            btnSaveButtonClicked(this) // Pass the fragment instance to the click handler
         }
 
         logoutButton =
@@ -156,6 +172,151 @@ class AccountFragment : Fragment() {
         }
     }
 
+    private fun btnSaveButtonClicked(fragment: Fragment) {
+        // Retrieve user input from UI elements
+        val firstName = firstNameEditText.text.toString().trim()
+        val lastName = lastNameEditText.text.toString().trim()
+        val gender = genderSpinner.selectedItem.toString()
+        val dobString = dateButton.text.toString()
+
+        Log.d("UpdateUserRequest", "DOB: $dobString")
+
+        // Validate the length of first name and last name
+        val isFirstNameValid = validateLength(firstName, "First name", 50)
+        val isLastNameValid = validateLength(lastName, "Last name", 50)
+
+        // Proceed only if both validations pass
+        if (isFirstNameValid && isLastNameValid) {
+            // Retrieve the UID from session manager (assumes session management is implemented)
+            val sessionManager = SessionManager(fragment.requireContext())
+            val uid = sessionManager.getUid()
+
+            if (uid != null) {
+                // Create MultipartBody.Part for the image, if available
+                var profileImagePart: MultipartBody.Part? = null
+                val drawable = profilePictureButton.drawable
+
+                if (drawable is BitmapDrawable) {
+                    val bitmap = drawable.bitmap
+                    val baos = ByteArrayOutputStream()
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                    val imageData = baos.toByteArray()
+
+                    // Create RequestBody for the image file
+                    val requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageData)
+
+                    // Create MultipartBody.Part using the file request body
+                    profileImagePart = MultipartBody.Part.createFormData("profileImage", "profile.jpg", requestFile)
+                }
+
+                // Create RequestBody objects for the text fields
+                val uidRequestBody = RequestBody.create(MediaType.parse("text/plain"), uid)
+                val firstNameRequestBody = RequestBody.create(MediaType.parse("text/plain"), firstName)
+                val lastNameRequestBody = RequestBody.create(MediaType.parse("text/plain"), lastName)
+                val genderRequestBody = RequestBody.create(MediaType.parse("text/plain"), gender)
+
+                // Handle the API response asynchronously
+                if (dobString.isNotEmpty()) {
+                    // Parse the date string to a Date object
+                    val parsedDob: Date? = try {
+                        SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dobString)
+                    } catch (e: ParseException) {
+                        null // Log or handle parse exception if needed
+                    }
+
+                    // Format the date to the required format for the API
+                    val formattedDob = parsedDob?.let {
+                        SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(it)
+                    }
+
+                    val dateRequestBody =
+                        formattedDob?.let { RequestBody.create(MediaType.parse("text/plain"), it) }
+
+                    Log.d("UpdateUserRequest", "UID: $uid, First Name: $firstName, Last Name: $lastName, Gender: $gender, DOB: $formattedDob")
+
+                    // Call the API only if formattedDob is not null
+                    if (dateRequestBody != null) {
+                        RetrofitClient.apiService.updateUserSettings(
+                            uidRequestBody,
+                            firstNameRequestBody,
+                            lastNameRequestBody,
+                            genderRequestBody,
+                            dateRequestBody,
+                            profileImagePart
+                        ).enqueue(object : Callback<UserResponse> {
+                            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+                                if (response.isSuccessful) {
+                                    // Update Shared Preferences with new user details
+                                    val sharedPreferences = fragment.requireContext().getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+                                    val editor = sharedPreferences.edit()
+
+                                    val dateOfBirthString = response.body()?.dateOfBirth // Assuming this is your original date string
+                                    val formattedDateOfBirth = formatDateOfBirth(dateOfBirthString)
+
+                                    editor.putString("firstname", response.body()?.firstName)
+                                    editor.putString("lastname", response.body()?.lastName)
+                                    editor.putString("gender", response.body()?.gender)
+                                    editor.putString("dateOfBirth", formattedDateOfBirth)
+                                    editor.putString("profilePictureUrl", response.body()?.profilePicture)
+                                    editor.apply() // Save changes to Shared Preferences
+
+                                    // Notify the MainScreen about the updated profile picture
+                                    (fragment.activity as? ProfileUpdateListener)?.onProfileUpdated(response.body()?.profilePicture)
+
+                                    Toast.makeText(fragment.requireContext(), "User updated successfully", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    Toast.makeText(fragment.requireContext(), "Failed to update user: ${response.code()}", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                                Toast.makeText(fragment.requireContext(), "Failed to update user: onFailure", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                    }
+                }
+            } else {
+                // If UID is null, handle it appropriately (e.g., redirect to login)
+                Toast.makeText(fragment.requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            // Inform the user of invalid input
+            Toast.makeText(fragment.requireContext(), "Please check the input fields", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun formatDateOfBirth(dateString: String?): String? {
+        return dateString?.let {
+            // Remove the "Timestamp: " prefix if it exists
+            val cleanDateString = it.replace("Timestamp: ", "").trim()
+
+            // Parse the original timestamp format
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+            val date: Date? = inputFormat.parse(cleanDateString)
+
+            // Format it to the desired format
+            val outputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            date?.let { outputFormat.format(it) }
+        }
+    }
+
+    private fun validateLength(value: String, fieldName: String, maxLength: Int): Boolean
+    {
+        return if (value.length > maxLength)
+        {
+            // Field exceeds maximum length, show error message
+            Toast.makeText(
+                requireContext(),
+                "$fieldName cannot be longer than $maxLength characters",
+                Toast.LENGTH_SHORT
+            ).show()
+            false
+        } else
+        {
+            true
+        }
+    }
+
     private fun btnLogoutClicked(fragment: Fragment)
     {
         FirebaseAuth.getInstance().signOut()
@@ -190,63 +351,6 @@ class AccountFragment : Fragment() {
                     Log.e(ContentValues.TAG, "Error loading profile picture", e)
                 }
             })
-    }
-
-    private fun showLoadingIndicator(show: Boolean)
-    {
-        if (show)
-        {
-
-            // Disable the spinner and set a loading message as its selected item
-            genderSpinner.isEnabled = false
-            firstNameEditText.isEnabled = false
-            lastNameEditText.isEnabled = false
-            emailEditText.isEnabled = false
-            dateButton.isEnabled = false
-
-            // Show loading indicator
-            firstNameEditText.setText("Loading...")
-            lastNameEditText.setText("Loading...")
-            emailEditText.setText("Loading...")
-            dateButton.setText("Loading...")
-
-            // Create a temporary adapter with the loading message
-            val loadingAdapter = ArrayAdapter<String>(
-                requireContext(), android.R.layout.simple_spinner_item, arrayOf("Loading...")
-            )
-            loadingAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            genderSpinner.adapter = loadingAdapter
-
-            // You can similarly set loading indicators for other fields if needed
-        } else
-        {
-
-            genderSpinner.isEnabled = true
-            firstNameEditText.isEnabled = true
-            lastNameEditText.isEnabled = true
-            emailEditText.isEnabled = true
-            dateButton.isEnabled = true
-
-            // Hide loading indicator
-            firstNameEditText.text = null
-            lastNameEditText.text = null
-            emailEditText.text = null
-            dateButton.text = null
-
-            // Reset the spinner adapter to its original array values
-            val originalAdapter = ArrayAdapter.createFromResource(
-                requireContext(), R.array.gender_array, android.R.layout.simple_spinner_item
-            )
-            originalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            genderSpinner.adapter = originalAdapter
-
-            // Clear loading indicators for other fields if needed
-        }
-    }
-
-    private fun uploadProfilePhoto(userId: String)
-    {
-        val drawable = profilePictureButton.drawable
     }
 
     private fun initDatePicker()
