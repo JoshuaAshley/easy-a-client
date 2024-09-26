@@ -5,7 +5,8 @@
 ## Table of Contents
 
 1. [Features](#features)
-2. [Installation](#installation)
+2. [EasyA API](#easya-api)
+3. [Installation](#installation)
 1. [Usage](#usage)
 2. [Support](#support)
 2. [Video Demonstration](#video-demonstartion)
@@ -16,22 +17,18 @@
 
 ### Part 2 Features
 
-- **Login**: Users are able to log into the app using an Username(email) & Password.
-- **Categories**: Users are able to create workout plans where they can make exercises.
-- **Timesheet Entry**: When users are creating an exercise they are able to specify the date at which the exercise will take place along with able to specify the start and end times, add a description and assign it to a category.
-- **Photograph**: Users are to assign a "Progress Picture" to any of their exercises so they can track the progress of their work.
-- **Minimum & Maximum**: Users can set a minimum and maximum daily goal for hours worked on an exercise.
-- **Log**: Users are able to track their previous workouts and exercises with their progress pictures within a selectable date range.
-- **Total Hours**: Users are able to track total number of hours spent on each category during a selectable period.
+- **Single Sign on**: 
+- **Study Home Page**: 
+- **Academic Event Chalender**: 
+- **Create Study Papers**: 
+- **View Study Papers and PDF Viewer**: 
+- **Create Study Questions**: 
+- **View Study Questions**: 
+- **Pomodoro Timer**: 
+- **Progress Chart**: 
+- **Profile Settings**: 
 
-#### Extras
-
-- **Pie Chart**: A Pie Chart that displays percentage of workouts done or not done for each day for a month.
-- **Help Button**: Users can tap the "Help" Button on the top of the screen to get help on the specific page that they are on.
-- **Forgot Password**: Users can reset their password by selecting the Forgot Password button in account login section.
-- **Remember Me**: Users can tick the Remember me box so they do not have to re-enter their credentials everytime they log in.
-- **Profile Customization**: Users can personalise their profile by adding their Name, Profile Picture, Gender and Birthday.
-- **Home Screen**: Home Screen that displays workouts that are currently active.
+## EasyA API
 
 ## Installation
 
