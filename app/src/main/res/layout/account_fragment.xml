@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="com.example.easy_a.controllers.AccountFragment">
+    tools:context="easy_a.controllers.AccountFragment"
+    android:background="@color/dark_gray">
 
     <RelativeLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp">
 
         <TextView
             android:id="@+id/editProfileTitle"
@@ -170,7 +172,7 @@
                 android:id="@+id/genderSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:entries="@array/gender_array"
                 android:textSize="16dp"/>
             <View
                 android:layout_width="match_parent"
@@ -226,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:editable="false"
                     android:textSize="16dp"
-                    android:layout_marginBottom="60dp"/>
+                    android:layout_marginBottom="20dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Save Button-->

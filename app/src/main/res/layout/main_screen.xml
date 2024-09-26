@@ -5,13 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="easy_a.controllers.MainScreen"
-    android:background="#151515">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        android:alpha="0.7" />
+    android:background="@color/dark_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,8 +17,9 @@
             android:id="@+id/top_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-        android:background="@color/black">
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            android:background="@color/black">
 
         <!-- Smaller Logo -->
         <ImageView
@@ -37,14 +32,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Smaller Profile Icon -->
-        <ImageButton
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profileIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/avatar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="profileIconClicked"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Fragment container for dynamically added fragments -->
@@ -53,8 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginHorizontal="20dp"/>
 
     <!-- BottomNavigationView placed at the bottom -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -62,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/rounded_bottom_navigation_background"
+        android:background="@color/black"
         app:itemIconSize="20dp"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/navigation_bar" />

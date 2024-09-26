@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.AppCompat.SplashScreen" parent="Theme.AppCompat.NoActionBar">
         <!-- Splash screen background color -->
-        <item name="android:windowSplashScreenBackground">@color/easya_blue</item>
+        <item name="android:windowSplashScreenBackground">@color/easy_a_blue</item>
 
         <!-- Splash screen animated icon -->
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_easy_a_launcher_title</item>

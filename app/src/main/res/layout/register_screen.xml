@@ -138,21 +138,8 @@
                 android:padding="10dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <CheckBox
-                android:id="@+id/rememberMeCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remember Me"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
-
         <Button
+            android:id="@+id/btnRegister"
             android:background="@drawable/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -202,6 +189,7 @@
 
         <!-- Don’t have an account? Sign Up Section -->
         <Button
+            android:id="@+id/btnGoogleSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/sso_button"
@@ -213,7 +201,8 @@
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/google_ic"
             android:drawablePadding="-20dp"
-            android:padding="12dp"/>
+            android:padding="12dp"
+            android:onClick="btnGoogleSignUpClicked"/>
 
 
         <LinearLayout
@@ -240,7 +229,7 @@
                 android:text="Login"
                 android:textAllCaps="false"
                 android:background="@drawable/button_transparent"
-                android:textColor="@color/easya_blue"
+                android:textColor="@color/easy_a_blue"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:clickable="true"

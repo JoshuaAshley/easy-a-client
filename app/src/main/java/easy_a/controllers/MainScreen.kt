@@ -3,59 +3,86 @@ package easy_a.controllers
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.easy_a.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.shape.ShapeAppearanceModel
+import com.squareup.picasso.Picasso
 import easy_a.controllers.ScrollingFragment
 
-class MainScreen : AppCompatActivity()
-{
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+class MainScreen : AppCompatActivity() {
+    private lateinit var sessionManager: SessionManager
+    private lateinit var profileIcon: ShapeableImageView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.main_screen)
 
         setRelativeSizes()
 
+        sessionManager = SessionManager(this)
+        profileIcon = findViewById(R.id.profileIcon)
+
+        // Check if the user is logged in
+        if (!sessionManager.isLoggedIn()) {
+            // If not logged in, redirect to LoginScreen
+            val intent = Intent(this, LoginScreen::class.java)
+            startActivity(intent)
+            finish()  // Close MainScreen
+        } else {
+            // User is logged in, fetch profile picture URL
+            val profilePictureUrl = sessionManager.getProfilePictureUrl() // Fetch profile picture URL from session
+
+            // Make the profileIcon circular
+            profileIcon.shapeAppearanceModel = ShapeAppearanceModel.builder()
+                .setAllCornerSizes(ShapeAppearanceModel.PILL) // PILL for circular shapes
+                .build()
+
+            // Set scaleType to make the image fit well in the circular view
+            profileIcon.scaleType = ImageView.ScaleType.CENTER_CROP
+
+            // Load the profile picture using Picasso
+            loadProfilePicture(profilePictureUrl)
+        }
+
         //set to this on startup
-        navigateToFragment(ScrollingFragment())
+        navigateToFragment(HomeFragment())
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // Set listener to handle navigation item clicks
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId)
-            {
-                R.id.home ->
-                {
-                    //navigateToFragment(HomeFragment())
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    navigateToFragment(HomeFragment())
                     true
                 }
 
-                R.id.add ->
-                {
+                R.id.add -> {
                     //navigateToFragment(ViewWorkoutFragment())
                     true
                 }
 
-                R.id.progress ->
-                {
+                R.id.progress -> {
                     //navigateToFragment(ProgressGraphsFragment())
                     true
                 }
 
-                R.id.view ->
-                {
+                R.id.view -> {
                     //navigateToFragment(ActivityViewerFragment())
                     true
                 }
 
-                R.id.account ->
-                {
+                R.id.account -> {
                     //navigateToFragment(AccountFragment())
                     true
                 }
@@ -65,15 +92,13 @@ class MainScreen : AppCompatActivity()
         }
     }
 
-    private fun getScreenHeight(): Int
-    {
+    private fun getScreenHeight(): Int {
         val displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         return displayMetrics.heightPixels
     }
 
-    private fun setRelativeSizes()
-    {
+    private fun setRelativeSizes() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // Calculate the height based on a percentage of the screen height
@@ -94,23 +119,43 @@ class MainScreen : AppCompatActivity()
         bottomNavigationView.itemIconSize = iconSize
     }
 
-    private fun navigateToFragment(fragment: Fragment)
-    {
+    private fun navigateToFragment(fragment: Fragment) {
         // Replace the current fragment with the new fragment
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
             .commit()
     }
 
-    private fun navigateToActivity(activityClass: Class<*>)
-    {
+    private fun navigateToActivity(activityClass: Class<*>) {
         // Start the new activity
         val intent = Intent(this, activityClass)
         startActivity(intent)
     }
 
-    //Activity Viewer Fragment back button
-    fun btnBackClicked(view: View)
-    {
+    // Activity Viewer Fragment back button
+    fun btnBackClicked(view: View) {
         //navigateToFragment(ViewWorkoutFragment())
+    }
+
+    // Function to load the profile picture, apply circular transformation, and resize it
+    private fun loadProfilePicture(url: String?) {
+        Log.d("RegisterScreen", "" + url)
+        val desiredSize = 250 // Adjust this value for a larger image size
+
+        if (url != null && url.isNotEmpty()) {
+            Picasso.get()
+                .load(url)
+                .placeholder(R.drawable.avatar)  // Placeholder image while loading
+                .error(R.drawable.avatar)        // Fallback image in case of error
+                .resize(desiredSize, desiredSize) // Resize the image to desired size
+                .into(profileIcon)
+        // Load image into the profileIcon
+        } else {
+            // If URL is null or empty, show the default avatar
+            profileIcon.setImageResource(R.drawable.avatar)
+        }
+    }
+
+    fun profileIconClicked(view: View) {
+        navigateToFragment(AccountFragment())
     }
 }

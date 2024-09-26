@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -49,6 +50,13 @@ dependencies {
     // Retrofit dependencies
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    implementation(libs.firebase.auth)
+    implementation(libs.google.services)
+
+    implementation ("com.google.firebase:firebase-auth")
+    implementation ("com.google.android.gms:play-services-auth:19.2.0")
+
+    implementation("com.squareup.picasso:picasso:2.71828")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

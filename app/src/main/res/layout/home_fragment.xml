@@ -1,69 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.easy_a.controllers.HomeFragment">
+    tools:context="easy_a.controllers.HomeFragment"
+    android:theme="@style/Theme.AppCompat.SplashScreen">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="top">
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:paddingVertical="40dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+        <!-- Rounded Blue Button -->
+        <ImageButton
+            android:id="@+id/blueButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_button"
+            android:src="@drawable/ic_calendar"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="15dp"
+            android:layout_marginBottom="20dp" />
 
-            <!-- Spacer view to push buttons to either end -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
 
-            <!-- Help Button -->
-            <Button
-                android:id="@+id/btnHelp"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Help"
-                android:textColor="#FFFFFF"
-                android:onClick="btnHelpClicked"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello,"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:textColor="@android:color/white" />
-
-            <TextView
-                android:id="@+id/username"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Loading..."
-                android:textColor="#065BFF"
-                android:textSize="24sp"
-                android:layout_marginBottom="20dp"/>
-
-        </LinearLayout>
-
+        <!-- TextView for the current date -->
         <TextView
+            android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Keep up the Hard Work!"
             android:textStyle="bold"
+            android:text="Loading..."
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textSize="16sp"
@@ -97,10 +69,6 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_paper"/>
 
-
         </LinearLayout>
-
     </LinearLayout>
-
-
 </androidx.core.widget.NestedScrollView>

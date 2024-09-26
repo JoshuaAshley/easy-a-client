@@ -132,4 +132,5 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="logo_description" />
+    <string name="default_web_client_id">876130910836-dq069mvnmd5hkpjpobea6o83fa2ikn54.apps.googleusercontent.com</string>
 </resources>

@@ -8,7 +8,6 @@
                     <solid android:color="#0044CC"/> <!-- Pressed color -->
                 </shape>
             </item>
-            <item android:drawable="@drawable/arrow_back" android:gravity="center"/>
         </layer-list>
     </item>
     <!-- Default state -->
@@ -19,7 +18,6 @@
                     <solid android:color="@color/easy_a_blue"/>
                 </shape>
             </item>
-            <item android:drawable="@drawable/arrow_back" android:gravity="center"/>
         </layer-list>
     </item>
 </selector>

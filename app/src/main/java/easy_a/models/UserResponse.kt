@@ -5,5 +5,8 @@ data class UserResponse(
     val email: String,
     val firstName: String,
     val lastName: String,
-    val token: String?  // Optional token for authentication
+    val gender: String?,
+    val dateOfBirth: String?,
+    val profilePicture: String?,
+    val token: String?
 )
