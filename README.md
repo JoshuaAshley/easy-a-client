@@ -35,6 +35,8 @@ repository: https://github.com/JoshuaAshley/easy-a-api.git
 
 ## EasyA Swagger
 
+Swagger Link: https://easy-a-api-dbfghva5hkaqgsdc.southafricanorth-01.azurewebsites.net/swagger/index.html
+
 ## Installation
 
 To install EasyA, follow these simple steps:
