@@ -1,6 +1,7 @@
 package easy_a.controllers
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,6 +27,7 @@ class QuestionListFragment : Fragment(), OnQuestionClickListener {
     private val questions = mutableListOf<QuestionResult>()
     private lateinit var adapter: QuestionAdapter // Declare the adapter
 
+    private lateinit var back: ImageButton
     private lateinit var username: TextView
     private lateinit var startQuestion: Button
     private lateinit var pdfView: ImageButton
@@ -75,6 +77,11 @@ class QuestionListFragment : Fragment(), OnQuestionClickListener {
         pdfView = view.findViewById(R.id.pdfButton)
         pdfView.setOnClickListener {
             pdfButtonClicked(this)
+        }
+
+        back = view.findViewById(R.id.btnBack)
+        back.setOnClickListener {
+            btnBack(this)
         }
     }
 
@@ -150,12 +157,19 @@ class QuestionListFragment : Fragment(), OnQuestionClickListener {
         )
     }
 
+    private fun btnBack(fragment: Fragment) {
+        navigateToFragment(StudyListFragment())
+    }
+
     private fun navigateToFragment(fragment: Fragment) {
         // Replace the current fragment with the new fragment
         parentFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
     }
 
     override fun onQuestionClicked(questionId: String) {
-        TODO("Not yet implemented")
+        val sharedPreferences = this.requireContext().getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("questionId", questionId)
+        editor.apply()
     }
 }

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="easy_a.controllers.HomeFragment"
-    android:theme="@style/Theme.AppCompat.SplashScreen">
+    android:theme="@style/Theme.AppCompat.SplashScreen"
+    android:background="@color/dark_gray">
 
     <LinearLayout
         android:layout_width="match_parent"

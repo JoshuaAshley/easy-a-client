@@ -86,6 +86,11 @@ interface ApiService {
         @Path("uid") uid: String
     ): Call<QuestionPaperListResponse>
 
+    @GET("api/QuestionPaper/home/{uid}")
+    fun getHomeInfo(
+        @Path("uid") uid: String
+    ): Call<QuestionPaperListResponse>
+
     @GET("api/QuestionPaper/{uid}/question-paper/{questionPaperId}")
     fun getQuestionPaper(
         @Path("uid") uid: String,
