@@ -4,13 +4,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.easy_a.controllers.StudyCreateFragment">
+    tools:context="easy_a.controllers.StudyCreateFragment"
+    android:background="@color/dark_gray">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingVertical="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,15 +33,6 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
-
-            <!-- Help Button -->
-            <Button
-                android:id="@+id/btnHelp"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Help"
-                android:textColor="#FFFFFF"
-                android:onClick="btnHelpClicked"/>
 
         </LinearLayout>
 
@@ -96,6 +89,15 @@
             android:textColor="@color/black"
             android:textColorHint="#A9A9A9" />
 
+        <Button
+            android:id="@+id/btnDueDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select a Due Date"
+            android:textAllCaps="false"
+            android:background="@drawable/button"
+            android:layout_marginTop="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,15 +118,6 @@
             android:textColor="@color/black"
             android:textColorHint="#A9A9A9" />
 
-        <TextView
-            android:id="@+id/txtPDFName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="8dp"
-            android:padding="10dp" />
-
         <Button
             android:id="@+id/btnUploadPDF"
             android:layout_width="match_parent"
@@ -132,7 +125,7 @@
             android:text="Upload PDF of Question Paper"
             android:textAllCaps="false"
             android:background="@drawable/button"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="20dp" />
 
         <Button
             android:id="@+id/btnCreatePaper"

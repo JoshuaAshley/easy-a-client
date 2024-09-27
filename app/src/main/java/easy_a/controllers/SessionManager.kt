@@ -47,6 +47,10 @@ class SessionManager(context: Context) {
         return sharedPreferences.getString("profilePictureUrl", null)
     }
 
+    fun getQuestionPaperId(): String? {
+        return sharedPreferences.getString("questionPaperId", null)
+    }
+
     // Clear user session (use this for logging out)
     fun clearSession() {
         val editor = sharedPreferences.edit()

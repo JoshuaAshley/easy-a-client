@@ -4,40 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.easy_a.controllers.StudyListFragment">
+    tools:context="easy_a.controllers.StudyListFragment"
+    android:background="@color/dark_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="top">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <!-- Spacer view to push buttons to either end -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnHelp"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Help"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:padding="16dp"/>
+        android:layout_gravity="top"
+        android:paddingVertical="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"

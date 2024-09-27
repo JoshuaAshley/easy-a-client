@@ -6,17 +6,14 @@ import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.easy_a.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.squareup.picasso.Picasso
-import easy_a.controllers.ScrollingFragment
 
 interface ProfileUpdateListener {
     fun onProfileUpdated(newProfilePictureUrl: String?)
@@ -72,7 +69,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 }
 
                 R.id.add -> {
-                    //navigateToFragment(ViewWorkoutFragment())
+                    navigateToFragment(StudyListFragment())
                     true
                 }
 

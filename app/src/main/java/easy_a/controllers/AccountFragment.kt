@@ -56,7 +56,6 @@ class AccountFragment : Fragment() {
     private lateinit var profilePictureButton: ShapeableImageView
     private lateinit var pickImageLauncher: ActivityResultLauncher<String>
     private lateinit var takePictureLauncher: ActivityResultLauncher<Intent>
-    private lateinit var currentPhotoUri: Uri
     private lateinit var imageView: ImageView
     private lateinit var saveButton: Button
     private lateinit var logoutButton: Button
