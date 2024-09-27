@@ -1,222 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context="com.example.easy_a.controllers.PomodoroScreen">
+    android:background="@color/dark_gray"
+    tools:context="easy_a.controllers.PomodoroFragment">
 
-    <!-- Content Area -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/content_area"
-        android:layout_width="0dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp">
+        android:paddingVertical="20dp"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!-- First Row with Back Button and Spacer -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <!-- Rounded background with preparation time -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/logged_time_card"
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/back_button"
+                android:contentDescription="Back"
+                android:onClick="btnBackClicked" />
+
+            <!-- Spacer View to push buttons to the right -->
+            <View
                 android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Logged Time Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/logged_time_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/gray"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="@color/gray"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintWidth_percent="1">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="198dp"
-                    android:padding="40dp">
-
-                    <TextView
-                        android:id="@+id/preparation_time_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center"
-                        android:text="Total Logged Preparation Time"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/preparation_time_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="3hrs 25mins"
-                        android:textColor="@color/easy_a_blue"
-                        android:textSize="40sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/preparation_time_label" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Choose Study Duration -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/choose_study_duration_card"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardCornerRadius="8dp"
-                app:cardBackgroundColor="@color/easy_a_blue"
-                app:cardElevation="4dp"
-                app:layout_constraintTop_toBottomOf="@id/logged_time_card"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintWidth_percent="1">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
-                    android:id="@+id/choose_study_duration_button"
-                    android:layout_width="match_parent"
+                    android:id="@+id/preparation_time_label"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:drawableEnd="@drawable/arrow_down"
-                    android:drawablePadding="8dp"
-                    android:padding="15dp"
-                    android:text="Choose Study Duration"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:text="Total Logged Preparation Time"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:backgroundTint="@color/easy_a_blue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.cardview.widget.CardView>
-
-            <!-- Pomodoro Timer Card -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/pomodoro_timer_card"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardCornerRadius="16dp"
-                app:cardBackgroundColor="@color/gray"
-                app:cardElevation="4dp"
-                app:layout_constraintTop_toBottomOf="@id/choose_study_duration_card"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintWidth_percent="1">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="215dp">
-
-                    <TextView
-                        android:id="@+id/pomodoro_timer_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="25:00"
-                        android:textColor="@android:color/black"
-                        android:textSize="75sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="407dp"
-                        android:layout_height="81dp"
-                        android:background="@color/easy_a_blue"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/pomodoro_timer_text"
-                        app:layout_constraintVertical_bias="1.0">
-
-                        <ImageView
-                            android:id="@+id/pause_button"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_marginStart="44dp"
-                            android:contentDescription="Pause"
-                            android:src="@drawable/pause_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/play_button"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:contentDescription="Play"
-                            android:src="@drawable/play_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/add_button"
-                            app:layout_constraintStart_toEndOf="@id/pause_button"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/add_button"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_marginEnd="52dp"
-                            android:contentDescription="Add"
-                            android:src="@drawable/add_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Mark as Done Button -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/mark_as_done_card"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardCornerRadius="8dp"
-                app:cardBackgroundColor="@color/easy_a_blue"
-                app:cardElevation="4dp"
-                app:layout_constraintTop_toBottomOf="@id/pomodoro_timer_card"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintWidth_percent="1">
+                    android:layout_gravity="center_horizontal" />
 
                 <TextView
-                    android:id="@+id/mark_as_done_button"
-                    android:layout_width="match_parent"
+                    android:id="@+id/preparation_time_value"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:padding="15dp"
-                    android:text="Mark as done"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:text="Loading..."
+                    android:textColor="@color/easy_a_blue"
+                    android:textSize="36sp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Choose Study Duration Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/choose_study_duration_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/easy_a_blue"
+            app:cardElevation="4dp">
 
-    </androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/choose_study_duration_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="Choose Study Duration"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Pomodoro Timer Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pomodoro_timer_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/gray"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/pomodoro_timer_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:textColor="@android:color/black"
+                    android:textSize="75sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+
+                <!-- Control Buttons (Pause, Play, Add) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:background="@color/easy_a_blue"
+                    android:paddingHorizontal="16dp">
+
+                    <ImageView
+                        android:id="@+id/pause_button"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/pause_icon"
+                        android:contentDescription="Pause" />
+
+                    <ImageView
+                        android:id="@+id/play_button"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/play_icon"
+                        android:contentDescription="Play" />
+
+                    <ImageView
+                        android:id="@+id/add_button"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/filled_add_icon"
+                        android:contentDescription="Add" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Mark as Done Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mark_as_done_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/easy_a_blue"
+            app:cardElevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="Mark as Done"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

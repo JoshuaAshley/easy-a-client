@@ -171,5 +171,7 @@ class QuestionListFragment : Fragment(), OnQuestionClickListener {
         val editor = sharedPreferences.edit()
         editor.putString("questionId", questionId)
         editor.apply()
+
+        navigateToFragment(PomodoroFragment())
     }
 }

@@ -51,6 +51,26 @@ class SessionManager(context: Context) {
         return sharedPreferences.getString("questionPaperId", null)
     }
 
+    fun getQuestionId(): String? {
+        return sharedPreferences.getString("questionId", null)
+    }
+
+    fun getTimeLeftInMillis(): Long? {
+        return sharedPreferences.getLong("time_left_in_millis", 0)
+    }
+
+    fun setTimeLeftInMillis(time: Long) {
+        sharedPreferences.edit().putLong("time_left_in_millis", time).apply()
+    }
+
+    fun isTimerPaused(): Boolean {
+        return sharedPreferences.getBoolean("timer_paused", false)
+    }
+
+    fun setTimerPaused(paused: Boolean) {
+        sharedPreferences.edit().putBoolean("timer_paused", paused).apply()
+    }
+
     // Clear user session (use this for logging out)
     fun clearSession() {
         val editor = sharedPreferences.edit()

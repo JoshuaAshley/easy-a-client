@@ -7,7 +7,7 @@ data class QuestionResult (
     val questionName: String,
     val questionDescription: String,
     val imageLocation: String?,
-    val totalLoggedTime: Number?,
+    val totatLoggedTime: Number?,
     val isCompleted: Boolean?,
 )
 

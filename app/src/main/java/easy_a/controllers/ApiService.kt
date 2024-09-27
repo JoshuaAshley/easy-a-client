@@ -5,6 +5,7 @@ import easy_a.models.CheckUserExistsResponse
 import easy_a.models.QuestionPaperListResponse
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResponse
+import easy_a.models.QuestionResult
 import easy_a.models.QuestionsListResponse
 import easy_a.models.UserResponse
 import okhttp3.MultipartBody
@@ -114,4 +115,11 @@ interface ApiService {
         @Path("uid") uid: String,
         @Path("questionPaperId") questionPaperId: String
     ): Call<QuestionsListResponse>
+
+    @GET("api/Question/{uid}/question-paper/{questionPaperId}/questions/{questionId}")
+    fun getQuestion(
+        @Path("uid") uid: String,
+        @Path("questionPaperId") questionPaperId: String,
+        @Path("questionId") questionId: String
+    ): Call<QuestionResult>
 }
