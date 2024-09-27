@@ -1,10 +1,13 @@
-# ProActive: Taking Charge Through Healthy Habits!
-![Logo for pro](https://github.com/INDWG/OPSC7311-POE/assets/92745810/cca305bd-a969-4e85-af20-0d17f394f95a)
+# EasyA: Pass With Flying Colours
+![Frame 121](https://github.com/user-attachments/assets/f84890cb-514c-4db9-ba08-305aacbbe40b)
+
 
 ## Table of Contents
 
 1. [Features](#features)
-2. [Installation](#installation)
+2. [EasyA API](#easya-api)
+3. [EasyA Swagger](#easya-swagger)
+4. [Installation](#installation)
 1. [Usage](#usage)
 2. [Support](#support)
 2. [Video Demonstration](#video-demonstartion)
@@ -15,39 +18,34 @@
 
 ### Part 2 Features
 
-- **Login**: Users are able to log into the app using an Username(email) & Password.
-- **Categories**: Users are able to create workout plans where they can make exercises.
-- **Timesheet Entry**: When users are creating an exercise they are able to specify the date at which the exercise will take place along with able to specify the start and end times, add a description and assign it to a category.
-- **Photograph**: Users are to assign a "Progress Picture" to any of their exercises so they can track the progress of their work.
-- **Minimum & Maximum**: Users can set a minimum and maximum daily goal for hours worked on an exercise.
-- **Log**: Users are able to track their previous workouts and exercises with their progress pictures within a selectable date range.
-- **Total Hours**: Users are able to track total number of hours spent on each category during a selectable period.
+- **Single Sign on**: 
+- **Study Home Page**: 
+- **Academic Event Chalender**: 
+- **Create Study Papers**: 
+- **View Study Papers and PDF Viewer**: 
+- **Create Study Questions**: 
+- **View Study Questions**: 
+- **Pomodoro Timer**: 
+- **Progress Chart**: 
+- **Profile Settings**: 
 
-### PART 3 Features
+## EasyA API
 
-- **Graph**: A bar graph showing total hours worked each day over a selectable period. Graph also displays Minimum and Maximum Goals.
-- **Visual Format**: A Custom Calendar created to show how well the user is doing with staying between their Minimum and Maximum Hour Goals over the past month.
-- **Online Database**: Google Firebase has been used to handle and store all data.
-- **App Icon**: App icon and final image assets added.
+repository: https://github.com/JoshuaAshley/easy-a-api.git
 
-#### Extras
+## EasyA Swagger
 
-- **Pie Chart**: A Pie Chart that displays percentage of workouts done or not done for each day for a month.
-- **Help Button**: Users can tap the "Help" Button on the top of the screen to get help on the specific page that they are on.
-- **Forgot Password**: Users can reset their password by selecting the Forgot Password button in account login section.
-- **Remember Me**: Users can tick the Remember me box so they do not have to re-enter their credentials everytime they log in.
-- **Profile Customization**: Users can personalise their profile by adding their Name, Profile Picture, Gender and Birthday.
-- **Home Screen**: Home Screen that displays workouts that are currently active.
+Swagger Link: https://easy-a-api-dbfghva5hkaqgsdc.southafricanorth-01.azurewebsites.net/swagger/index.html
 
 ## Installation
 
-To install ProActive, follow these simple steps:
+To install EasyA, follow these simple steps:
 
 1. Open Android Studio and select 'Get from VCS'.
-2. Clone the repository: https://github.com/JoshuaAshley/easy-a-client.git
-3. Wait for GRADLE to build.
-4. Run the project by clicking on green play button icon.
-5. Run the app on your device or emulator.
+3. Clone the repository: https://github.com/JoshuaAshley/easy-a-client.git
+4. Wait for GRADLE to build.
+5. Run the Client Project by clicking on green play button icon.
+6. Run the app on your device or emulator.
 
 ## Usage
 
@@ -72,11 +70,10 @@ For support, please email TeamProActive225@gmail.com
 
 [Part 2](https://youtu.be/1pTOvOUIwjE)
 
-[Part 3 Final](https://youtu.be/Krcgxu2s83o)
 
 ## Figma
 
-[Figma Prototype Link](https://www.figma.com/design/eI1s7gijrcDyq7rXr9v3j5/ProActive-Prototype?node-id=0-1&t=VmzsIfQYZepJAoTx-0)
+[Figma Prototype Link](https://www.figma.com/design/eI1s7gijrcDyq7rXr9v3j5/OPSC?node-id=615-1352&t=jbwTeSKWsHo7zC4t-1)
 
 ## Authors
 
