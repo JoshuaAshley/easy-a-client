@@ -2,6 +2,8 @@ package easy_a.controllers
 
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable.Param
 import easy_a.models.CheckUserExistsResponse
+import easy_a.models.EventResponse
+import easy_a.models.EventResult
 import easy_a.models.QuestionPaperListResponse
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResponse
@@ -141,4 +143,27 @@ interface ApiService {
         @Path("questionPaperId") questionPaperId: String,
         @Path("questionId") questionId: String,
     ): Call<QuestionUpdateResult>
+
+
+
+    @GET("api/Event/list/{uid}/month-range")
+    fun getEventsByMonthRange(
+        @Path("uid") uid: String,
+        @Query("startDate") startDate: String,
+        @Query("endDate") endDate: String
+    ): Call<EventResponse>
+
+    @GET("api/Event/list/{uid}/date/{eventDate}")
+    fun getEventsByDate(
+        @Path("uid") uid: String,
+        @Path("eventDate") startDate: String,
+    ): Call<EventResponse>
+
+    @Multipart
+    @POST("api/Event/create")
+    fun createEvent(
+        @Part("uid") uid: RequestBody,
+        @Part("eventName") eventName: RequestBody,
+        @Part("eventDate") eventDate: RequestBody,
+    ): Call<EventResult>
 }

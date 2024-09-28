@@ -19,7 +19,7 @@
 
         <!-- Rounded Blue Button -->
         <ImageButton
-            android:id="@+id/blueButton"
+            android:id="@+id/eventButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/rounded_button"

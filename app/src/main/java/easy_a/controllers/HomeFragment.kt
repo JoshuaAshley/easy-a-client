@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,8 @@ import java.util.*
 class HomeFragment : Fragment(), OnPaperClickListener {
 
     private lateinit var sessionManager: SessionManager
+
+    private lateinit var eventButton: ImageButton
 
     private val papers = mutableListOf<QuestionPaperResponse>()
     private lateinit var adapter: StudyPaperAdapter // Declare the adapter
@@ -48,9 +51,19 @@ class HomeFragment : Fragment(), OnPaperClickListener {
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(context)
 
+        eventButton = view.findViewById(R.id.eventButton)
+
+        eventButton.setOnClickListener {
+            eventButtonClicked(this)
+        }
+
         readData()
 
         return view
+    }
+
+    private fun eventButtonClicked(fragment: Fragment) {
+        navigateToFragment(EventFragment())
     }
 
     private fun readData() {
