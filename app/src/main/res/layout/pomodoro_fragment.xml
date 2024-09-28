@@ -156,7 +156,9 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/filled_add_icon"
-                        android:contentDescription="Add" />
+                        android:contentDescription="Add"
+                        android:alpha="0.5"
+                        android:onClick="logTimeClicked"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -172,6 +174,7 @@
             app:cardElevation="4dp">
 
             <TextView
+                android:id="@+id/complete_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

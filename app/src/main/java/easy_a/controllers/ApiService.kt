@@ -6,11 +6,13 @@ import easy_a.models.QuestionPaperListResponse
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResponse
 import easy_a.models.QuestionResult
+import easy_a.models.QuestionUpdateResult
 import easy_a.models.QuestionsListResponse
 import easy_a.models.UserResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -122,4 +124,21 @@ interface ApiService {
         @Path("questionPaperId") questionPaperId: String,
         @Path("questionId") questionId: String
     ): Call<QuestionResult>
+
+    @Multipart
+    @PUT("api/Question/{uid}/question-paper/{questionPaperId}/questions/{questionId}/log-time")
+    fun logTime(
+        @Path("uid") uid: String,
+        @Path("questionPaperId") questionPaperId: String,
+        @Path("questionId") questionId: String,
+        @Part("timeLogged") timeLogged: RequestBody
+
+    ): Call<QuestionUpdateResult>
+
+    @PUT("api/Question/{uid}/question-paper/{questionPaperId}/questions/{questionId}/complete")
+    fun completeQuestion(
+        @Path("uid") uid: String,
+        @Path("questionPaperId") questionPaperId: String,
+        @Path("questionId") questionId: String,
+    ): Call<QuestionUpdateResult>
 }

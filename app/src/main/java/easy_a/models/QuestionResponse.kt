@@ -11,6 +11,11 @@ data class QuestionResult (
     val isCompleted: Boolean?,
 )
 
+data class QuestionUpdateResult (
+    val message: String,
+    val totalLoggedTime: Number?,
+)
+
 data class QuestionResponse (
     val message: String,
     val result: QuestionResult
