@@ -3,10 +3,10 @@ name: Android CI
 on:
   push:
     branches:
-      - master
+      - Automated-Tests
   pull_request:
     branches:
-      - master
+      - Automated-Tests
 
 jobs:
   build:
