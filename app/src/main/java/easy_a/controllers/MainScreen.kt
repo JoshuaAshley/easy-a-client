@@ -74,7 +74,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 }
 
                 R.id.progress -> {
-                    //navigateToFragment(ProgressGraphsFragment())
+                    navigateToFragment(ProgressChartFragment())
                     true
                 }
 

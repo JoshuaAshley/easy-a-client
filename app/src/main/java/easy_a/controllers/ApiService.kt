@@ -1,6 +1,7 @@
 package easy_a.controllers
 
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable.Param
+import easy_a.models.ChartResponse
 import easy_a.models.CheckUserExistsResponse
 import easy_a.models.EventResponse
 import easy_a.models.EventResult
@@ -166,4 +167,12 @@ interface ApiService {
         @Part("eventName") eventName: RequestBody,
         @Part("eventDate") eventDate: RequestBody,
     ): Call<EventResult>
+
+
+
+
+    @GET("api/Chart/logtime/{uid}")
+    fun getStudyChart(
+        @Path("uid") uid: String,
+    ): Call<ChartResponse>
 }
