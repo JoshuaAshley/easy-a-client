@@ -51,7 +51,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
             // Set scaleType to make the image fit well in the circular view
             profileIcon.scaleType = ImageView.ScaleType.CENTER_CROP
 
-            // Load the profile picture using Picasso
+            // Load the profile picture using Picasso.
             loadProfilePicture(profilePictureUrl)
         }
 
