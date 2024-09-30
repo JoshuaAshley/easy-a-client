@@ -33,7 +33,7 @@
 
 repository: https://github.com/JoshuaAshley/easy-a-api.git
 
-This acts as our backend and connection to the Firebase and Firestore databases. The client does not connect to the firebstore in anyway the api handles all the backend logic.
+This acts as our backend and connection to the Firebase and Firestore databases. The client does not connect to the firestore in anyway the api handles all the backend logic.
 
 ## EasyA Swagger
 
