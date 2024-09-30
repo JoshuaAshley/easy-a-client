@@ -114,7 +114,7 @@ class ProgressChartFragment : Fragment() {
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.setDrawGridLines(false)
         xAxis.textColor = Color.WHITE
-        xAxis.labelRotationAngle = -45f
+        xAxis.labelRotationAngle = 0f
         xAxis.granularity = 1f // Ensure each label corresponds to a bar
 
         // Set other BarChart configurations
