@@ -9,6 +9,7 @@ import com.example.easy_a.R
 
 class HelpFragment : Fragment() {
 
+    //help fragment.
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

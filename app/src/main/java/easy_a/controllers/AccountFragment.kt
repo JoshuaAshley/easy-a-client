@@ -485,4 +485,16 @@ class AccountFragment : Fragment() {
             val day = cal.get(Calendar.DAY_OF_MONTH)
             return makeDateString(day, month, year)
         }
+
+    fun btnLogoutClicked(view: View) {
+        FirebaseAuth.getInstance().signOut()
+        // Redirect the user to the login screen
+        val intent = Intent(requireContext(), LoginScreen::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        requireContext().startActivity(intent)
+        // Finish the current activity to prevent the user from returning using the back button
+        requireActivity().finish()
+    }
+
+
 }
