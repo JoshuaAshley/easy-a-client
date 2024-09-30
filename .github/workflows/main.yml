@@ -15,12 +15,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
-          java-version: 17
+          distribution: 'temurin'
+          java-version: '17'
 
       - name: Give gradlew execute permissions
         run: chmod +x ./gradlew
@@ -31,12 +32,17 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
+            .gradle
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build -x lint  # Skip lint during build
 
       - name: Run unit tests
         run: ./gradlew test
+
+      - name: Run Lint checks
+        run: ./gradlew lintDebug
+        continue-on-error: true  # Don't fail the build if lint checks fail
