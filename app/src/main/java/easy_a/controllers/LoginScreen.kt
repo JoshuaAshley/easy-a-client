@@ -103,8 +103,15 @@ class LoginScreen : AppCompatActivity() {
                             val user = response.body()
 
                             // Format date of birth
-                            val dateOfBirthString = user?.dateOfBirth // Assuming this is your original date string
-                            val formattedDateOfBirth = formatDateOfBirth(dateOfBirthString)
+                            val dateOfBirthString = user?.dateOfBirth // This can be null
+
+
+
+                            val formattedDateOfBirth = if (dateOfBirthString != null && dateOfBirthString != "") {
+                                formatDateOfBirth(dateOfBirthString)
+                            } else {
+                                "" // Assign a default value like "N/A" or leave it empty
+                            }
 
                             // Save user details and token in SharedPreferences
                             val editor = sharedPreferences.edit()
