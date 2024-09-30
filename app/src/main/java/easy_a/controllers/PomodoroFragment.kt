@@ -220,10 +220,19 @@ class PomodoroFragment : Fragment() {
     }
 
     private fun updateTimerText(timeInMillis: Long) {
-        val minutes = TimeUnit.MILLISECONDS.toMinutes(timeInMillis)
+        val hours = TimeUnit.MILLISECONDS.toHours(timeInMillis)
+        val minutes = TimeUnit.MILLISECONDS.toMinutes(timeInMillis) % 60
         val seconds = TimeUnit.MILLISECONDS.toSeconds(timeInMillis) % 60
-        timerText.text = String.format("%02d:%02d", minutes, seconds)
+
+        // If hours are more than 0, show hours and minutes
+        if (hours > 0) {
+            timerText.text = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+        } else {
+            // Only show minutes and seconds
+            timerText.text = String.format("%02d:%02d", minutes, seconds)
+        }
     }
+
 
     private fun pauseTimer() {
         countDownTimer.cancel()
@@ -247,8 +256,7 @@ class PomodoroFragment : Fragment() {
         }
     }
 
-    private fun readQuestion()
-    {
+    private fun readQuestion() {
         val uid = sessionManager.getUid()
         val questionPaperId = sessionManager.getQuestionPaperId()
         val questionId = sessionManager.getQuestionId()
@@ -256,13 +264,16 @@ class PomodoroFragment : Fragment() {
         RetrofitClient.apiService.getQuestion(uid!!, questionPaperId!!, questionId!!).enqueue(
             object : Callback<QuestionResult> {
                 @SuppressLint("NotifyDataSetChanged")
-                override fun onResponse(
-                    call: Call<QuestionResult>,
-                    response: Response<QuestionResult>
-                ) {
+                override fun onResponse(call: Call<QuestionResult>, response: Response<QuestionResult>) {
                     if (response.isSuccessful) {
-                        Log.d("StudyListFragment", "Time: ${response.body()?.totatLoggedTime}")
-                        totalLoggedTime.text = response.body()?.totatLoggedTime.toString() + " mins"
+                        val totalLoggedMinutes = response.body()?.totatLoggedTime ?: 0
+
+                        // Convert total minutes to hours and minutes
+                        val hours = totalLoggedMinutes.toInt() / 60
+                        val minutes = totalLoggedMinutes.toInt() % 60
+
+                        // Update the TextView to show hours and minutes
+                        totalLoggedTime.text = String.format("%02d hours %02d mins", hours, minutes)
                     } else {
                         // Log the error if the response isn't successful
                         Log.e("StudyListFragment", "Error: ${response.errorBody()?.string()}")

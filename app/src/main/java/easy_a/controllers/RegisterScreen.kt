@@ -115,10 +115,6 @@ class RegisterScreen : AppCompatActivity() {
                             editor.putString("token", user?.token)
                             editor.putString("uid", user?.uid)
                             editor.putString("email", user?.email)
-                            editor.putString("firstname", user?.firstName)
-                            editor.putString("lastname", user?.lastName)
-                            editor.putString("gender", user?.gender)
-                            editor.putString("dateOfBirth", user?.dateOfBirth)
                             editor.putString("profilePictureUrl", user?.profilePicture)
 
                             editor.apply()
