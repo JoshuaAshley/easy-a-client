@@ -37,6 +37,9 @@ class QuestionAdapter(
                 Picasso.get()
                     .load(question.imageLocation) // Load image from URL
                     .into(progressImage) // Set the image into the ImageView
+                progressImage.scaleType = ImageView.ScaleType.CENTER_CROP
+                progressImage.clipToOutline =
+                    true
             }
 
             // Set click listener for the "View Question" button
