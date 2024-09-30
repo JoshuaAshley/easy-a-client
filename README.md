@@ -18,16 +18,16 @@
 
 ### Part 2 Features
 
-- **Single Sign on**: 
-- **Study Home Page**: 
-- **Academic Event Chalender**: 
-- **Create Study Papers**: 
-- **View Study Papers and PDF Viewer**: 
-- **Create Study Questions**: 
-- **View Study Questions**: 
-- **Pomodoro Timer**: 
-- **Progress Chart**: 
-- **Profile Settings**: 
+- **Single Sign on**: Users can use the single sign on feature with Google Authentication and it will retrieve the vital information from your profile to update your profile settings.
+- **Study Home Page**: Users can view all their questions papers that they have work to do till the due date.
+- **Academic Event Chalender**: Users can track all upcoming due dates that they have set.
+- **Create Study Papers**: Users can create a new questions paper where they can enter the name, description, due date and upload a pdf of the paper.
+- **View Study Papers and PDF Viewer**: User can view their created Study Papers along with their PDF paper they uploaded.
+- **Create Study Questions**: Users can create a questions name and upload a photo of the question to their study paper.
+- **View Study Questions**: Users can view all their study questions they have made within the study paper they have created.
+- **Pomodoro Timer**: Users can use the inbuilt time management tool based on 25 minutes stretches of focused work broken by 5 minute breaks.
+- **Progress Chart**: Users can track how much time they have studied for each question paper.
+- **Profile Settings**: User can update thier profile picture along with personal details.
 
 ## EasyA API
 
@@ -51,8 +51,8 @@ To install EasyA, follow these simple steps:
 
 After installing the app,
 
-- **Sign Up**: Sign up or Log in using an Email and Password.
-- **Dashboard**: Once logged in you'll be greeted with your Home Dashboard showing the progress of your workouts if they are created.
+- **Sign Up**: Sign up or Log in using an Email and Password or Using Single Sign with Google Authentication.
+- **Home Dashboard**: Once logged in you'll be greeted with your Home Dashboard showing the progress of your workouts if they are created.
 - **Workouts**: If you want to view / create a workout tap the + icon on your navigation bar. To create a new workout select "Start Workout".
 - **Exercises**: Once your workout is created you can select it and add Exercises to it by selecting "Start Exercise".
 - **Log Time**: You can log time for your exercises by clicking the workout and the specific exercise. As you log more time youll see the progress bar increase.
