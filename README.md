@@ -19,7 +19,7 @@
 ### Part 2 Features
 
 - **Single Sign on**: Users can use the single sign on feature with Google Authentication and it will retrieve the vital information from your profile to update your profile settings.
-- **Study Home Page**: Users can view all their questions papers that they have work to do till the due date.
+- **Study Home Page**: Users can view all their questions papers that they are currently active till the their due date.
 - **Academic Event Chalender**: Users can track all upcoming due dates that they have set.
 - **Create Study Papers**: Users can create a new questions paper where they can enter the name, description, due date and upload a pdf of the paper.
 - **View Study Papers and PDF Viewer**: User can view their created Study Papers along with their PDF paper they uploaded.
@@ -33,7 +33,7 @@
 
 repository: https://github.com/JoshuaAshley/easy-a-api.git
 
-This acts as our backend and connection to the Firebase and Firestore databases. The client does not connect to the firebstore in anyway the api handles all the backend logic.
+This acts as our backend and connection to the Firebase and Firestore databases. The client does not connect to the firestore in anyway the api handles all the backend logic.
 
 ## EasyA Swagger
 
@@ -72,7 +72,7 @@ For support, please email TeamProActive225@gmail.com
 
 ## Video Demonstration
 
-[Part 2](https://youtu.be/1pTOvOUIwjE)
+[Part 2](https://youtu.be/bOCmzsksDwM)
 
 
 ## Figma
