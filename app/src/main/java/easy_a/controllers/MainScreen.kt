@@ -79,7 +79,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 }
 
                 R.id.view -> {
-                    //navigateToFragment(ActivityViewerFragment())
+                    navigateToFragment(EZFragment())
                     true
                 }
 

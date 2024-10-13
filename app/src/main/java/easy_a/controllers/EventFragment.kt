@@ -23,6 +23,7 @@ import easy_a.models.EventResponse
 import easy_a.models.EventResult
 import easy_a.models.QuestionPaperResponse
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -136,9 +137,9 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         }
 
         // Create RequestBody instances
-        val uidRequestBody = RequestBody.create(MediaType.parse("text/plain"), uid!!)
-        val eventNameRequestBody = RequestBody.create(MediaType.parse("text/plain"), eventName)
-        val eventDueDateRequestBody = RequestBody.create(MediaType.parse("text/plain"), eventDueDate)
+        val uidRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), uid!!)
+        val eventNameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), eventName)
+        val eventDueDateRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), eventDueDate)
 
         // API call
         RetrofitClient.apiService.createEvent(

@@ -37,6 +37,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import easy_a.models.UserResponse
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.text.SimpleDateFormat
@@ -202,17 +203,17 @@ class AccountFragment : Fragment() {
                     val imageData = baos.toByteArray()
 
                     // Create RequestBody for the image file
-                    val requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageData)
+                    val requestFile = RequestBody.create("image/jpeg".toMediaTypeOrNull(), imageData)
 
                     // Create MultipartBody.Part using the file request body
                     profileImagePart = MultipartBody.Part.createFormData("profileImage", "profile.jpg", requestFile)
                 }
 
                 // Create RequestBody objects for the text fields
-                val uidRequestBody = RequestBody.create(MediaType.parse("text/plain"), uid)
-                val firstNameRequestBody = RequestBody.create(MediaType.parse("text/plain"), firstName)
-                val lastNameRequestBody = RequestBody.create(MediaType.parse("text/plain"), lastName)
-                val genderRequestBody = RequestBody.create(MediaType.parse("text/plain"), gender)
+                val uidRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), uid)
+                val firstNameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), firstName)
+                val lastNameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), lastName)
+                val genderRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), gender)
 
                 // Handle the API response asynchronously
                 if (dobString.isNotEmpty()) {
@@ -229,7 +230,7 @@ class AccountFragment : Fragment() {
                     }
 
                     val dateRequestBody =
-                        formattedDob?.let { RequestBody.create(MediaType.parse("text/plain"), it) }
+                        formattedDob?.let { RequestBody.create("text/plain".toMediaTypeOrNull(), it) }
 
                     Log.d("UpdateUserRequest", "UID: $uid, First Name: $firstName, Last Name: $lastName, Gender: $gender, DOB: $formattedDob")
 

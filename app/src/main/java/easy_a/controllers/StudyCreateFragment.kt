@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import com.example.easy_a.R
 import easy_a.models.QuestionPaperResponse
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -123,16 +124,16 @@ class StudyCreateFragment : Fragment() {
         }
 
         // Create RequestBody instances
-        val uidRequestBody = RequestBody.create(MediaType.parse("text/plain"), uid!!)
-        val nameRequestBody = RequestBody.create(MediaType.parse("text/plain"), questionPaperName)
-        val dueDateRequestBody = RequestBody.create(MediaType.parse("text/plain"), questionPaperDueDate)
-        val descriptionRequestBody = RequestBody.create(MediaType.parse("text/plain"), questionPaperDescription)
+        val uidRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), uid!!)
+        val nameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), questionPaperName)
+        val dueDateRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), questionPaperDueDate)
+        val descriptionRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), questionPaperDescription)
 
         // Prepare the PDF file part
         val pdfFilePart: MultipartBody.Part = MultipartBody.Part.createFormData(
             "pdfFile",
             selectedPDFFile!!.name,
-            RequestBody.create(MediaType.parse("application/pdf"), selectedPDFFile!!)
+            RequestBody.create("application/pdf".toMediaTypeOrNull(), selectedPDFFile!!)
         )
 
         // API call

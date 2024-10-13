@@ -20,6 +20,7 @@ import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResult
 import easy_a.models.QuestionUpdateResult
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -150,7 +151,7 @@ class PomodoroFragment : Fragment() {
         val questionPaperId = sessionManager.getQuestionPaperId()
         val questionId = sessionManager.getQuestionId()
 
-        val timeToLog = RequestBody.create(MediaType.parse("text/plain"), timeInMinutes.toString())
+        val timeToLog = RequestBody.create("text/plain".toMediaTypeOrNull(), timeInMinutes.toString())
 
         if (uid != null && questionPaperId != null && questionId != null) {
             RetrofitClient.apiService.logTime(uid, questionPaperId, questionId, timeToLog).enqueue(

@@ -31,6 +31,7 @@ import com.example.easy_a.R
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResponse
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -114,10 +115,10 @@ class QuestionAddFragment : Fragment() {
         }
 
         // Prepare the request body
-        val requestBodyUid = RequestBody.create(MediaType.parse("text/plain"), uid!!)
-        val requestBodyQid = RequestBody.create(MediaType.parse("text/plain"), questionPaperId!!)
-        val requestBodyQuestionNumber = RequestBody.create(MediaType.parse("text/plain"), questionNumber)
-        val requestBodyQuestionDescription = RequestBody.create(MediaType.parse("text/plain"), questionDescription)
+        val requestBodyUid = RequestBody.create("text/plain".toMediaTypeOrNull(), uid!!)
+        val requestBodyQid = RequestBody.create("text/plain".toMediaTypeOrNull(), questionPaperId!!)
+        val requestBodyQuestionNumber = RequestBody.create("text/plain".toMediaTypeOrNull(), questionNumber)
+        val requestBodyQuestionDescription = RequestBody.create("text/plain".toMediaTypeOrNull(), questionDescription)
 
         // Prepare the optional image file if needed
         var imageFile: MultipartBody.Part? = null
@@ -129,7 +130,7 @@ class QuestionAddFragment : Fragment() {
             val imageFilePath = saveImageToFile(bitmap, questionNumber)
 
             // Create RequestBody for the image file
-            val requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageFilePath)
+            val requestFile = RequestBody.create("image/jpeg".toMediaTypeOrNull(), imageFilePath)
 
             // Create MultipartBody.Part using the file request body
             imageFile = MultipartBody.Part.createFormData("questionImage", "$questionNumber.jpg", requestFile)

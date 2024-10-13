@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -15,6 +17,17 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+
+        // Get the API key from local.properties
+        val localProperties = Properties().apply {
+            val localPropertiesFile = rootProject.file("local.properties")
+            if (localPropertiesFile.exists()) {
+                localPropertiesFile.inputStream().use { load(it) }
+            }
+        }
+        buildConfigField("String", "AI_API_KEY", "\"${localProperties["AI_API_KEY"]}\"")
     }
 
     buildTypes {
@@ -35,6 +48,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -57,6 +71,9 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:19.2.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation("com.squareup.picasso:picasso:2.71828")
+
+    implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+    implementation("io.noties.markwon:core:4.6.2")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
