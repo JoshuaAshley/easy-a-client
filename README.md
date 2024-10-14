@@ -28,6 +28,7 @@
 - **Pomodoro Timer**: Users can use the inbuilt time management tool based on 25 minutes stretches of focused work broken by 5 minute breaks.
 - **Progress Chart**: Users can track how much time they have studied for each question paper.
 - **Profile Settings**: User can update thier profile picture along with personal details.
+- **Ez Ai Assistant**: 
 
 ## EasyA API
 
