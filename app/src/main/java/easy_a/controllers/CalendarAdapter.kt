@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easy_a.R
+import easy_a.application.R
 
 class CalendarAdapter(
     private val context: Context,

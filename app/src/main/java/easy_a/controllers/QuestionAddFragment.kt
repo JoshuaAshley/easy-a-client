@@ -27,7 +27,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.easy_a.R
+import easy_a.application.R
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResponse
 import okhttp3.MediaType

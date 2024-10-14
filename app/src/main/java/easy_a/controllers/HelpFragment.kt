@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.easy_a.R
+import easy_a.application.R
 
 class HelpFragment : Fragment() {
 

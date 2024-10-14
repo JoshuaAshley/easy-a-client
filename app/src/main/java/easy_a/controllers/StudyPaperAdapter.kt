@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easy_a.R
+import easy_a.application.R
 import easy_a.models.QuestionPaperResponse
 
 // Adapter for displaying a list of question papers

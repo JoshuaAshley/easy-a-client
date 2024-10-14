@@ -17,7 +17,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.easy_a.R
+import easy_a.application.R
 import easy_a.models.QuestionPaperResponse
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easy_a.R
+import easy_a.application.R
 import io.noties.markwon.Markwon
 
 data class ChatMessage(
