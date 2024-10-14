@@ -18,8 +18,6 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-
-
         // Get the API key from local.properties
         val localProperties = Properties().apply {
             val localPropertiesFile = rootProject.file("local.properties")
