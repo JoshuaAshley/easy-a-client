@@ -28,6 +28,7 @@
 - **Pomodoro Timer**: Users can use the inbuilt time management tool based on 25 minutes stretches of focused work broken by 5 minute breaks.
 - **Progress Chart**: Users can track how much time they have studied for each question paper.
 - **Profile Settings**: User can update thier profile picture along with personal details.
+- **Ez Chat Bot**: Users can use the Ai Study Assistant to help them with anything they are struggling with.
 
 ## EasyA API
 
@@ -38,8 +39,6 @@ This acts as our backend and connection to the Firebase and Firestore databases.
 ## EasyA Swagger
 
 Swagger Link: https://easy-a-api-dbfghva5hkaqgsdc.southafricanorth-01.azurewebsites.net/swagger/index.html
-
-This is our swag!
 
 ## Installation
 
@@ -62,7 +61,8 @@ After installing the app,
 - **Pomodoro**: You can use the time management tool to help you get through your work based on 25 minutes stretches of focused work broken by 5 minute breaks.
 - **Academic Chalendar**:  You can track all upcoming due dates that you have set in a chalendar view.
 - **Progress Chart**: You can track how much time they have studied for each question paper.
-- **Profile**: Users can customise their User Profile by adding additional information like a Profile Picture, Name, Gender and Birthday.
+- **Profile**: You can customise your User Profile by adding additional information like a Profile Picture, Name, Gender and Birthday.
+- **EZ Chat Bot**: If you are struggling with answers any questions or need more practice examples just message EZ.
   
 For more details on how to use each feature, visit the Help section within the app.
 
