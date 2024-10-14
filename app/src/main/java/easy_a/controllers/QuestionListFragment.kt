@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easy_a.R
+import easy_a.application.R
 import easy_a.models.QuestionPaperListResponse
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResult

@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.easy_a"
+    namespace = "easy_a.application"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.easy_a"
+        applicationId = "easy_a.application"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

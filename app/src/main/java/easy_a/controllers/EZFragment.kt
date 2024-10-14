@@ -28,12 +28,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easy_a.R
 import com.google.ai.client.generativeai.BuildConfig
-import com.example.easy_a.BuildConfig as AppBuildConfig
+import easy_a.application.BuildConfig as AppBuildConfig
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.asTextOrNull
 import com.google.ai.client.generativeai.type.generationConfig
+import easy_a.application.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

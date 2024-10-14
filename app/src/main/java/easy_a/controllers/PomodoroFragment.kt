@@ -15,7 +15,7 @@ import android.widget.TextView
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.easy_a.R
+import easy_a.application.R
 import easy_a.models.QuestionPaperResponse
 import easy_a.models.QuestionResult
 import easy_a.models.QuestionUpdateResult
