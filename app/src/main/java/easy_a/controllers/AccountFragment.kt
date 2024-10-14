@@ -128,9 +128,14 @@ class AccountFragment : Fragment() {
         }
 
         deleteButton =
-            view.findViewById(R.id.btnDelete) // Replace 'saveButton' with the ID of your button
+            view.findViewById(R.id.btnDelete)
+
         deleteButton.setOnClickListener {
-            //btnDeleteClicked(this) // Pass the fragment instance to the click handler
+            val url = "https://orange-river-0233d5603.5.azurestaticapps.net/"
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(url)
+            }
+            startActivity(intent) // Use startActivity directly
         }
     }
 
@@ -486,16 +491,4 @@ class AccountFragment : Fragment() {
             val day = cal.get(Calendar.DAY_OF_MONTH)
             return makeDateString(day, month, year)
         }
-
-    fun btnLogoutClicked(view: View) {
-        FirebaseAuth.getInstance().signOut()
-        // Redirect the user to the login screen
-        val intent = Intent(requireContext(), LoginScreen::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        requireContext().startActivity(intent)
-        // Finish the current activity to prevent the user from returning using the back button
-        requireActivity().finish()
-    }
-
-
 }

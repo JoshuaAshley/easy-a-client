@@ -84,7 +84,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 }
 
                 R.id.account -> {
-                    //navigateToFragment(AccountFragment())
+                    navigateToFragment(AccountFragment())
                     true
                 }
 
