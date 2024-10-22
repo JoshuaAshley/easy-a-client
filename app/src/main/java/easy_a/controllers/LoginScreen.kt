@@ -135,8 +135,7 @@ class LoginScreen : AppCompatActivity() {
 
                             editor.apply() // Ensure this line is called after all changes to SharedPreferences.
 
-
-                            Toast.makeText(this@LoginScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginScreen, "Welcome back ${user?.email}", Toast.LENGTH_SHORT).show()
 
                             // Navigate to MainScreen
                             val intent = Intent(this@LoginScreen, MainScreen::class.java)

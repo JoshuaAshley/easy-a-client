@@ -9,6 +9,43 @@
       "client_info": {
         "mobilesdk_app_id": "1:876130910836:android:26bf7d0f9e7e7289e98721",
         "android_client_info": {
+          "package_name": "com.example.easy_a"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876130910836-8d6fspdkq54196u4std0hjjvelnd1r4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.easy_a",
+            "certificate_hash": "e6f4f04b0b659faca02644a9471af4c8d713c7e7"
+          }
+        },
+        {
+          "client_id": "876130910836-dq069mvnmd5hkpjpobea6o83fa2ikn54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3NNbiL-m1PbNFTsospcEJjhzgRm3v2B4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876130910836-dq069mvnmd5hkpjpobea6o83fa2ikn54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876130910836:android:67db2bf7dcd26bc7e98721",
+        "android_client_info": {
           "package_name": "easy_a.application"
         }
       },

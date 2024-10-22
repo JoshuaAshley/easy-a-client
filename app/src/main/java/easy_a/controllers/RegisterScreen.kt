@@ -119,7 +119,7 @@ class RegisterScreen : AppCompatActivity() {
 
                             editor.apply()
 
-                            Toast.makeText(this@RegisterScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RegisterScreen, "Welcome, ${user?.email}", Toast.LENGTH_SHORT).show()
 
                             // Optionally: Navigate to the main screen
                             val intent = Intent(this@RegisterScreen, MainScreen::class.java)
