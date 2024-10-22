@@ -73,6 +73,8 @@ dependencies {
     implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
     implementation("io.noties.markwon:core:4.6.2")
 
+    implementation("androidx.biometric:biometric:1.2.0-alpha05")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
