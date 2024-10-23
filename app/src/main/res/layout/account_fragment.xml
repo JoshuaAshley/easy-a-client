@@ -17,7 +17,7 @@
             android:id="@+id/editProfileTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Profile"
+            android:text="@string/edit_profile_title"
             android:textSize="24sp"
             android:textColor="@android:color/white" />
 
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="Logout"
+            android:text="@string/logout_button"
             android:textColor="@android:color/white"
             android:background="@android:color/transparent"
             android:layout_alignParentTop="true"
@@ -55,7 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profile Picture"
+                    android:text="@string/profile_picture_label"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF" />
 
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Delete"
+                    android:text="@string/delete_button"
                     android:textAllCaps="false"
                     android:textColor="#065BFF"
                     android:background="@android:color/transparent"
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FIRST NAME"
+                android:text="@string/first_name_label"
                 android:textSize="12sp"
                 android:textColor="#ACACAC"
                 android:layout_marginTop="10dp"
@@ -142,7 +142,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LAST NAME"
+                android:text="@string/last_name_label"
                 android:textSize="12sp"
                 android:textColor="#ACACAC"
                 android:layout_marginBottom="-20dp"
@@ -162,7 +162,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GENDER"
+                android:text="@string/gender_label"
                 android:textSize="12sp"
                 android:textColor="#ACACAC"
                 android:layout_marginLeft="5dp"/>
@@ -182,7 +182,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DATE OF BIRTH"
+                android:text="@string/date_of_birth_label"
                 android:textSize="12sp"
                 android:textColor="#ACACAC"
                 android:layout_marginLeft="5dp"/>
@@ -192,7 +192,7 @@
                 android:id="@+id/datePickerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select a Date"
+                android:text="@string/select_date_button"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:layout_marginBottom="-8dp"
@@ -212,7 +212,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EMAIL"
+                android:text="@string/email_labels"
                 android:textSize="12sp"
                 android:textColor="#ACACAC"
                 android:layout_marginBottom="-20dp"
@@ -236,7 +236,7 @@
                 android:id="@+id/btnSaveButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save"
+                android:text="@string/save_button"
                 android:background="@drawable/button"
                 android:textAllCaps="false"
                 android:onClick="btnSaveButtonClicked"/>
