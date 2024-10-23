@@ -64,6 +64,14 @@
     <string name="save_button">Save</string>
 
 
+    <string name="view_progress">View Your Progress,</string>
+    <string name="question_paper_progress_chart">Question Paper Progress Chart</string>
+    <string name="total_hours_label">Total Hours</string>
+    <string name="loading_text">Loading...</string>
+
+
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

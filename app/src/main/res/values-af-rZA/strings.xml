@@ -63,6 +63,13 @@
     <string name="email_labels">E-pos</string>
     <string name="save_button">Stoor</string>
 
+    <string name="view_progress">Bekyk Jou Vordering,</string>
+    <string name="question_paper_progress_chart">Vraestelvorderingskaart</string>
+    <string name="total_hours_label">Totale Ure</string>
+    <string name="loading_text">Laai...</string>
+
+
+
 
 
 </resources>
