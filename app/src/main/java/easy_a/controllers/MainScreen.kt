@@ -1,19 +1,35 @@
 package easy_a.controllers
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import easy_a.application.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.squareup.picasso.Picasso
+import java.util.Calendar
+import java.util.concurrent.TimeUnit
 
 interface ProfileUpdateListener {
     fun onProfileUpdated(newProfilePictureUrl: String?)
@@ -23,10 +39,16 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
     private lateinit var sessionManager: SessionManager
     private lateinit var profileIcon: ShapeableImageView
 
+    companion object {
+        private const val NOTIFICATION_PERMISSION_REQUEST_CODE = 1001
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.main_screen)
+
+        requestNotificationPermission()
 
         setRelativeSizes()
 
@@ -53,6 +75,8 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
 
             // Load the profile picture using Picasso.
             loadProfilePicture(profilePictureUrl)
+
+            scheduleEventWorker()
         }
 
         //set to this on startup
@@ -91,6 +115,54 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 else -> false
             }
         }
+    }
+
+    // Function to request notification permission
+    private fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    NOTIFICATION_PERMISSION_REQUEST_CODE
+                )
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == NOTIFICATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, schedule your notifications
+                scheduleEventWorker()
+            } else {
+                // Permission denied, handle accordingly
+                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun scheduleEventWorker() {
+        val workRequest = OneTimeWorkRequestBuilder<EventWorker>()
+            .build()
+
+        WorkManager.getInstance(this).enqueue(workRequest)
+
+        // Observe the work state to re-enqueue the worker after completion
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(workRequest.id)
+            .observe(this) { workInfo ->
+                if (workInfo != null && workInfo.state == WorkInfo.State.SUCCEEDED) {
+                    // Optionally handle success
+                    // For example, you might want to show a Toast or Log
+                    Log.d("EventWorker", "Worker completed successfully")
+                    // You can call the function again if you want to repeat the process later.
+                    // scheduleTestEventWorker() // Uncomment if you want to repeat under certain conditions.
+                }
+            }
     }
 
     private fun getScreenHeight(): Int {
