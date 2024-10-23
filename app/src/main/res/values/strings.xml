@@ -46,6 +46,11 @@
     <string name="already_have_account">Already have an account?</string>
     <string name="register_login_button">Login</string>
 
+    <string name="chat_bot_title">EZ Chat Bot</string>
+    <string name="ask_question_hint">Ask EZ a question...</string>
+    <string name="upload_file_button">Upload File</string>
+    <string name="send_button">Send</string>
+
 
 
     <string name="lorem_ipsum">

@@ -46,4 +46,10 @@
     <string name="already_have_account">Het jy al \'n rekening?</string>
     <string name="register_login_button">Teken In</string>
 
+    <string name="chat_bot_title">EZ Klets Bot</string>
+    <string name="ask_question_hint">Vra EZ \'n vraag...</string>
+    <string name="upload_file_button">Laai Lêer Op</string>
+    <string name="send_button">Stuur</string>
+
+
 </resources>
