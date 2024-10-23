@@ -34,7 +34,17 @@
     <string name="day_friday">Fr</string>
     <string name="day_saturday">Sa</string>
 
-
+    <!-- New Strings for Registration -->
+    <string name="register_greeting">Hi, Nice to Meet You!</string>
+    <string name="start_studying_message">It’s time to start studying!</string>
+    <string name="register_email_label">Email</string>
+    <string name="register_password_label">Password</string>
+    <string name="confirm_password_label">Confirm Password</string>
+    <string name="register_button">Sign Up</string>
+    <string name="register_or">or</string>
+    <string name="register_google">Sign Up with Google</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="register_login_button">Login</string>
 
 
 

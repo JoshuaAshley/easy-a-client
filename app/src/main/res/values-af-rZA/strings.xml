@@ -33,4 +33,17 @@
     <string name="day_friday">Vr</string>
     <string name="day_saturday">Sa</string>
 
+
+    <!-- New Strings for Registration -->
+    <string name="register_greeting">Hallo, Lekker om jou te ontmoet!</string>
+    <string name="start_studying_message">Dis tyd om te begin studeer!</string>
+    <string name="register_email_label">E-pos</string>
+    <string name="register_password_label">Wagwoord</string>
+    <string name="confirm_password_label">Bevestig Wagwoord</string>
+    <string name="register_button">Teken Aan</string>
+    <string name="register_or">of</string>
+    <string name="register_google">Teken Aan met Google</string>
+    <string name="already_have_account">Het jy al \'n rekening?</string>
+    <string name="register_login_button">Teken In</string>
+
 </resources>

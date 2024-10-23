@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi, Nice to Meet You! "
+                android:text="@string/register_greeting"
                 android:textSize="24sp"
                 android:textColor="@android:color/white"
                 android:layout_marginBottom="8dp"/>
@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Its time to start studying!"
+            android:text="@string/start_studying_message"
             android:textSize="16sp"
             android:textColor="#A9A9A9"
             android:layout_marginBottom="10dp"/>
@@ -60,7 +60,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email_label"
             android:textSize="18sp"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
@@ -68,7 +68,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email_label"
             android:textColorHint="#A9A9A9"
             android:inputType="textEmailAddress"
             android:padding="10dp"
@@ -79,7 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password_label"
             android:textSize="18sp"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"
+                android:hint="@string/password_label"
                 android:textColorHint="#A9A9A9"
                 android:background="@drawable/textfield"
                 android:textColor="@color/black"
@@ -110,7 +110,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm Password"
+            android:text="@string/confirm_password_label"
             android:textSize="18sp"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
@@ -131,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"
+                android:hint="@string/password_label"
                 android:textColorHint="#A9A9A9"
                 android:background="@drawable/textfield"
                 android:textColor="@color/black"
@@ -143,7 +143,7 @@
             android:background="@drawable/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textAllCaps="false"
             android:textSize="15dp"
             android:textColor="@android:color/white"
@@ -170,7 +170,7 @@
                 android:id="@+id/dividerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="or"
+                android:text="@string/or"
                 android:textColor="@color/white"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -193,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/sso_button"
-            android:text="Sign Up with Google"
+            android:text="@string/register_google"
             android:textAllCaps="false"
             android:textSize="15sp"
             android:textColor="@android:color/black"
@@ -217,7 +217,7 @@
                 android:id="@+id/signUpText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account?"
+                android:text="@string/already_have_account"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -226,7 +226,7 @@
                 android:id="@+id/signUpLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:background="@drawable/button_transparent"
                 android:textColor="@color/easy_a_blue"
