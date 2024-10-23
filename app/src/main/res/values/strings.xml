@@ -6,6 +6,19 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!-- Strings for Login Page -->
+    <string name="welcome_back">Hi, Welcome Back!</string>
+    <string name="missed_you">Hello again, you\'ve been missed!</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="login_google">Login with Google</string>
+    <string name="dont_have_account">Don’t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

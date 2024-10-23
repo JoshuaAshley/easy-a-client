@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Maklike Aansoek</string>
+    <string name="first_fragment_label">Eerste Fragment</string>
+    <string name="second_fragment_label">Tweede Fragment</string>
+    <string name="next">Volgende</string>
+    <string name="previous">Vorige</string>
+
+    <!-- Strings for Login Page in Afrikaans -->
+    <string name="welcome_back">Hallo, Welkom Terug!</string>
+    <string name="missed_you">Hallo weer, jy is gemis!</string>
+    <string name="email_label">E-pos</string>
+    <string name="password_label">Wagwoord</string>
+    <string name="remember_me">Onthou My</string>
+    <string name="forgot_password">Wagwoord Vergete?</string>
+    <string name="login">Teken In</string>
+    <string name="login_google">Teken in met Google</string>
+    <string name="dont_have_account">Het jy nie \'n rekening nie?</string>
+    <string name="sign_up">Teken Aan</string>
+</resources>
