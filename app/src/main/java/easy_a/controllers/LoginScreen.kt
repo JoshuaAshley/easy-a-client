@@ -29,6 +29,9 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 
 class LoginScreen : AppCompatActivity() {
 
@@ -135,12 +138,7 @@ class LoginScreen : AppCompatActivity() {
 
                             editor.apply() // Ensure this line is called after all changes to SharedPreferences.
 
-                            Toast.makeText(this@LoginScreen, "Welcome back ${user?.email}", Toast.LENGTH_SHORT).show()
-
-                            // Navigate to MainScreen
-                            val intent = Intent(this@LoginScreen, MainScreen::class.java)
-                            startActivity(intent)
-                            finish()
+                            showBiometricPrompt()
                         } else {
                             Toast.makeText(this@LoginScreen, "Invalid login credentials", Toast.LENGTH_SHORT).show()
                         }
@@ -242,6 +240,43 @@ class LoginScreen : AppCompatActivity() {
                 Toast.makeText(this, "Google sign-in failed: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun proceedToMainScreen() {
+        Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this@LoginScreen, MainScreen::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun showBiometricPrompt() {
+        val executor = ContextCompat.getMainExecutor(this)
+        val biometricPrompt = BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
+            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                super.onAuthenticationSucceeded(result)
+                // Authentication succeeded, proceed with login
+                proceedToMainScreen()
+            }
+
+            override fun onAuthenticationFailed() {
+                super.onAuthenticationFailed()
+                Toast.makeText(this@LoginScreen, "Biometric authentication failed, please retry", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                super.onAuthenticationError(errorCode, errString)
+                Toast.makeText(this@LoginScreen, "Authentication error: $errString", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        val promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric Authentication")
+            .setSubtitle("Authenticate using your fingerprint or face")
+            .setDescription("We need your biometric authentication to proceed")
+            .setNegativeButtonText("Cancel")
+            .build()
+
+        biometricPrompt.authenticate(promptInfo)
     }
 
     private fun handleGoogleSignIn(account: GoogleSignInAccount) {
