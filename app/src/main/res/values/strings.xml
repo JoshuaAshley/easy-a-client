@@ -69,6 +69,11 @@
     <string name="total_hours_label">Total Hours</string>
     <string name="loading_text">Loading...</string>
 
+    <string name="back_button">Back</string>
+    <string name="preparation_time_label">Total Logged Preparation Time</string>
+    <string name="choose_study_duration">Choose Study Duration</string>
+    <string name="mark_as_done">Mark as Done</string>
+    <string name="loading_texts">Loading...</string>
 
 
 
