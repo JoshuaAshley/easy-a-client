@@ -341,4 +341,15 @@ class LoginScreen : AppCompatActivity() {
             }
         })
     }
+
+    private fun setLocale(langCode: String) {
+        val locale = Locale(langCode)
+        Locale.setDefault(locale)
+        val config = resources.configuration
+        config.setLocale(locale)
+        config.setLayoutDirection(locale)
+        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+        recreate() // Refreshes the activity to apply language changes
+    }
+
 }

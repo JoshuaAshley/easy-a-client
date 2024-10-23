@@ -15,5 +15,22 @@
     <string name="login">Teken In</string>
     <string name="login_google">Teken in met Google</string>
     <string name="dont_have_account">Het jy nie \'n rekening nie?</string>
+    <string name="or">of</string>
     <string name="sign_up">Teken Aan</string>
+
+    <!-- Afrikaans Translation -->
+    <string name="view_academic_events">Bekyk Jou Akademiese Gebeure,</string>
+    <string name="event_name_label">Gebeurnaam:</string>
+    <string name="event_hint">Gee jou gebeurtenis \'n netjiese naam</string>
+    <string name="monthly_academic_events">Maandelikse Akademiese geleenthede:</string>
+    <string name="select_event_date">Kies \'n Gebeure Datum</string>
+    <string name="add_new_event">Voeg Nuwe Gebeurtenis By</string>
+    <string name="day_sunday">So</string>
+    <string name="day_monday">Ma</string>
+    <string name="day_tuesday">Di</string>
+    <string name="day_wednesday">Wo</string>
+    <string name="day_thursday">Do</string>
+    <string name="day_friday">Vr</string>
+    <string name="day_saturday">Sa</string>
+
 </resources>

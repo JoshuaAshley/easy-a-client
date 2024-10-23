@@ -16,7 +16,26 @@
     <string name="login">Login</string>
     <string name="login_google">Login with Google</string>
     <string name="dont_have_account">Don’t have an account?</string>
+    <string name="or">or</string>
     <string name="sign_up">Sign Up</string>
+
+    <!-- New Strings for Events -->
+    <string name="view_academic_events">View Your Academic Events,</string>
+    <string name="event_name_label">Event Name:</string>
+    <string name="monthly_academic_events">Monthly Academic events:</string>
+    <string name="event_hint">Give your event a neat name</string>
+    <string name="select_event_date">Select an Event Date</string>
+    <string name="add_new_event">Add New Event</string>
+    <string name="day_sunday">Su</string>
+    <string name="day_monday">Mo</string>
+    <string name="day_tuesday">Tu</string>
+    <string name="day_wednesday">We</string>
+    <string name="day_thursday">Th</string>
+    <string name="day_friday">Fr</string>
+    <string name="day_saturday">Sa</string>
+
+
+
 
 
     <string name="lorem_ipsum">

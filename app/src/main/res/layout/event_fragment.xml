@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Your Academic Events,"
+                android:text="@string/view_academic_events"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:text="Monthly Academic Events"
+                    android:text="@string/monthly_academic_events"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@android:color/white"
@@ -119,7 +119,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Su"
+                        android:text="@string/day_sunday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Mo"
+                        android:text="@string/day_monday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -137,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Tu"
+                        android:text="@string/day_tuesday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -146,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="We"
+                        android:text="@string/day_wednesday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -155,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Th"
+                        android:text="@string/day_thursday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -164,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Fr"
+                        android:text="@string/day_friday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -173,7 +173,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Sa"
+                        android:text="@string/day_saturday"
                         android:textColor="@color/easy_a_blue"
                         android:textStyle="bold"/>
 
@@ -192,7 +192,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Event Name:"
+            android:text="@string/event_name_label"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="8dp"/>
@@ -204,7 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/textfield"
-            android:hint="Give your event a neat name"
+            android:hint="@string/event_hint"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="#A9A9A9" />
@@ -213,7 +213,7 @@
             android:id="@+id/btnDueDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select an Event Date"
+            android:text="@string/select_event_date"
             android:textAllCaps="false"
             android:background="@drawable/button"
             android:layout_marginTop="20dp" />
@@ -222,7 +222,7 @@
             android:id="@+id/btnAddEvent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add New Event"
+            android:text="@string/add_new_event"
             android:textAllCaps="false"
             android:background="@drawable/button"
             android:layout_marginTop="16dp"
