@@ -138,7 +138,8 @@ class LoginScreen : AppCompatActivity() {
 
                             editor.apply() // Ensure this line is called after all changes to SharedPreferences.
 
-                            showBiometricPrompt()
+                            proceedToMainScreen()
+                            //showBiometricPrompt()
                         } else {
                             Toast.makeText(this@LoginScreen, "Invalid login credentials", Toast.LENGTH_SHORT).show()
                         }

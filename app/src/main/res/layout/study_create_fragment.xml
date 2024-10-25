@@ -4,8 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="easy_a.controllers.StudyCreateFragment"
-    android:background="@color/dark_gray">
+    tools:context="easy_a.controllers.StudyCreateFragment">
 
 
     <LinearLayout

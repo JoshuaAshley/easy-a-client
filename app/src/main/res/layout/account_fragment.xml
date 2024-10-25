@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="easy_a.controllers.AccountFragment"
-    android:background="@color/dark_gray">
+    tools:context="easy_a.controllers.AccountFragment">
 
     <RelativeLayout
         android:id="@+id/main"
