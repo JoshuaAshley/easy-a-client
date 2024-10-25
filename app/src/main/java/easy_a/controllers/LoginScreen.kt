@@ -138,6 +138,8 @@ class LoginScreen : AppCompatActivity() {
 
                             editor.apply() // Ensure this line is called after all changes to SharedPreferences.
 
+                            //proceedToMainScreen()
+
                             showBiometricPrompt()
                         } else {
                             Toast.makeText(this@LoginScreen, "Invalid login credentials", Toast.LENGTH_SHORT).show()
@@ -323,11 +325,8 @@ class LoginScreen : AppCompatActivity() {
 
                     editor.apply()
 
-                    Toast.makeText(this@LoginScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
-
                     // Navigate to the main screen
-                    val intent = Intent(this@LoginScreen, MainScreen::class.java)
-                    startActivity(intent)
+                    showBiometricPrompt()
                 } else {
                     // Handle errors from backend
                     Log.e("RegisterScreen", "Google Sign-In backend response: ${response.errorBody()?.string()}")

@@ -168,9 +168,6 @@ interface ApiService {
         @Part("eventDate") eventDate: RequestBody,
     ): Call<EventResult>
 
-
-
-
     @GET("api/Chart/logtime/{uid}")
     fun getStudyChart(
         @Path("uid") uid: String,
