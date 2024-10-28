@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">Isicelo Esilula</string>
+    <string name="first_fragment_label">Isigaba Sokuqala</string>
+    <string name="second_fragment_label">Isigaba Sesibili</string>
+    <string name="next">Olandelayo</string>
+    <string name="previous">Esedlule</string>
+
+    <!-- Strings for Login Page in Zulu -->
+    <string name="welcome_back">Sawubona, Siyakwamukela Emuva!</string>
+    <string name="missed_you">Kudala sikukhumbula!</string>
+    <string name="email_label">I-imeyili</string>
+    <string name="password_label">Iphasiwedi</string>
+    <string name="remember_me">Ngikhumbule</string>
+    <string name="forgot_password">Ukhohliwe Iphasiwedi?</string>
+    <string name="login">Ngena</string>
+    <string name="login_google">Ngena nge-Google</string>
+    <string name="dont_have_account">Akunayo i-akhawunti?</string>
+    <string name="or">noma</string>
+    <string name="sign_up">Bhalisa</string>
+
+    <!-- Zulu Translation -->
+    <string name="view_academic_events">Buka Imicimbi Yezifundo Yakho</string>
+    <string name="event_name_label">Igama Lomcimbi:</string>
+    <string name="event_hint">Nikeza igama elihle lomcimbi wakho</string>
+    <string name="monthly_academic_events">Imicimbi Yezifundo Yanyanga Zonke:</string>
+    <string name="select_event_date">Khetha Usuku Lomcimbi</string>
+    <string name="add_new_event">Engeza Umcimbi Omusha</string>
+    <string name="day_sunday">Su</string>
+    <string name="day_monday">Mo</string>
+    <string name="day_tuesday">Tu</string>
+    <string name="day_wednesday">We</string>
+    <string name="day_thursday">Th</string>
+    <string name="day_friday">Fr</string>
+    <string name="day_saturday">Sa</string>
+
+    <!-- New Strings for Registration -->
+    <string name="register_greeting">Sawubona, Kujabulisa Ukukwazi!</string>
+    <string name="start_studying_message">Sekuyisikhathi sokufunda!</string>
+    <string name="register_email_label">I-imeyili</string>
+    <string name="register_password_label">Iphasiwedi</string>
+    <string name="confirm_password_label">Qinisekisa Iphasiwedi</string>
+    <string name="register_button">Bhalisa</string>
+    <string name="register_or">noma</string>
+    <string name="register_google">Bhalisa nge-Google</string>
+    <string name="already_have_account">Usuvele Une-akhawunti?</string>
+    <string name="register_login_button">Ngena</string>
+
+    <string name="chat_bot_title">EZ Chat Bot</string>
+    <string name="ask_question_hint">Buza u-EZ umbuzo...</string>
+    <string name="upload_file_button">Layisha Ifayela</string>
+    <string name="send_button">Thumela</string>
+
+    <string name="edit_profile_title">Hlela Iphrofayela</string>
+    <string name="logout_button">Phuma</string>
+    <string name="profile_picture_label">Isithombe Sokuqhafaza</string>
+    <string name="delete_button">Susa</string>
+    <string name="first_name_label">Igama</string>
+    <string name="last_name_label">Isibongo</string>
+    <string name="gender_label">Ubulili</string>
+    <string name="date_of_birth_label">Usuku Lokuzalwa</string>
+    <string name="select_date_button">Khetha Usuku</string>
+    <string name="email_labels">I-imeyili</string>
+    <string name="save_button">Londoloza</string>
+
+    <string name="view_progress">Buka Inqubekelaphambili Yakho</string>
+    <string name="question_paper_progress_chart">Ishadi Lenqubekelaphambili Yombuzo</string>
+    <string name="total_hours_label">Amahora Aphelele</string>
+    <string name="loading_text">Ilayisha...</string>
+
+    <string name="back_button">Emuva</string>
+    <string name="preparation_time_label">Isikhathi Sokulungiselela Esibhalwe</string>
+    <string name="choose_study_duration">Khetha Isikhathi Sokufunda</string>
+    <string name="mark_as_done">Maka Njengoba Kuqediwe</string>
+    <string name="loading_texts">Ilayisha...</string>
+
+    <string name="choose_paper">Khetha Iphepha</string>
+    <string name="loading_message_paper">Ilayisha...</string>
+    <string name="create_new_plan">Dala Uhlelo Olusha</string>
+    <string name="start_paper">Qala Iphepha</string>
+    <string name="all_active_papers">Wonke Amaphepha Asebenzayo</string>
+
+    <string name="start_new_paper">Qala Iphepha Elisha</string>
+    <string name="loading_username_message">Ilayisha...</string>
+    <string name="paper_name_label">Igama Lephepha:</string>
+    <string name="paper_name_hint">Faka igama elihlukile lephepha lakho</string>
+    <string name="select_due_date_button">Khetha Usuku Lokuphela</string>
+    <string name="description_label">Incazelo:</string>
+    <string name="description_hint">Faka incazelo emfushane (amax. 150 izimpawu)</string>
+    <string name="upload_pdf_button">Layisha iPDF Lephepha Lombuzo</string>
+    <string name="create_paper_button">Engeza Iphepha Lombuzo</string>
+
+    <string name="view_question">Buka Umbuzo</string>
+    <string name="loading_username_question">Ilayisha...</string>
+    <string name="loading_paper_name">Ilayisha...</string>
+    <string name="add_new_question">Engeza Umbuzo Omusha</string>
+    <string name="start_question">Qala Umbuzo</string>
+
+    <string name="question_number">Inombolo</string>
+    <string name="question_description_loading">Ilayisha Incazelo Yombuzo...</string>
+    <string name="view_question_button">Buka Umbuzo</string>
+
+    <string name="add_question_title">Engeza Umbuzo</string>
+    <string name="loading_username_messages">Ilayisha...</string>
+    <string name="loading_paper_names">Ilayisha...</string>
+    <string name="question_number_label">Inombolo Yombuzo</string>
+    <string name="question_number_hint">Iyini inombolo yombuzo?</string>
+    <string name="description_labels">Incazelo:</string>
+    <string name="question_description_hint">Chaza okudingwa umbuzo, ungadluli izimpawu eziyi-150.</string>
+    <string name="add_question_button">Engeza Umbuzo</string>
+
+    <string name="day_details_title">Imininingwane Yosuku</string>
+    <string name="day_details_message">Lolu ulwazi oluningiliziwe ngosuku.</string>
+    <string name="Time">Isikhathi</string>
+    <string name="previous_button">Esedlule</string>
+    <string name="next_button">Olandelayo</string>
+    <string name="view_help_button">Buka Usizo</string>
+</resources>
