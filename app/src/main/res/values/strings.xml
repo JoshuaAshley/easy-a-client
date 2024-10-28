@@ -114,6 +114,11 @@
     <string name="day_details_message">This is the detailed info about the day.</string>
 
     <string name="Time">time</string>
+    <string name="previous_button">Previous</string>
+    <string name="next_button">Next</string>
+    <string name="view_help_button">View Help</string>
+
+
 
 
     <string name="lorem_ipsum">
