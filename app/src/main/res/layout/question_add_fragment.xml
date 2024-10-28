@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Question,"
+                android:text="@string/add_question_title"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -62,7 +62,7 @@
                 android:textColor="#065BFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Loading..."/>
+                android:text="@string/loading_username_message"/>
 
         </LinearLayout>
 
@@ -70,7 +70,7 @@
             android:id="@+id/paperName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Loading..."
+            android:text="@string/loading_paper_name"
             android:textStyle="bold"
             android:gravity="center_horizontal"
             android:textAlignment="center"
@@ -91,7 +91,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Question Number"
+            android:text="@string/question_number_label"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="8dp"/>
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/textfield"
-            android:hint="What is the question Number?"
+            android:hint="@string/question_number_hint"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="#A9A9A9" />
@@ -110,7 +110,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description:"
+            android:text="@string/description_labels"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="8dp"/>
@@ -121,7 +121,7 @@
             android:layout_height="166dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/textfield"
-            android:hint="Describe what the question wants in no more than 150 characters in length."
+            android:hint="@string/question_description_hint"
             android:gravity="top|start"
             android:padding="10dp"
             android:textColor="@color/black"
@@ -139,7 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Add Question"
+                android:text="@string/add_question_button"
                 android:textSize="18sp"
                 android:textAllCaps="false"
                 android:background="@drawable/button"

@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Help,"
+                android:text="@string/view_help_button"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -32,7 +32,7 @@
                 android:textColor="#065BFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Loading..."/>
+                android:text="@string/loading_text"/>
 
         </LinearLayout>
 

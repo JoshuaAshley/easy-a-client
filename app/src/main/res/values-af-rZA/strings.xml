@@ -1,0 +1,119 @@
+<resources>
+    <string name="app_name">Maklike Aansoek</string>
+    <string name="first_fragment_label">Eerste Fragment</string>
+    <string name="second_fragment_label">Tweede Fragment</string>
+    <string name="next">Volgende</string>
+    <string name="previous">Vorige</string>
+
+    <!-- Strings for Login Page in Afrikaans -->
+    <string name="welcome_back">Hallo, Welkom Terug!</string>
+    <string name="missed_you">Hallo weer, jy is gemis!</string>
+    <string name="email_label">E-pos</string>
+    <string name="password_label">Wagwoord</string>
+    <string name="remember_me">Onthou My</string>
+    <string name="forgot_password">Wagwoord Vergete?</string>
+    <string name="login">Teken In</string>
+    <string name="login_google">Teken in met Google</string>
+    <string name="dont_have_account">Het jy nie \'n rekening nie?</string>
+    <string name="or">of</string>
+    <string name="sign_up">Teken Aan</string>
+
+    <!-- Afrikaans Translation -->
+    <string name="view_academic_events">Bekyk Jou Akademiese Gebeure,</string>
+    <string name="event_name_label">Gebeurnaam:</string>
+    <string name="event_hint">Gee jou gebeurtenis \'n netjiese naam</string>
+    <string name="monthly_academic_events">Maandelikse Akademiese geleenthede:</string>
+    <string name="select_event_date">Kies \'n Gebeure Datum</string>
+    <string name="add_new_event">Voeg Nuwe Gebeurtenis By</string>
+    <string name="day_sunday">So</string>
+    <string name="day_monday">Ma</string>
+    <string name="day_tuesday">Di</string>
+    <string name="day_wednesday">Wo</string>
+    <string name="day_thursday">Do</string>
+    <string name="day_friday">Vr</string>
+    <string name="day_saturday">Sa</string>
+
+
+    <!-- New Strings for Registration -->
+    <string name="register_greeting">Hallo, Lekker om jou te ontmoet!</string>
+    <string name="start_studying_message">Dis tyd om te begin studeer!</string>
+    <string name="register_email_label">E-pos</string>
+    <string name="register_password_label">Wagwoord</string>
+    <string name="confirm_password_label">Bevestig Wagwoord</string>
+    <string name="register_button">Teken Aan</string>
+    <string name="register_or">of</string>
+    <string name="register_google">Teken Aan met Google</string>
+    <string name="already_have_account">Het jy al \'n rekening?</string>
+    <string name="register_login_button">Teken In</string>
+
+    <string name="chat_bot_title">EZ Klets Bot</string>
+    <string name="ask_question_hint">Vra EZ \'n vraag...</string>
+    <string name="upload_file_button">Laai Lêer Op</string>
+    <string name="send_button">Stuur</string>
+
+    <string name="edit_profile_title">Wysig Profiel</string>
+    <string name="logout_button">Teken Uit</string>
+    <string name="profile_picture_label">Profiel Prent</string>
+    <string name="delete_button">Verwyder</string>
+    <string name="first_name_label">Voornaam</string>
+    <string name="last_name_label">Van</string>
+    <string name="gender_label">Geslag</string>
+    <string name="date_of_birth_label">Geboortedatum</string>
+    <string name="select_date_button">Kies \'n Datum</string>
+    <string name="email_labels">E-pos</string>
+    <string name="save_button">Stoor</string>
+
+    <string name="view_progress">Bekyk Jou Vordering,</string>
+    <string name="question_paper_progress_chart">Vraestelvorderingskaart</string>
+    <string name="total_hours_label">Totale Ure</string>
+    <string name="loading_text">Laai...</string>
+
+    <string name="back_button">Terug</string>
+    <string name="preparation_time_label">Totale Aangeteken Voorbereidingstyd</string>
+    <string name="choose_study_duration">Kies Studietyd</string>
+    <string name="mark_as_done">Merk as Klaar</string>
+    <string name="loading_texts">Laai...</string>
+
+    <string name="choose_paper">Kies \'n Vraestel,</string>
+    <string name="loading_message_paper">Laai...</string>
+    <string name="create_new_plan">Skep \'n nuwe plan</string>
+    <string name="start_paper">Begin Vraestel</string>
+    <string name="all_active_papers">Alle aktiewe Vraestelle</string>
+
+    <string name="start_new_paper">Begin \'n nuwe Vraestel,</string>
+    <string name="loading_username_message">Laai...</string>
+    <string name="paper_name_label">Vraestel Naam:</string>
+    <string name="paper_name_hint">Voer \'n unieke naam vir jou vraestel in</string>
+    <string name="select_due_date_button">Kies \'n Sperdatum</string>
+    <string name="description_label">Beskrywing:</string>
+    <string name="description_hint">Voer \'n kort beskrywing in (maks. 150 karakters)</string>
+    <string name="upload_pdf_button">Laai PDF van Vraestel op</string>
+    <string name="create_paper_button">Voeg Vraestel By</string>
+
+    <string name="view_question">Bekyk \'n Vraag,</string>
+    <string name="loading_username_question">Laai...</string>
+    <string name="loading_paper_name">Laai...</string>
+    <string name="add_new_question">Voeg \'n Nuwe Vraag By</string>
+    <string name="start_question">Begin Vraag</string>
+
+    <string name="question_number">V</string>
+    <string name="question_description_loading">Laai Vraagbeskrywing...</string>
+    <string name="view_question_button">Bekyk Vraag</string>
+
+    <string name="add_question_title">Voeg Vraag By</string>
+    <string name="loading_username_messages">Laai...</string>
+    <string name="loading_paper_names">Laai...</string>
+    <string name="question_number_label">Vraagnommer</string>
+    <string name="question_number_hint">Wat is die vraag nommer?</string>
+    <string name="description_labels">Beskrywing:</string>
+    <string name="question_description_hint">Beskryf wat die vraag vereis in nie meer as 150 karakters nie.</string>
+    <string name="add_question_button">Voeg Vraag By</string>
+
+    <string name="day_details_title">Dag Besonderhede</string>
+    <string name="day_details_message">Dit is die besonderhede van die dag.</string>
+    <string name="Time">tyd</string>
+    <string name="previous_button">Vorige</string>
+    <string name="next_button">Volgende</string>
+    <string name="view_help_button">Sien Hulp</string>
+
+</resources>

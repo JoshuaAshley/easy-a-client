@@ -1,4 +1,4 @@
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start a new Paper,"
+                android:text="@string/start_new_paper"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -64,7 +64,7 @@
                 android:textColor="#065BFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Loading..."/>
+                android:text="@string/loading_username_message"/>
 
         </LinearLayout>
 
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paper Name:"
+            android:text="@string/paper_name_label"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="8dp"/>
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/textfield"
-            android:hint="Give your paper a neat name"
+            android:hint="@string/paper_name_hint"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textColorHint="#A9A9A9" />
@@ -93,7 +93,7 @@
             android:id="@+id/btnDueDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select a Due Date"
+            android:text="@string/select_due_date_button"
             android:textAllCaps="false"
             android:background="@drawable/button"
             android:layout_marginTop="20dp" />
@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description:"
+            android:text="@string/description_label"
             android:textSize="18sp"
             android:textColor="@android:color/white"
             android:layout_marginTop="8dp"/>
@@ -112,7 +112,7 @@
             android:layout_height="166dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/textfield"
-            android:hint="Give your paper an interesting description of no more than 150 characters in length."
+            android:hint="@string/description_hint"
             android:gravity="top|start"
             android:padding="10dp"
             android:textColor="@color/black"
@@ -122,7 +122,7 @@
             android:id="@+id/btnUploadPDF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upload PDF of Question Paper"
+            android:text="@string/upload_pdf_button"
             android:textAllCaps="false"
             android:background="@drawable/button"
             android:layout_marginTop="20dp" />
@@ -131,7 +131,7 @@
             android:id="@+id/btnCreatePaper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Question Paper"
+            android:text="@string/create_paper_button"
             android:textAllCaps="false"
             android:background="@drawable/button"
             android:layout_marginTop="16dp"

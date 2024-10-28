@@ -28,7 +28,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/back_button"
-                android:contentDescription="Back"
+                android:contentDescription="@string/back_button"
                 android:onClick="btnBackClicked" />
 
             <!-- Spacer View to push buttons to the right -->
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Total Logged Preparation Time"
+                    android:text="@string/preparation_time_label"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Loading..."
+                    android:text="@string/loading_text"
                     android:textColor="@color/easy_a_blue"
                     android:textSize="36sp"
                     android:textStyle="bold"
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="15dp"
-                android:text="Choose Study Duration"
+                android:text="@string/choose_study_duration"
                 android:textColor="@android:color/white"
                 android:textSize="15sp" />
         </androidx.cardview.widget.CardView>
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="15dp"
-                android:text="Mark as Done"
+                android:text="@string/mark_as_done"
                 android:textColor="@android:color/white"
                 android:textSize="15sp" />
         </androidx.cardview.widget.CardView>

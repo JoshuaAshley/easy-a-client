@@ -16,7 +16,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:text="Q"
+        android:text="@string/question_number"
         android:layout_marginBottom="12dp"/>
 
     <LinearLayout
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Loading Question Description......"/>
+            android:text="@string/question_description_loading"/>
 
     </LinearLayout>
 
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="@drawable/button"
-        android:text="View Question"
+        android:text="@string/view_question_button"
         android:textAllCaps="false"
         android:layout_marginHorizontal="40dp"/>
 
