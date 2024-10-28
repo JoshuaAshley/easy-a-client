@@ -91,6 +91,11 @@
     <string name="upload_pdf_button">Upload PDF of Question Paper</string>
     <string name="create_paper_button">Add Question Paper</string>
 
+    <string name="view_question">View a Question,</string>
+    <string name="loading_username_question">Loading...</string>
+    <string name="loading_paper_name">Loading...</string>
+    <string name="add_new_question">Add a New Question</string>
+    <string name="start_question">Start Question</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

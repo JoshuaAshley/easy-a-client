@@ -90,6 +90,13 @@
     <string name="upload_pdf_button">Laai PDF van Vraestel op</string>
     <string name="create_paper_button">Voeg Vraestel By</string>
 
+    <string name="view_question">Bekyk \'n Vraag,</string>
+    <string name="loading_username_question">Laai...</string>
+    <string name="loading_paper_name">Laai...</string>
+    <string name="add_new_question">Voeg \'n Nuwe Vraag By</string>
+    <string name="start_question">Begin Vraag</string>
+
+
 
 
 
