@@ -101,6 +101,15 @@
     <string name="question_description_loading">Loading Question Description...</string>
     <string name="view_question_button">View Question</string>
 
+    <string name="add_question_title">Add Question</string>
+    <string name="loading_username_messages">Loading...</string>
+    <string name="loading_paper_names">Loading...</string>
+    <string name="question_number_label">Question Number</string>
+    <string name="question_number_hint">What is the question number?</string>
+    <string name="description_labels">Description:</string>
+    <string name="question_description_hint">Describe what the question wants in no more than 150 characters in length.</string>
+    <string name="add_question_button">Add Question</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

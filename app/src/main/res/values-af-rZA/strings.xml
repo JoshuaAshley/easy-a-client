@@ -100,6 +100,14 @@
     <string name="question_description_loading">Laai Vraagbeskrywing...</string>
     <string name="view_question_button">Bekyk Vraag</string>
 
+    <string name="add_question_title">Voeg Vraag By</string>
+    <string name="loading_username_messages">Laai...</string>
+    <string name="loading_paper_names">Laai...</string>
+    <string name="question_number_label">Vraagnommer</string>
+    <string name="question_number_hint">Wat is die vraag nommer?</string>
+    <string name="description_labels">Beskrywing:</string>
+    <string name="question_description_hint">Beskryf wat die vraag vereis in nie meer as 150 karakters nie.</string>
+    <string name="add_question_button">Voeg Vraag By</string>
 
 
 </resources>
