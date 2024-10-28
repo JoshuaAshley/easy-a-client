@@ -75,6 +75,13 @@
     <string name="mark_as_done">Mark as Done</string>
     <string name="loading_texts">Loading...</string>
 
+    <string name="choose_paper">Choose a Paper,</string>
+    <string name="loading_message_paper">Loading...</string>
+    <string name="create_new_plan">Create a new plan</string>
+    <string name="start_paper">Start Paper</string>
+    <string name="all_active_papers">All active Papers</string>
+
+
 
 
     <string name="lorem_ipsum">

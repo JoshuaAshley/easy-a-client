@@ -74,6 +74,11 @@
     <string name="mark_as_done">Merk as Klaar</string>
     <string name="loading_texts">Laai...</string>
 
+    <string name="choose_paper">Kies \'n Vraestel,</string>
+    <string name="loading_message_paper">Laai...</string>
+    <string name="create_new_plan">Skep \'n nuwe plan</string>
+    <string name="start_paper">Begin Vraestel</string>
+    <string name="all_active_papers">Alle aktiewe Vraestelle</string>
 
 
 
