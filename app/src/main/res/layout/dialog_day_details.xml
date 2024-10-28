@@ -7,14 +7,14 @@
 
     <TextView
         android:id="@+id/dayDetailsTitle"
-        android:text="Day Details"
+        android:text="@string/day_details_title"
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/dayDetailsMessage"
-        android:text="This is the detailed info about the day."
+        android:text="@string/day_details_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -110,6 +110,8 @@
     <string name="question_description_hint">Describe what the question wants in no more than 150 characters in length.</string>
     <string name="add_question_button">Add Question</string>
 
+    <string name="day_details_title">Day Details</string>
+    <string name="day_details_message">This is the detailed info about the day.</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

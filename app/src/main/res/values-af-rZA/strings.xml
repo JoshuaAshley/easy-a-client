@@ -109,5 +109,7 @@
     <string name="question_description_hint">Beskryf wat die vraag vereis in nie meer as 150 karakters nie.</string>
     <string name="add_question_button">Voeg Vraag By</string>
 
+    <string name="day_details_title">Dag Besonderhede</string>
+    <string name="day_details_message">Dit is die besonderhede van die dag.</string>
 
 </resources>
