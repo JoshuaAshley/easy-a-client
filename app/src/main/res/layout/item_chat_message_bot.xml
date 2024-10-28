@@ -39,11 +39,11 @@
 
     <TextView
         android:id="@+id/timestampTextView"
-        android:text="Time"
+        android:text="@string/Time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/darker_gray"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:layout_marginTop="4dp"
         android:layout_gravity="start"
         android:layout_marginLeft="10dp"/><!-- Align to the left -->

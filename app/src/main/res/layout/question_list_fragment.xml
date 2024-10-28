@@ -55,7 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View a Question,"
+                    android:text="@string/view_question"
                     android:textColor="@android:color/white"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -68,7 +68,7 @@
                     android:textColor="#065BFF"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:text="Loading..." />
+                    android:text="@string/loading_username_question" />
             </LinearLayout>
 
             <TextView
@@ -81,12 +81,12 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginBottom="20dp"
-                android:text="Loading..." />
+                android:text="@string/loading_paper_name" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add a New Question"
+                android:text="@string/add_new_question"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:textSize="18sp"
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button"
                 android:layout_gravity="center"
-                android:text="Start Question"
+                android:text="@string/start_question"
                 android:textAllCaps="false"
                 android:layout_marginBottom="20dp"
                 android:onClick="btnStartQuestionClicked" />

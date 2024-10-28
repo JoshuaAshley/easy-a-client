@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="easy_a.controllers.LoginScreen">
+    tools:context="easy_a.controllers.LoginScreen"
+    android:background="@color/dark_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +14,6 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Logo at the top -->
         <ImageView
             android:id="@+id/logoImage"
             android:layout_width="250dp"
@@ -25,7 +25,6 @@
             android:scaleType="fitCenter"
             android:src="@drawable/easya_logo" />
 
-        <!-- Welcome text -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi, Welcome Back! "
+                android:text="@string/welcome_back"
                 android:textSize="24sp"
                 android:textColor="@android:color/white"
                 android:layout_marginBottom="8dp"/>
@@ -45,13 +44,12 @@
                 android:text="👋"
                 android:textSize="24sp"
                 android:textColor="@android:color/white"/>
-
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello again, you've been missed!"
+            android:text="@string/missed_you"
             android:textSize="16sp"
             android:textColor="#A9A9A9"
             android:layout_marginBottom="10dp"/>
@@ -59,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email_label"
             android:textSize="18sp"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
@@ -67,7 +65,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email_label"
             android:textColorHint="#A9A9A9"
             android:inputType="textEmailAddress"
             android:padding="10dp"
@@ -78,7 +76,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password_label"
             android:textSize="18sp"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
@@ -93,13 +91,12 @@
             app:hintEnabled="false"
             android:layout_marginTop="5dp">
 
-
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"
+                android:hint="@string/password_label"
                 android:textColorHint="#A9A9A9"
                 android:background="@drawable/textfield"
                 android:textColor="@color/black"
@@ -116,7 +113,7 @@
                 android:id="@+id/rememberMeCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remember Me"
+                android:text="@string/remember_me"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -124,7 +121,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Forgot Password?"
+                android:text="@string/forgot_password"
                 android:textColor="@color/easy_a_blue"
                 android:gravity="end"
                 android:onClick="onForgotPasswordClicked"/>
@@ -135,7 +132,7 @@
             android:background="@drawable/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textSize="15dp"
             android:textColor="@android:color/white"
@@ -143,33 +140,29 @@
             android:layout_marginBottom="10dp"
             android:onClick="btnLoginClicked"/>
 
-        <!-- Divider with 'or' in between -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <!-- Left Line -->
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1"
                 android:background="@color/gray" />
 
-            <!-- 'or' Text -->
             <TextView
                 android:id="@+id/dividerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="or"
+                android:text="@string/or"
                 android:textColor="@color/white"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:gravity="center"
                 android:textSize="14sp" />
 
-            <!-- Right Line -->
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
@@ -177,17 +170,14 @@
                 android:background="@color/gray" />
         </LinearLayout>
 
-        <!-- Google Login Button -->
-
-        <!-- Don’t have an account? Sign Up Section -->
         <Button
             android:id="@+id/googleLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/sso_button"
-            android:text="Login with Google"
+            android:text="@string/login_google"
             android:textAllCaps="false"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -196,7 +186,6 @@
             android:padding="12dp"
             android:onClick="btnGoogleLoginClicked"/>
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -204,21 +193,19 @@
             android:gravity="center_horizontal"
             android:layout_gravity="center">
 
-            <!-- Regular text -->
             <TextView
                 android:id="@+id/signUpText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Don’t have an account?"
+                android:text="@string/dont_have_account"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
-            <!-- Clickable Sign Up text -->
             <Button
                 android:id="@+id/signUpLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Sign Up"
+                android:text="@string/sign_up"
                 android:textAllCaps="false"
                 android:background="@drawable/button_transparent"
                 android:textColor="@color/easy_a_blue"
@@ -231,5 +218,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>

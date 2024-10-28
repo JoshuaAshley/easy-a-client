@@ -77,7 +77,6 @@ class AccountFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.account_fragment, container, false)
 
-
         sessionManager = SessionManager(requireContext())
 
         dateButton = view.findViewById(R.id.datePickerButton)
