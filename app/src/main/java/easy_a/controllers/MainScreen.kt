@@ -18,7 +18,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
@@ -71,12 +73,14 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 .build()
 
             // Set scaleType to make the image fit well in the circular view
-            profileIcon.scaleType = ImageView.ScaleType.CENTER_CROP
+            profileIcon.scaleType = ImageView.ScaleType.CENTER_INSIDE
 
             // Load the profile picture using Picasso.
             loadProfilePicture(profilePictureUrl)
 
             scheduleEventWorker()
+
+            scheduleSyncWorker()
         }
 
         //set to this on startup
@@ -115,6 +119,18 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 else -> false
             }
         }
+    }
+
+    private fun scheduleSyncWorker() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED) // Only run when connected to the network
+            .build()
+
+        val syncWorkRequest = OneTimeWorkRequestBuilder<SyncWorker>()
+            .setConstraints(constraints)
+            .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(syncWorkRequest)
     }
 
     // Function to request notification permission

@@ -17,16 +17,17 @@
             android:id="@+id/top_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="8dp"
+            android:paddingVertical="16dp"
             android:paddingHorizontal="16dp"
             android:background="@color/black">
 
         <!-- Smaller Logo -->
         <ImageView
             android:id="@+id/logoImage"
-            android:layout_width="80dp"
-            android:layout_height="75dp"
-            android:src="@drawable/easya_logo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/easy_a_logo_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

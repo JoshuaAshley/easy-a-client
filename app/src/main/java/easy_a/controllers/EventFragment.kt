@@ -3,6 +3,8 @@ package easy_a.controllers
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,11 +18,18 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import easy_a.application.R
 import easy_a.models.EventResponse
 import easy_a.models.EventResult
+import easy_a.models.offlineDB.EasyDatabase
+import easy_a.models.offlineDB.Event
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -117,45 +126,68 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
     }
 
     private fun btnAddEventClicked(fragment: Fragment) {
-        val uid = sessionManager.getUid() // Get the user ID
-        val eventName = eventName.text.toString().trim() // Get the name from EditText
-        val eventDueDate = btnDueDate.text.toString().trim() // Replace with actual input
+        val eventName = eventName.text.toString().trim()
+        val eventDueDate = btnDueDate.text.toString().trim()
 
         // Validate inputs
         when {
             eventName.isEmpty() -> {
-                Toast.makeText(requireContext(), "Please enter an event description.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please enter an event name.", Toast.LENGTH_SHORT).show()
                 return
             }
             eventDueDate.isEmpty() -> {
-                Toast.makeText(requireContext(), "Please enter an event description.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please enter an event due date.", Toast.LENGTH_SHORT).show()
                 return
             }
         }
 
-        // Create RequestBody instances
-        val uidRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), uid!!)
-        val eventNameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), eventName)
-        val eventDueDateRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), eventDueDate)
+        val event = Event(
+            eventName = eventName,
+            eventDescription = "", // Add description if needed
+            eventDueDate = eventDueDate,
+            synced = false // Not synced initially
+        )
 
-        // API call
+        if (isNetworkAvailable()) {
+            // Online: Directly upload to API
+            uploadEventToAPI(event)
+        } else {
+            // Offline: Save locally
+            saveEventLocally(event)
+            Toast.makeText(requireContext(), "Event saved locally. Will sync when connected.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun saveEventLocally(event: Event) {
+        // Save event to Room Database
+        lifecycleScope.launch {
+            val db = EasyDatabase.getDatabase(requireContext())
+            db.EasyDao().insertEvent(event)
+        }
+    }
+
+    private fun uploadEventToAPI(event: Event) {
+        // Create RequestBody instances for the API call
+        val uidRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), sessionManager.getUid()!!)
+        val eventNameRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), event.eventName)
+        val eventDueDateRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), event.eventDueDate)
+
         RetrofitClient.apiService.createEvent(
             uidRequestBody,
             eventNameRequestBody,
-            eventDueDateRequestBody,
+            eventDueDateRequestBody
         ).enqueue(object : Callback<EventResult> {
             override fun onResponse(call: Call<EventResult>, response: Response<EventResult>) {
                 if (response.isSuccessful) {
                     Toast.makeText(requireContext(), "Event created successfully!", Toast.LENGTH_SHORT).show()
                     navigateToFragment(HomeFragment())
                 } else {
-                    Toast.makeText(requireContext(), "Failed to create study paper: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Failed to create event: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<EventResult>, t: Throwable) {
                 Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-                Log.d("UpdateUserRequest", "File: ${t.message}") // Log the filename
             }
         })
     }
@@ -198,6 +230,44 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
 
         val uid = sessionManager.getUid() // Get the user ID
         Log.e("EventFragment", "Requesting events for: $startDate to $endDate")
+
+        if (!isNetworkAvailable()) {
+            // Fetch events from local storage when offline
+            CoroutineScope(Dispatchers.IO).launch {
+                val localEvents =
+                    EasyDatabase.getDatabase(requireContext()).EasyDao().getEventsByDateRange(startDate, endDate)
+
+                withContext(Dispatchers.Main) {
+                    // Update icons with local events
+                    for (i in 0 until daysInMonth) {
+                        val index = i + startDayOffset
+                        if (index < dayImages.size) {
+                            calendar.set(currentYear, currentMonthIndex, i + 1)
+                            val dateString =
+                                dateFormat.format(calendar.time) // Format current date as string
+
+                            // Check if the local event date matches the formatted date string
+                            if (localEvents.any { it.eventDueDate == dateString }) {
+                                dayImages[index] = R.drawable.event_day_icon
+                            } else {
+                                dayImages[index] = R.drawable.no_icon
+                            }
+                        }
+                    }
+
+                    // Update visibility for extra days
+                    for (i in 0 until startDayOffset) {
+                        dayVisibility[i] = View.GONE
+                    }
+                    for (i in startDayOffset + daysInMonth until totalDays) {
+                        dayVisibility[i] = View.GONE
+                    }
+
+                    // Notify the adapter of changes
+                    adapter.updateDayImages(dayImages, dayVisibility)
+                }
+            }
+        }
 
         // API call to get events for the month range
         RetrofitClient.apiService.getEventsByMonthRange(uid!!, startDate, endDate).enqueue(
@@ -251,6 +321,12 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         )
     }
 
+    fun isNetworkAvailable(): Boolean {
+        val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
+
     private fun getDaysInMonth(year: Int, month: Int): Int {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, 1)
@@ -280,31 +356,36 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
 
         val eventsListView = dialogView.findViewById<ListView>(R.id.eventsListView)
 
-        // API call to get events for the selected date
-        val uid = sessionManager.getUid() // Get the user ID
-        RetrofitClient.apiService.getEventsByDate(uid!!, formattedDate).enqueue(
-            object : Callback<EventResponse> {
-                override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
-                    if (response.isSuccessful) {
-                        val events = response.body()?.eventList ?: emptyList()
-                        if (events.isNotEmpty()) {
-                            // Prepare a simple adapter for the ListView
-                            val eventTitles = events.map { it.eventName }
-                            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, eventTitles)
-                            eventsListView.adapter = adapter
+        if (!isNetworkAvailable()) {
+            fetchEventsFromLocalDB(formattedDate, dayDetailsMessage, eventsListView)
+        }
+        else {
+            // API call to get events for the selected date
+            val uid = sessionManager.getUid() // Get the user ID
+            RetrofitClient.apiService.getEventsByDate(uid!!, formattedDate).enqueue(
+                object : Callback<EventResponse> {
+                    override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
+                        if (response.isSuccessful) {
+                            val events = response.body()?.eventList ?: emptyList()
+                            if (events.isNotEmpty()) {
+                                // Prepare a simple adapter for the ListView
+                                val eventTitles = events.map { it.eventName }
+                                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, eventTitles)
+                                eventsListView.adapter = adapter
+                            } else {
+                                dayDetailsMessage.text = "No events found for this date."
+                            }
                         } else {
-                            dayDetailsMessage.text = "No events found for this date."
+                            dayDetailsMessage.text = "Error fetching events: ${response.errorBody()?.string()}"
                         }
-                    } else {
-                        dayDetailsMessage.text = "Error fetching events: ${response.errorBody()?.string()}"
+                    }
+
+                    override fun onFailure(call: Call<EventResponse>, t: Throwable) {
+                        dayDetailsMessage.text = "API call failed: ${t.message}"
                     }
                 }
-
-                override fun onFailure(call: Call<EventResponse>, t: Throwable) {
-                    dayDetailsMessage.text = "API call failed: ${t.message}"
-                }
-            }
-        )
+            )
+        }
 
         // Create and show the dialog
         val builder = AlertDialog.Builder(requireContext())
@@ -313,6 +394,23 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
 
         builder.create().show()
+    }
+
+    private fun fetchEventsFromLocalDB(date: String, messageView: TextView, eventsListView: ListView) {
+        // Launch a coroutine to fetch events from the local database
+        CoroutineScope(Dispatchers.Main).launch {
+            val localEvents =
+                EasyDatabase.getDatabase(requireContext()).EasyDao().getEventsByDate(date)
+
+            if (localEvents.isNotEmpty()) {
+                // Prepare a simple adapter for the ListView
+                val eventTitles = localEvents.map { it.eventName }
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, eventTitles)
+                eventsListView.adapter = adapter
+            } else {
+                messageView.text = "No events found for this date."
+            }
+        }
     }
 
     override fun onDayClick(position: Int) {

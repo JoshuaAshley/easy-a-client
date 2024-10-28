@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
+    id("androidx.room")
 }
 
 android {
@@ -48,6 +50,9 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -77,9 +82,16 @@ dependencies {
 
     implementation ("com.google.firebase:firebase-bom:32.0.0")
     implementation("com.google.firebase:firebase-messaging")
+
     implementation(libs.firebase.messaging.ktx)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
 
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
