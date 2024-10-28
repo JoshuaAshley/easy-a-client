@@ -81,7 +81,15 @@
     <string name="start_paper">Start Paper</string>
     <string name="all_active_papers">All active Papers</string>
 
-
+    <string name="start_new_paper">Start a new Paper,</string>
+    <string name="loading_username_message">Loading...</string>
+    <string name="paper_name_label">Paper Name:</string>
+    <string name="paper_name_hint">Enter a unique name for your paper</string>
+    <string name="select_due_date_button">Select a Due Date</string>
+    <string name="description_label">Description:</string>
+    <string name="description_hint">Enter a short description (max 150 characters)</string>
+    <string name="upload_pdf_button">Upload PDF of Question Paper</string>
+    <string name="create_paper_button">Add Question Paper</string>
 
 
     <string name="lorem_ipsum">

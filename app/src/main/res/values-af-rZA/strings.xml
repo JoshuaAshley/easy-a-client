@@ -80,6 +80,17 @@
     <string name="start_paper">Begin Vraestel</string>
     <string name="all_active_papers">Alle aktiewe Vraestelle</string>
 
+    <string name="start_new_paper">Begin \'n nuwe Vraestel,</string>
+    <string name="loading_username_message">Laai...</string>
+    <string name="paper_name_label">Vraestel Naam:</string>
+    <string name="paper_name_hint">Voer \'n unieke naam vir jou vraestel in</string>
+    <string name="select_due_date_button">Kies \'n Sperdatum</string>
+    <string name="description_label">Beskrywing:</string>
+    <string name="description_hint">Voer \'n kort beskrywing in (maks. 150 karakters)</string>
+    <string name="upload_pdf_button">Laai PDF van Vraestel op</string>
+    <string name="create_paper_button">Voeg Vraestel By</string>
+
+
 
 
 </resources>
