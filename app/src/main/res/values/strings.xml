@@ -97,6 +97,11 @@
     <string name="add_new_question">Add a New Question</string>
     <string name="start_question">Start Question</string>
 
+    <string name="question_number">Q</string>
+    <string name="question_description_loading">Loading Question Description...</string>
+    <string name="view_question_button">View Question</string>
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

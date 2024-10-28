@@ -96,7 +96,9 @@
     <string name="add_new_question">Voeg \'n Nuwe Vraag By</string>
     <string name="start_question">Begin Vraag</string>
 
-
+    <string name="question_number">V</string>
+    <string name="question_description_loading">Laai Vraagbeskrywing...</string>
+    <string name="view_question_button">Bekyk Vraag</string>
 
 
 
