@@ -34,7 +34,7 @@
                 android:textColor="#065BFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="Loading..."/>
+                android:text="@string/loading_text"/>
 
         </LinearLayout>
 
