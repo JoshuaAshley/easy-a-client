@@ -113,6 +113,9 @@
     <string name="day_details_title">Day Details</string>
     <string name="day_details_message">This is the detailed info about the day.</string>
 
+    <string name="Time">time</string>
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

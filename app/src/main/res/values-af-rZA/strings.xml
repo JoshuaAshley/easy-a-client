@@ -111,5 +111,6 @@
 
     <string name="day_details_title">Dag Besonderhede</string>
     <string name="day_details_message">Dit is die besonderhede van die dag.</string>
+    <string name="Time">tyd</string>
 
 </resources>
