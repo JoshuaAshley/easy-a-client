@@ -150,6 +150,8 @@
     <string name="auth_error">Authentication error: %1$s</string>
     <string name="google_sign_in_failed_backend">Google Sign-In failed</string>
     <string name="authentication_failed">Authentication Failed</string>
+    <string name="welcome_user">Welcome %1$s</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

@@ -147,6 +147,7 @@
     <string name="auth_error">Iphutha le-verification: %1$s</string>
     <string name="google_sign_in_failed_backend">Ukungena nge-Google kwehlulekile</string>
     <string name="authentication_failed">Ukuqinisekiswa kuhlulekile</string>
+    <string name="welcome_user">Siyakwamukela %1$s</string>
 
 
 </resources>

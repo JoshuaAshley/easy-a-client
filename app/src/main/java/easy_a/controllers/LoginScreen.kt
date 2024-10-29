@@ -351,7 +351,8 @@ class LoginScreen : AppCompatActivity() {
 
                     editor.apply()
 
-                    Toast.makeText(this@LoginScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginScreen, getString(R.string.welcome_user, user?.email ?: ""), Toast.LENGTH_SHORT).show()
+
 
                     // Navigate to the main screen
                     val intent = Intent(this@LoginScreen, MainScreen::class.java)

@@ -148,6 +148,7 @@
     <string name="auth_error">Verifikasie fout: %1$s</string>
     <string name="google_sign_in_failed_backend">Google-aanmelding het misluk</string>
     <string name="authentication_failed">Verifikasie het misluk</string>
+    <string name="welcome_user">Welkom %1$s</string>
 
 
 
