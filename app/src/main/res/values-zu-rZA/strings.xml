@@ -173,4 +173,18 @@
     <string name="last_page_message">Usuvele usekhasi lokugcina</string>
     <string name="first_page_message">Usuvele usekhasi lokuqala</string>
 
+    <string name="question_completed_success">Umbuzo uphele ngempumelelo!</string>
+    <string name="time_logged_success">Isikhathi sibhalwe ngempumelelo!</string>
+
+    <string name="please_enter_paper_name">Sicela ufake igama lephepha.</string>
+    <string name="paper_name_cannot_exceed">Igama lephepha alikwazi ukudlula izinhlamvu eziyi-50.</string>
+    <string name="please_enter_description">Sicela ufake incazelo.</string>
+    <string name="please_select_due_date">Sicela ukhethe usuku oluphelayo.</string>
+    <string name="description_cannot_exceed">Incazelo ayikwazi ukudlula izinhlamvu eziyi-150.</string>
+    <string name="please_upload_pdf">Sicela ulayishe ifayela le-PDF.</string>
+    <string name="study_paper_created_successfully">Iphepha lokufunda lidalwe ngempumelelo!</string>
+    <string name="failed_to_create_study_paper">Yehlulekile ukudala iphepha lokufunda: %1$s</string>
+    <string name="error_message">Iphutha: %1$s</string>
+    <string name="failed_to_get_file_name">Yehlulekile ukuthola igama lefayela.</string>
+
 </resources>

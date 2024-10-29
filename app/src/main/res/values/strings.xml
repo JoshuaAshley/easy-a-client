@@ -176,6 +176,21 @@
     <string name="last_page_message">You are already on the last page</string>
     <string name="first_page_message">You are already on the first page</string>
 
+    <string name="question_completed_success">Question completed successfully!</string>
+    <string name="time_logged_success">Time logged successfully!</string>
+
+    <string name="please_enter_paper_name">Please enter a paper name.</string>
+    <string name="paper_name_cannot_exceed">Paper name cannot exceed 50 characters.</string>
+    <string name="please_enter_description">Please enter a description.</string>
+    <string name="please_select_due_date">Please select a due date.</string>
+    <string name="description_cannot_exceed">Description cannot exceed 150 characters.</string>
+    <string name="please_upload_pdf">Please upload a PDF file.</string>
+    <string name="study_paper_created_successfully">Study paper created successfully!</string>
+    <string name="failed_to_create_study_paper">Failed to create study paper: %1$s</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="failed_to_get_file_name">Failed to get file name</string>
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

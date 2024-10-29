@@ -175,4 +175,19 @@
     <string name="last_page_message">Jy is reeds op die laaste bladsy</string>
     <string name="first_page_message">Jy is reeds op die eerste bladsy</string>
 
+    <string name="question_completed_success">Vraag suksesvol voltooi!</string>
+    <string name="time_logged_success">Tyd suksesvol aangeteken!</string>
+
+    <string name="please_enter_paper_name">Voer asseblief \'n vraestelnaam in.</string>
+    <string name="paper_name_cannot_exceed">Vraestelnaam mag nie langer as 50 karakters wees nie.</string>
+    <string name="please_enter_description">Voer asseblief \'n beskrywing in.</string>
+    <string name="please_select_due_date">Kies asseblief \'n sperdatum.</string>
+    <string name="description_cannot_exceed">Beskrywing mag nie langer as 150 karakters wees nie.</string>
+    <string name="please_upload_pdf">Laai asseblief \'n PDF-lêer op.</string>
+    <string name="study_paper_created_successfully">Studiestuk suksesvol geskep!</string>
+    <string name="failed_to_create_study_paper">Kon nie studiestuk skep nie: %1$s</string>
+    <string name="error_message">Fout: %1$s</string>
+    <string name="failed_to_get_file_name">Kon nie lêernaam kry nie.</string>
+
+
 </resources>
