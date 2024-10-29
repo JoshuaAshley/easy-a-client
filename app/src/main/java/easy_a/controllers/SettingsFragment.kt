@@ -126,7 +126,12 @@ class SettingsFragment : Fragment() {
                 response: Response<SettingsResponse>
             ) {
                 if (response.isSuccessful) {
-                    Toast.makeText(requireContext(), R.string.toast_user_updated, Toast.LENGTH_SHORT).show()
+                    // Update locale context immediately after the language is changed
+                    LanguageHelper.setLocale(requireContext(), languageCode)
+
+                    // Use the updated context to get the localized string for the Toast message
+                    val updatedContext = requireContext()
+                    Toast.makeText(updatedContext, updatedContext.getString(R.string.user_updated_successfully), Toast.LENGTH_SHORT).show()
 
                     // Save the new settings in SharedPreferences
                     sharedPreferences.edit().apply {
@@ -137,8 +142,7 @@ class SettingsFragment : Fragment() {
                         apply()
                     }
 
-                    // Apply the language change and restart the activity
-                    LanguageHelper.setLocale(requireContext(), languageCode)
+                    // Recreate the activity to apply the changes to UI
                     requireActivity().recreate() // Recreate to apply changes
                     recreateAllFragments()
                 } else {
@@ -150,8 +154,8 @@ class SettingsFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-
     }
+
     private fun recreateAllFragments() {
         val fragmentManager = requireActivity().supportFragmentManager
         fragmentManager.fragments.forEach { fragment ->

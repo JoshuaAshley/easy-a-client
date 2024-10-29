@@ -151,6 +151,7 @@
     <string name="google_sign_in_failed_backend">Google Sign-In failed</string>
     <string name="authentication_failed">Authentication Failed</string>
     <string name="welcome_user">Welcome %1$s</string>
+    <string name="user_updated_successfully">User updated successfully</string>
 
 
     <string name="lorem_ipsum">
