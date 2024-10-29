@@ -126,6 +126,15 @@
     <string name="enable_biometric">Aktiveer Biometriese Verifikasie</string>
     <string name="save_buttons">Stoor</string>
 
+    <string name="first_name_labels">Voornaam</string>
+    <string name="last_name_labels">Van</string>
+    <string name="toast_user_updated">Gebruiker suksesvol bygewerk</string>
+    <string name="toast_update_failed">Kon nie gebruiker bywerk nie: %1$s</string>
+    <string name="toast_failure_message">Fout: %1$s</string>
+    <string name="toast_user_not_logged_in">Gebruiker is nie aangemeld nie</string>
+    <string name="toast_check_input_fields">Gaan asseblief die invoervelde na</string>
+    <string name="toast_field_length_exceeded">%1$s kan nie langer as %2$d karakters wees nie</string>
+
 
 
 </resources>

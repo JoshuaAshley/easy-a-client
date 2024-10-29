@@ -125,5 +125,13 @@
     <string name="enable_biometric">Vumela Ukuqinisekiswa Kwezokuphepha</string>
     <string name="save_buttons">Londoloza</string>
 
+    <string name="first_name_labels">Igama lokuqala</string>
+    <string name="last_name_labels">Isibongo</string>
+    <string name="toast_user_updated">Umsebenzisi ubuyekeziwe ngempumelelo</string>
+    <string name="toast_update_failed">Ukubuyekezwa komsebenzisi kuhlulekile: %1$s</string>
+    <string name="toast_failure_message">Iphutha: %1$s</string>
+    <string name="toast_user_not_logged_in">Umsebenzisi akangene ngemvume</string>
+    <string name="toast_check_input_fields">Sicela uhlole amasimu okufaka</string>
+    <string name="toast_field_length_exceeded">%1$s angeke ibe ngaphezu kuka %2$d izinhlamvu</string>
 
 </resources>

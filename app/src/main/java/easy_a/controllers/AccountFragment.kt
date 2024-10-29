@@ -294,25 +294,43 @@ class AccountFragment : Fragment() {
                                     // Notify the MainScreen about the updated profile picture
                                     (fragment.activity as? ProfileUpdateListener)?.onProfileUpdated(response.body()?.profilePicture)
 
-                                    Toast.makeText(fragment.requireContext(), "User updated successfully", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        fragment.requireContext(),
+                                        getString(R.string.toast_user_updated),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 } else {
-                                    Toast.makeText(fragment.requireContext(), "Failed to update user: ${response.code()}", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(
+                                        fragment.requireContext(),
+                                        getString(R.string.toast_update_failed, response.code().toString()),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }
                             }
 
                             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                                Toast.makeText(fragment.requireContext(), "Failed to update user: onFailure", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    fragment.requireContext(),
+                                    getString(R.string.toast_failure_message, t.message ?: "Unknown error"),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         })
                     }
                 }
             } else {
-                // If UID is null, handle it appropriately (e.g., redirect to login)
-                Toast.makeText(fragment.requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    fragment.requireContext(),
+                    getString(R.string.toast_user_not_logged_in),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         } else {
-            // Inform the user of invalid input
-            Toast.makeText(fragment.requireContext(), "Please check the input fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                fragment.requireContext(),
+                getString(R.string.toast_check_input_fields),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -331,22 +349,21 @@ class AccountFragment : Fragment() {
         }
     }
 
-    private fun validateLength(value: String, fieldName: String, maxLength: Int): Boolean
-    {
-        return if (value.length > maxLength)
-        {
-            // Field exceeds maximum length, show error message
-            Toast.makeText(
-                requireContext(),
-                "$fieldName cannot be longer than $maxLength characters",
-                Toast.LENGTH_SHORT
-            ).show()
+    private fun validateLength(value: String, fieldName: String, maxLength: Int): Boolean {
+        return if (value.length > maxLength) {
+            // Show error message for exceeding field length
+            val message = getString(
+                R.string.toast_field_length_exceeded,
+                fieldName,
+                maxLength
+            )
+            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
             false
-        } else
-        {
+        } else {
             true
         }
     }
+
 
     private fun btnLogoutClicked(fragment: Fragment)
     {

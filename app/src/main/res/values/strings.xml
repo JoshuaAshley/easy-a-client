@@ -118,7 +118,6 @@
     <string name="next_button">Next</string>
     <string name="view_help_button">View Help</string>
 
-
     <string name="settings_title">Settings</string>
     <string name="language_label">Language</string>
     <string name="notifications_label">Notifications</string>
@@ -129,6 +128,14 @@
     <string name="enable_biometric">Enable Biometric Authentication</string>
     <string name="save_buttons">Save</string>
 
+    <string name="first_name_labels">First name</string>
+    <string name="last_name_labels">Last name</string>
+    <string name="toast_user_updated">User updated successfully</string>
+    <string name="toast_update_failed">Failed to update user: %1$s</string>
+    <string name="toast_failure_message">Error: %1$s</string>
+    <string name="toast_user_not_logged_in">User not logged in</string>
+    <string name="toast_check_input_fields">Please check the input fields</string>
+    <string name="toast_field_length_exceeded">%1$s cannot be longer than %2$d characters</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
