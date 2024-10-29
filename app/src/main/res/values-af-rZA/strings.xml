@@ -168,6 +168,8 @@
     <string name="image_captured">Beeld geneem: %1$s</string>
     <string name="no_image_captured">Geen beeld geneem nie</string>
 
-
+    <string name="enter_message_or_image">Voer asseblief óf \'n boodskap in óf laai \'n beeld op. Nie albei nie.</string>
+    <string name="enter_message_or_file">Voer asseblief \'n boodskap in of kies \'n lêer.</string>
+    <string name="image_selected">Beeld gekies: %1$s</string>
 
 </resources>
