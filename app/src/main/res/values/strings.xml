@@ -119,6 +119,15 @@
     <string name="view_help_button">View Help</string>
 
 
+    <string name="settings_title">Settings</string>
+    <string name="language_label">Language</string>
+    <string name="notifications_label">Notifications</string>
+    <string name="receive_notifications">Receive Notifications</string>
+    <string name="theme_label">Theme</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="biometric_label">Biometric Authentication</string>
+    <string name="enable_biometric">Enable Biometric Authentication</string>
+    <string name="save_buttons">Save</string>
 
 
     <string name="lorem_ipsum">

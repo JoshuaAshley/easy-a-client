@@ -17,7 +17,7 @@
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings_title"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -28,7 +28,7 @@
             android:id="@+id/languageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Language"
+            android:text="@string/language_label"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Notifications"
+            android:text="@string/notifications_label"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -65,7 +65,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Receive Notifications"
+                android:text="@string/receive_notifications"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Theme"
+            android:text="@string/theme_label"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -93,17 +93,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Dark Mode"
+                android:text="@string/dark_mode"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
         <!-- Biometric Authentication Section -->
+
         <TextView
             android:id="@+id/biometricTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Biometric Authentication"
+            android:text="@string/biometric_label"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -120,7 +121,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Enable Biometric Authentication"
+                android:text="@string/enable_biometric"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -130,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/button"
-            android:text="Save"
+            android:text="@string/save_button"
             android:textAllCaps="false" />
 
     </LinearLayout>

@@ -116,4 +116,16 @@
     <string name="next_button">Volgende</string>
     <string name="view_help_button">Sien Hulp</string>
 
+    <string name="settings_title">Instellings</string>
+    <string name="language_label">Taal</string>
+    <string name="notifications_label">Kennisgewings</string>
+    <string name="receive_notifications">Ontvang Kennisgewings</string>
+    <string name="theme_label">Tema</string>
+    <string name="dark_mode">Donker Modus</string>
+    <string name="biometric_label">Biometriese Verifikasie</string>
+    <string name="enable_biometric">Aktiveer Biometriese Verifikasie</string>
+    <string name="save_buttons">Stoor</string>
+
+
+
 </resources>

@@ -114,4 +114,16 @@
     <string name="previous_button">Esedlule</string>
     <string name="next_button">Olandelayo</string>
     <string name="view_help_button">Buka Usizo</string>
+
+    <string name="settings_title">Izilungiselelo</string>
+    <string name="language_label">Ulimi</string>
+    <string name="notifications_label">Izaziso</string>
+    <string name="receive_notifications">Thola Izaziso</string>
+    <string name="theme_label">Itimu</string>
+    <string name="dark_mode">Imodi Emnyama</string>
+    <string name="biometric_label">Ukuqinisekiswa Kwezokuphepha</string>
+    <string name="enable_biometric">Vumela Ukuqinisekiswa Kwezokuphepha</string>
+    <string name="save_buttons">Londoloza</string>
+
+
 </resources>
