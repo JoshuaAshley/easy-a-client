@@ -189,5 +189,6 @@
     <string name="error_message">Fout: %1$s</string>
     <string name="failed_to_get_file_name">Kon nie lêernaam kry nie.</string>
 
+    <string name="notification_permission_denied">Kennisgewing toestemming geweier</string>
 
 </resources>

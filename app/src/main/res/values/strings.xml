@@ -190,6 +190,7 @@
     <string name="error_message">Error: %1$s</string>
     <string name="failed_to_get_file_name">Failed to get file name</string>
 
+    <string name="notification_permission_denied">Notification permission denied</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

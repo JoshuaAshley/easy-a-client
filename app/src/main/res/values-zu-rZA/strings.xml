@@ -187,4 +187,6 @@
     <string name="error_message">Iphutha: %1$s</string>
     <string name="failed_to_get_file_name">Yehlulekile ukuthola igama lefayela.</string>
 
+    <string name="notification_permission_denied">Imvume yesaziso inqatshiwe</string>
+
 </resources>

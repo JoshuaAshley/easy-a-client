@@ -183,7 +183,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 scheduleEventWorker()
             } else {
                 // Permission denied, handle accordingly
-                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.notification_permission_denied), Toast.LENGTH_SHORT).show()
             }
         }
     }
