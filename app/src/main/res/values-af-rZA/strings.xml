@@ -125,6 +125,7 @@
     <string name="biometric_label">Biometriese Verifikasie</string>
     <string name="enable_biometric">Aktiveer Biometriese Verifikasie</string>
     <string name="save_buttons">Stoor</string>
+    <string name="toast_user_updateds">Instellings suksesvol gestoor</string>
 
     <string name="first_name_labels">Voornaam</string>
     <string name="last_name_labels">Van</string>

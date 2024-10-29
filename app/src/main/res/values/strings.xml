@@ -127,6 +127,7 @@
     <string name="biometric_label">Biometric Authentication</string>
     <string name="enable_biometric">Enable Biometric Authentication</string>
     <string name="save_buttons">Save</string>
+    <string name="toast_user_updateds">Settings saved successfully</string>
 
     <string name="first_name_labels">First name</string>
     <string name="last_name_labels">Last name</string>

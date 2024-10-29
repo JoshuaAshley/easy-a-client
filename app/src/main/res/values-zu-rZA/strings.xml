@@ -124,6 +124,7 @@
     <string name="biometric_label">Ukuqinisekiswa Kwezokuphepha</string>
     <string name="enable_biometric">Vumela Ukuqinisekiswa Kwezokuphepha</string>
     <string name="save_buttons">Londoloza</string>
+    <string name="toast_user_updateds">Izilungiselelo zigcinwe ngempumelelo</string>
 
     <string name="first_name_labels">Igama lokuqala</string>
     <string name="last_name_labels">Isibongo</string>

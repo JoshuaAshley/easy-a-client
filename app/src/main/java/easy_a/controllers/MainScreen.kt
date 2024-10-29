@@ -34,6 +34,8 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.squareup.picasso.Picasso
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
+import easy_a.controllers.LanguageHelper
+
 
 interface ProfileUpdateListener {
     fun onProfileUpdated(newProfilePictureUrl: String?)
@@ -48,12 +50,16 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Set the selected language from SharedPreferences
+        val sharedPreferences = getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+        LanguageHelper.setLocale(this, languageCode)
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.main_screen)
 
         requestNotificationPermission()
-
         setRelativeSizes()
 
         sessionManager = SessionManager(this)
@@ -61,23 +67,14 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
 
         // Check if the user is logged in
         if (!sessionManager.isLoggedIn()) {
-            // If not logged in, redirect to LoginScreen
             val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
-            finish()  // Close MainScreen
+            finish() // Close MainScreen
         } else {
-            // User is logged in, fetch profile picture URL
-            val profilePictureUrl = sessionManager.getProfilePictureUrl() // Fetch profile picture URL from session
-
-            // Make the profileIcon circular
+            val profilePictureUrl = sessionManager.getProfilePictureUrl()
             profileIcon.shapeAppearanceModel = ShapeAppearanceModel.builder()
-                .setAllCornerSizes(ShapeAppearanceModel.PILL) // PILL for circular shapes
-                .build()
-
-            // Set scaleType to make the image fit well in the circular view
+                .setAllCornerSizes(ShapeAppearanceModel.PILL).build()
             profileIcon.scaleType = ImageView.ScaleType.CENTER_INSIDE
-
-            // Load the profile picture using Picasso.
             loadProfilePicture(profilePictureUrl)
 
             if (sessionManager.isNotifications()) {
@@ -91,54 +88,45 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         if (!sessionManager.isDarkMode()) {
-            // Set light mode colors
             mainLayout.setBackgroundColor(resources.getColor(R.color.white))
             topBar.setBackgroundColor(resources.getColor(R.color.easy_a_blue))
             bottomNavigation.setBackgroundColor(resources.getColor(R.color.easy_a_blue))
         } else {
-            // Set dark mode colors
             mainLayout.setBackgroundColor(resources.getColor(R.color.dark_gray))
             topBar.setBackgroundColor(resources.getColor(R.color.black))
             bottomNavigation.setBackgroundColor(resources.getColor(R.color.black))
         }
 
-        //set to this on startup
         navigateToFragment(HomeFragment())
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-
-        // Set listener to handle navigation item clicks
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
                     navigateToFragment(HomeFragment())
                     true
                 }
-
                 R.id.add -> {
                     navigateToFragment(StudyListFragment())
                     true
                 }
-
                 R.id.progress -> {
                     navigateToFragment(ProgressChartFragment())
                     true
                 }
-
                 R.id.view -> {
                     navigateToFragment(EZFragment())
                     true
                 }
-
                 R.id.account -> {
                     navigateToFragment(SettingsFragment())
                     true
                 }
-
                 else -> false
             }
         }
     }
+
 
     private fun scheduleSyncWorker() {
         val constraints = Constraints.Builder()
