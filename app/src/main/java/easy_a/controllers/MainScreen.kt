@@ -34,8 +34,6 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.squareup.picasso.Picasso
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
-import easy_a.controllers.LanguageHelper
-
 
 interface ProfileUpdateListener {
     fun onProfileUpdated(newProfilePictureUrl: String?)
@@ -258,7 +256,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 .error(R.drawable.avatar)        // Fallback image in case of error
                 .resize(desiredSize, desiredSize) // Resize the image to desired size
                 .into(profileIcon)
-        // Load image into the profileIcon
+            // Load image into the profileIcon
         } else {
             // If URL is null or empty, show the default avatar
             profileIcon.setImageResource(R.drawable.avatar)

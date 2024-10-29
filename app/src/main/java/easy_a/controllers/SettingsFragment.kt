@@ -140,6 +140,7 @@ class SettingsFragment : Fragment() {
                     // Apply the language change and restart the activity
                     LanguageHelper.setLocale(requireContext(), languageCode)
                     requireActivity().recreate() // Recreate to apply changes
+                    recreateAllFragments()
                 } else {
                     Toast.makeText(requireContext(), R.string.toast_update_failed, Toast.LENGTH_SHORT).show()
                 }
@@ -149,6 +150,27 @@ class SettingsFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-    }
 
+    }
+    private fun recreateAllFragments() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentList = fragmentManager.fragments
+
+        // Detach all fragments
+        fragmentList.forEach { fragment ->
+            fragment?.let {
+                fragmentManager.beginTransaction().detach(it).commitAllowingStateLoss()
+            }
+        }
+
+        // Execute the pending detach transactions
+        fragmentManager.executePendingTransactions()
+
+        // Reattach all fragments
+        fragmentList.forEach { fragment ->
+            fragment?.let {
+                fragmentManager.beginTransaction().attach(it).commitAllowingStateLoss()
+            }
+        }
+    }
 }
