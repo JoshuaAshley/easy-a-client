@@ -153,6 +153,15 @@
     <string name="welcome_user">Welcome %1$s</string>
     <string name="user_updated_successfully">User updated successfully</string>
 
+    <string name="welcome_users">Welcome, %1$s</string>
+    <string name="registration_failed">Registration failed: %1$s</string>
+    <string name="fill_required_fields">Please fill all the required fields</string>
+    <string name="google_sign_in_faileds">Google Sign-In failed: %1$s</string>
+    <string name="authentication_faileds">Authentication Failed</string>
+    <string name="email_exists">Registration failed: Email already exists.</string>
+    <string name="server_error">Server error. Please try again later.</string>
+    <string name="unknown_error">Registration failed: %1$s</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

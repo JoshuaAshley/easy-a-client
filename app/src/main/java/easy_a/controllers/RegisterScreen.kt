@@ -148,7 +148,7 @@ class RegisterScreen : AppCompatActivity() {
 
                             editor.apply()
 
-                            Toast.makeText(this@RegisterScreen, "Welcome, ${user?.email}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@RegisterScreen, getString(R.string.welcome_user, user?.email), Toast.LENGTH_SHORT).show()
 
                             // Optionally: Navigate to the main screen
                             val intent = Intent(this@RegisterScreen, MainScreen::class.java)
@@ -160,12 +160,12 @@ class RegisterScreen : AppCompatActivity() {
 
                     override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                         // Network or other unexpected errors
-                        Toast.makeText(this@RegisterScreen, "Registration failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@RegisterScreen, getString(R.string.registration_failed, t.message), Toast.LENGTH_SHORT).show()
                     }
                 })
         } else {
             // Show error if email or password is missing
-            Toast.makeText(this, "Please fill all the required fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.fill_required_fields), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -191,7 +191,7 @@ class RegisterScreen : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)!!
                 handleGoogleSignIn(account) // Call your handling method
             } catch (e: ApiException) {
-                Toast.makeText(this, "Google Sign-In failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.google_sign_in_failed, e.message), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -216,7 +216,7 @@ class RegisterScreen : AppCompatActivity() {
                     registerUserWithGoogle(token, uid, email, firstName, lastName, profilePicture)
                 } else {
                     // Sign in failed
-                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.authentication_failed), Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -241,7 +241,7 @@ class RegisterScreen : AppCompatActivity() {
 
                     editor.apply()
 
-                    Toast.makeText(this@RegisterScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterScreen, getString(R.string.welcome_user, user?.email), Toast.LENGTH_SHORT).show()
 
                     // Navigate to the main screen
                     val intent = Intent(this@RegisterScreen, MainScreen::class.java)
@@ -249,13 +249,13 @@ class RegisterScreen : AppCompatActivity() {
                 } else {
                     // Handle errors from backend
                     Log.e("RegisterScreen", "Google Sign-In backend response: ${response.errorBody()?.string()}")
-                    Toast.makeText(this@RegisterScreen, "Google Sign-In failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterScreen, getString(R.string.google_sign_in_failed_backend), Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 // Network or other unexpected errors
-                Toast.makeText(this@RegisterScreen, "Google Sign-In failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterScreen, getString(R.string.google_sign_in_failed, t.message), Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -281,14 +281,14 @@ class RegisterScreen : AppCompatActivity() {
         when (response.code()) {
             HttpURLConnection.HTTP_BAD_REQUEST -> {
                 val errorMessage = "Email already exists."
-                Toast.makeText(this@RegisterScreen, "Registration failed: $errorMessage", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RegisterScreen, getString(R.string.email_exists), Toast.LENGTH_LONG).show()
             }
             HttpURLConnection.HTTP_INTERNAL_ERROR -> {
-                Toast.makeText(this@RegisterScreen, "Server error. Please try again later.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RegisterScreen, getString(R.string.server_error), Toast.LENGTH_LONG).show()
             }
             else -> {
                 val errorMessage = response.errorBody()?.string() ?: "Unknown error"
-                Toast.makeText(this@RegisterScreen, "Registration failed: $errorMessage", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RegisterScreen, getString(R.string.unknown_error, errorMessage), Toast.LENGTH_LONG).show()
             }
         }
     }

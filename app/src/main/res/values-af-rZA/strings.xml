@@ -152,6 +152,17 @@
     <string name="user_updated_successfully">Gebruiker suksesvol bygewerk</string>
 
 
+    <string name="welcome_users">Welkom, %1$s</string>
+    <string name="registration_failed">Registrasie het misluk: %1$s</string>
+    <string name="fill_required_fields">Vul asseblief al die vereiste velde in</string>
+    <string name="google_sign_in_faileds">Google-aanmelding het misluk: %1$s</string>
+    <string name="authentication_faileds">Verifikasie het misluk</string>
+    <string name="email_exists">Registrasie het misluk: E-pos bestaan reeds.</string>
+    <string name="server_error">Bedienerfout. Probeer asseblief later weer.</string>
+    <string name="unknown_error">Registrasie het misluk: %1$s</string>
+
+
+
 
 
 </resources>

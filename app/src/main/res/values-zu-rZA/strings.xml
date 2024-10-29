@@ -150,6 +150,14 @@
     <string name="welcome_user">Siyakwamukela %1$s</string>
     <string name="user_updated_successfully">Umsebenzisi ubuyekezwe ngempumelelo</string>
 
+    <string name="welcome_users">Siyakwamukela, %1$s</string>
+    <string name="registration_failed">Ukubhalisa kwehlulekile: %1$s</string>
+    <string name="fill_required_fields">Sicela ugcwalise wonke amasimu adingekayo</string>
+    <string name="google_sign_in_faileds">Ukungena kwe-Google kwehlulekile: %1$s</string>
+    <string name="authentication_faileds">Ukuqinisekiswa kwehlulekile</string>
+    <string name="email_exists">Ukubhalisa kwehlulekile: I-imeyili isivele ikhona.</string>
+    <string name="server_error">Iphutha lesiphakeli. Sicela uzame futhi kamuva.</string>
+    <string name="unknown_error">Ukubhalisa kwehlulekile: %1$s</string>
 
 
 </resources>
