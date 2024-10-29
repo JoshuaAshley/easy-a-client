@@ -4,8 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="easy_a.controllers.StudyCreateFragment"
-    android:background="@color/dark_gray">
+    tools:context="easy_a.controllers.StudyCreateFragment">
 
 
     <LinearLayout
@@ -49,6 +48,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/start_new_paper"
@@ -70,6 +70,7 @@
 
 
         <TextView
+            android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/paper_name_label"
@@ -99,6 +100,7 @@
             android:layout_marginTop="20dp" />
 
         <TextView
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/description_label"

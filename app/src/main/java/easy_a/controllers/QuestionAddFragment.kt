@@ -80,6 +80,25 @@ class QuestionAddFragment : Fragment() {
 
         readQuestionPaper()
 
+        val title = view.findViewById<TextView>(R.id.titleTextView)
+        val name = view.findViewById<TextView>(R.id.nameTextView)
+        val description = view.findViewById<TextView>(R.id.descriptionTextView)
+
+        val questionNumber = view.findViewById<EditText>(R.id.questionNumber)
+        val questionDescription = view.findViewById<EditText>(R.id.questionDescription)
+        progressImage = view.findViewById(R.id.imageAddProgress)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            title.setTextColor(resources.getColor(R.color.black))
+            name.setTextColor(resources.getColor(R.color.black))
+            description.setTextColor(resources.getColor(R.color.black))
+            paperName.setTextColor(resources.getColor(R.color.black))
+            questionNumber.background = resources.getDrawable(R.drawable.textfield_light)
+            questionDescription.background = resources.getDrawable(R.drawable.textfield_light)
+            progressImage.background = resources.getDrawable(R.drawable.textfield_light)
+        }
+
         return view
     }
 

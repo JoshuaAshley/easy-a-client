@@ -9,6 +9,9 @@ import android.util.Log
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +35,7 @@ import java.util.Locale
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 
 class LoginScreen : AppCompatActivity() {
 
@@ -43,6 +47,8 @@ class LoginScreen : AppCompatActivity() {
     // Google Sign-In related variables
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var firebaseAuth: FirebaseAuth
+
+    private lateinit var sessionManager: SessionManager
 
     // Constant for Google Sign-In Intent
     private val RC_SIGN_IN = 9001
@@ -75,6 +81,22 @@ class LoginScreen : AppCompatActivity() {
         // Set the saved email and password in the respective EditText fields
         email.setText(savedEmail)
         password.setText(savedPassword)
+
+        sessionManager = SessionManager(this)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            findViewById<NestedScrollView>(R.id.mainLayout).setBackgroundColor(resources.getColor(R.color.white))
+            findViewById<ImageView>(R.id.logoImage).setImageDrawable(resources.getDrawable(R.drawable.easy_a_logo_dark))
+            findViewById<TextView>(R.id.titleTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.emailTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.passwordTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.dividerText).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.signUpText).setTextColor(resources.getColor(R.color.black))
+            findViewById<EditText>(R.id.email).background = resources.getDrawable(R.drawable.textfield_light)
+            findViewById<EditText>(R.id.password).background = resources.getDrawable(R.drawable.textfield_light)
+            findViewById<CheckBox>(R.id.rememberMeCheckBox).setTextColor(resources.getColor(R.color.black))
+        }
 
         // Optional: Check the Remember Me checkbox if credentials exist
         if (savedEmail.isNotEmpty()) {
@@ -126,6 +148,13 @@ class LoginScreen : AppCompatActivity() {
                             editor.putString("gender", user?.gender)
                             editor.putString("dateOfBirth", formattedDateOfBirth) // Store the formatted date
                             editor.putString("profilePictureUrl", user?.profilePicture)
+                            editor.putString("language", user?.language ?: "english")
+                            editor.putBoolean("notifications", user?.notifications ?: false)
+                            editor.putString("theme", user?.theme ?: "dark")
+                            editor.putBoolean("biometricAuthentication", user?.biometricAuthentication ?: false)
+
+
+
 
                             if (rememberMe) {
                                 editor.putString("savedEmail", inputEmail)
@@ -138,9 +167,11 @@ class LoginScreen : AppCompatActivity() {
 
                             editor.apply() // Ensure this line is called after all changes to SharedPreferences.
 
-                            proceedToMainScreen()
-                            // showBiometricPrompt()
-
+                            if (user?.biometricAuthentication == false) {
+                                proceedToMainScreen()
+                            } else {
+                                showBiometricPrompt()
+                            }
                         } else {
                             Toast.makeText(this@LoginScreen, "Invalid login credentials", Toast.LENGTH_SHORT).show()
                         }

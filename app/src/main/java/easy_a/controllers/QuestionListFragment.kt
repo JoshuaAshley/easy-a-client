@@ -56,6 +56,16 @@ class QuestionListFragment : Fragment(), OnQuestionClickListener {
 
         readQuestionPaper()
 
+        val title = view.findViewById<TextView>(R.id.titleTextView)
+        val add = view.findViewById<TextView>(R.id.addTextView)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            title.setTextColor(resources.getColor(R.color.black))
+            add.setTextColor(resources.getColor(R.color.black))
+            paperName.setTextColor(resources.getColor(R.color.black))
+        }
+
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerViewQuestions)
         adapter = QuestionAdapter(questions, this) // Initialize adapter with empty list
         recyclerView?.adapter = adapter

@@ -8,5 +8,9 @@ data class UserResponse(
     val gender: String?,
     val dateOfBirth: String?,
     val profilePicture: String?,
-    val token: String?
+    val token: String?,
+    val language: String?,
+    val notifications: Boolean?,
+    val theme: String?,
+    val biometricAuthentication: Boolean?
 )

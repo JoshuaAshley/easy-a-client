@@ -1,6 +1,7 @@
 package easy_a.controllers
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -10,6 +11,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
@@ -22,6 +24,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -32,6 +35,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import easy_a.application.R
@@ -70,6 +74,7 @@ class AccountFragment : Fragment() {
     private lateinit var genderSpinner: Spinner
     private lateinit var emailEditText: TextInputEditText
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -99,6 +104,29 @@ class AccountFragment : Fragment() {
         lastNameEditText = view.findViewById(R.id.lastNameEditText)
         genderSpinner = view.findViewById(R.id.genderSpinner)
         emailEditText = view.findViewById(R.id.emailEditText)
+
+        if (!sessionManager.isDarkMode()) {
+            // Change TextView colors to black
+            view.findViewById<TextView>(R.id.editProfileTitle).setTextColor(Color.BLACK)
+            view.findViewById<TextView>(R.id.firstNameEditText).setTextColor(Color.BLACK)
+            view.findViewById<TextView>(R.id.lastNameEditText).setTextColor(Color.BLACK)
+            view.findViewById<TextView>(R.id.genderLabel).setTextColor(Color.BLACK)
+            view.findViewById<TextView>(R.id.date).setTextColor(Color.BLACK)
+            view.findViewById<TextView>(R.id.emailEditText).setTextColor(Color.BLACK)
+
+            // Set background color of dividers to black
+            view.findViewById<View>(R.id.titleDivider).setBackgroundColor(Color.BLACK)
+            view.findViewById<View>(R.id.profileDivider).setBackgroundColor(Color.BLACK)
+
+            // Set button text colors to black where necessary
+            view.findViewById<Button>(R.id.btnLogout).setTextColor(Color.BLACK)
+            view.findViewById<Button>(R.id.datePickerButton).setTextColor(Color.BLACK)
+
+            // Set text color for TextInputEditText components
+            view.findViewById<TextInputEditText>(R.id.firstNameEditText).setTextColor(Color.BLACK)
+            view.findViewById<TextInputEditText>(R.id.lastNameEditText).setTextColor(Color.BLACK)
+            view.findViewById<TextInputEditText>(R.id.emailEditText).setTextColor(Color.BLACK)
+        }
 
         readData()
 

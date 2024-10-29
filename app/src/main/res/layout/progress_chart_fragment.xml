@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
     tools:context="easy_a.controllers.ProgressChartFragment">
 
     <!-- Outer container for the content -->
@@ -22,6 +21,7 @@
             android:layout_marginBottom="20dp">
 
             <TextView
+                android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/view_progress"

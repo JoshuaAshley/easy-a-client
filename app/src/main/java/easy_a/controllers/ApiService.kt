@@ -11,6 +11,7 @@ import easy_a.models.QuestionResponse
 import easy_a.models.QuestionResult
 import easy_a.models.QuestionUpdateResult
 import easy_a.models.QuestionsListResponse
+import easy_a.models.SettingsResponse
 import easy_a.models.UserResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -57,6 +58,16 @@ interface ApiService {
         @Field("LastName") lastName: String,
         @Field("ProfilePicture") profilePicture: String?
     ): Call<UserResponse>
+
+    @FormUrlEncoded
+    @PUT("api/User/update-settings")
+    fun updateSystemSettings(
+        @Field("Uid") uid: String,
+        @Field("Language") language: String?,
+        @Field("Notifications") notifications: Boolean?,
+        @Field("Theme") theme: String?,
+        @Field("BiometricAuthentication") biometricAuthentication: String?
+    ): Call<SettingsResponse>
 
     @Multipart
     @PUT("api/user/update")

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
     tools:context="easy_a.controllers.QuestionAddFragment">
 
     <LinearLayout
@@ -47,6 +46,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_question_title"
@@ -89,6 +89,7 @@
             android:onClick="imageAddProgressClicked"/>
 
         <TextView
+            android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_number_label"
@@ -108,6 +109,7 @@
             android:textColorHint="#A9A9A9" />
 
         <TextView
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/description_labels"

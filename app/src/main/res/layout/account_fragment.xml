@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="easy_a.controllers.AccountFragment"
-    android:background="@color/dark_gray">
+    tools:context="easy_a.controllers.AccountFragment">
 
     <RelativeLayout
         android:id="@+id/main"
@@ -160,6 +159,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/genderLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gender_label"
@@ -180,6 +180,7 @@
                 android:background="#ACACAC"
                 android:layout_marginBottom="10dp"/>
             <TextView
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/date_of_birth_label"

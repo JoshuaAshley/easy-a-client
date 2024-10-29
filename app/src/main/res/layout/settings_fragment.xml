@@ -1,0 +1,138 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="easy_a.controllers.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginVertical="20dp">
+
+        <!-- Language Section -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Language Section -->
+        <TextView
+            android:id="@+id/languageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Language"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button"
+            android:entries="@array/language_array"
+            android:padding="10dp" />
+
+        <!-- Notifications Section -->
+        <TextView
+            android:id="@+id/notificationsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Notifications"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <Switch
+                android:id="@+id/switchNotifications"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Receive Notifications"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Theme Section -->
+        <TextView
+            android:id="@+id/themeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Theme"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <Switch
+                android:id="@+id/switchDarkMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dark Mode"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Biometric Authentication Section -->
+        <TextView
+            android:id="@+id/biometricTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Biometric Authentication"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <Switch
+                android:id="@+id/switchBiometric"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enable Biometric Authentication"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnChangePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button"
+            android:text="Save"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
