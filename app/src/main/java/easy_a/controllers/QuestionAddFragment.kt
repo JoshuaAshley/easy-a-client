@@ -129,7 +129,7 @@ class QuestionAddFragment : Fragment() {
 
         // Validate inputs
         if (questionNumber.isEmpty() || questionDescription.isEmpty()) {
-            Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.fill_required_fields), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -165,17 +165,17 @@ class QuestionAddFragment : Fragment() {
         ).enqueue(object : Callback<QuestionResponse> {
             override fun onResponse(call: Call<QuestionResponse>, response: Response<QuestionResponse>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(requireContext(), "Question added successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.question_added_successfully), Toast.LENGTH_SHORT).show()
                     navigateToFragment(QuestionListFragment())
                 } else {
                     Log.e("QuestionAddFragment", "Error: ${response.errorBody()?.string()}")
-                    Toast.makeText(requireContext(), "Failed to add question: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.failed_to_add_question, response.message()), Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<QuestionResponse>, t: Throwable) {
                 Log.e("QuestionAddFragment", "API call failed: ${t.message}", t)
-                Toast.makeText(requireContext(), "API call failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.api_call_failed, t.message), Toast.LENGTH_SHORT).show()
             }
         })
     }

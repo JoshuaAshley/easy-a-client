@@ -366,7 +366,7 @@ class LoginScreen : AppCompatActivity() {
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 // Network or other unexpected errors
-                Toast.makeText(this@LoginScreen, "Google Sign-In failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginScreen, getString(R.string.google_sign_in_failed_backend), Toast.LENGTH_SHORT).show()
             }
         })
     }

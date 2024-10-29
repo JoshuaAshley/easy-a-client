@@ -159,5 +159,12 @@
     <string name="server_error">Iphutha lesiphakeli. Sicela uzame futhi kamuva.</string>
     <string name="unknown_error">Ukubhalisa kwehlulekile: %1$s</string>
 
+    <string name="question_added_successfully">Umbuzo ungeziwe ngempumelelo!</string>
+    <string name="failed_to_add_question">Kwehlulekile ukwengeza umbuzo: %1$s</string>
+    <string name="api_call_failed">Ukucela kwe-API kwehlulekile: %1$s</string>
+    <string name="no_image_selected">Azikho izithombe ezikhethiwe</string>
+    <string name="image_captured">Isithombe sithathiwe: %1$s</string>
+    <string name="no_image_captured">Azikho izithombe ezithathiwe</string>
+
 
 </resources>

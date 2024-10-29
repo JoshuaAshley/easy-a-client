@@ -161,7 +161,12 @@
     <string name="server_error">Bedienerfout. Probeer asseblief later weer.</string>
     <string name="unknown_error">Registrasie het misluk: %1$s</string>
 
-
+    <string name="question_added_successfully">Vraag suksesvol bygevoeg!</string>
+    <string name="failed_to_add_question">Kon nie vraag byvoeg nie: %1$s</string>
+    <string name="api_call_failed">API-oproep het misluk: %1$s</string>
+    <string name="no_image_selected">Geen beeld gekies nie</string>
+    <string name="image_captured">Beeld geneem: %1$s</string>
+    <string name="no_image_captured">Geen beeld geneem nie</string>
 
 
 
