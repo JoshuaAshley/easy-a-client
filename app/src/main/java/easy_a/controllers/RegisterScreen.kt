@@ -54,6 +54,9 @@ class RegisterScreen : AppCompatActivity() {
 
         // Initialize SharedPreferences to store and retrieve login credentials
         sharedPreferences = getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+        // Set the language before super.onCreate()
+        LanguageHelper.setLocale(this, languageCode)
 
         // Find views
         emailEditText = findViewById(R.id.email)

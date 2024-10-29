@@ -59,6 +59,9 @@ class LoginScreen : AppCompatActivity() {
 
         // Initialize SharedPreferences to store and retrieve login credentials
         sharedPreferences = getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+        // Set the language before super.onCreate()
+        LanguageHelper.setLocale(this, languageCode)
 
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
