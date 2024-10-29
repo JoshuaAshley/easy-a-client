@@ -154,22 +154,17 @@ class SettingsFragment : Fragment() {
     }
     private fun recreateAllFragments() {
         val fragmentManager = requireActivity().supportFragmentManager
-        val fragmentList = fragmentManager.fragments
+        fragmentManager.fragments.forEach { fragment ->
+            if (fragment != null) {
+                val transaction = fragmentManager.beginTransaction()
+                transaction.detach(fragment)
+                transaction.commitAllowingStateLoss()
 
-        // Detach all fragments
-        fragmentList.forEach { fragment ->
-            fragment?.let {
-                fragmentManager.beginTransaction().detach(it).commitAllowingStateLoss()
-            }
-        }
+                fragmentManager.executePendingTransactions()  // Ensure detachment is applied
 
-        // Execute the pending detach transactions
-        fragmentManager.executePendingTransactions()
-
-        // Reattach all fragments
-        fragmentList.forEach { fragment ->
-            fragment?.let {
-                fragmentManager.beginTransaction().attach(it).commitAllowingStateLoss()
+                val reattachTransaction = fragmentManager.beginTransaction()
+                reattachTransaction.attach(fragment)
+                reattachTransaction.commitAllowingStateLoss()
             }
         }
     }

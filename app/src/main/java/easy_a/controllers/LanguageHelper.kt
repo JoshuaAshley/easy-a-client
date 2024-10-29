@@ -18,10 +18,14 @@ object LanguageHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             configuration.setLocale(locale)
             configuration.setLayoutDirection(locale)
-            context.createConfigurationContext(configuration)
+            context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
         } else {
             configuration.locale = locale
+            configuration.setLayoutDirection(locale)
             resources.updateConfiguration(configuration, resources.displayMetrics)
         }
+
+        // Update application context as well to ensure consistency throughout the app
+        context.applicationContext.resources.updateConfiguration(configuration, resources.displayMetrics)
     }
 }
