@@ -173,6 +173,8 @@
     <string name="enter_message_or_file">Please enter a message or select a file.</string>
     <string name="image_selected">Image selected: %1$s</string>
 
+    <string name="last_page_message">You are already on the last page</string>
+    <string name="first_page_message">You are already on the first page</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

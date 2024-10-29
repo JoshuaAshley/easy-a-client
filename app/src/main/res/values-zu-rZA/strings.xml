@@ -170,4 +170,7 @@
     <string name="enter_message_or_file">Sicela ufake umyalezo noma ukhethe ifayela.</string>
     <string name="image_selected">Isithombe esikhethiwe: %1$s</string>
 
+    <string name="last_page_message">Usuvele usekhasi lokugcina</string>
+    <string name="first_page_message">Usuvele usekhasi lokuqala</string>
+
 </resources>

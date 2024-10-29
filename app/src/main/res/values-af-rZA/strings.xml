@@ -172,4 +172,7 @@
     <string name="enter_message_or_file">Voer asseblief \'n boodskap in of kies \'n lêer.</string>
     <string name="image_selected">Beeld gekies: %1$s</string>
 
+    <string name="last_page_message">Jy is reeds op die laaste bladsy</string>
+    <string name="first_page_message">Jy is reeds op die eerste bladsy</string>
+
 </resources>
