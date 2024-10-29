@@ -135,4 +135,18 @@
     <string name="toast_check_input_fields">Sicela uhlole amasimu okufaka</string>
     <string name="toast_field_length_exceeded">%1$s angeke ibe ngaphezu kuka %2$d izinhlamvu</string>
 
+    <string name="invalid_login_credentials">Ama-akhawunti wokungena angalungile</string>
+    <string name="login_failed">Ukungena kwehlulekile: %1$s</string>
+    <string name="enter_email_password">Sicela ufake i-imeyili nephasiwedi yakho</string>
+    <string name="reset_instructions_sent">Imiyalelo yokusetha kabusha ithunyelwe ku-imeyili yakho</string>
+    <string name="failed_to_send_reset_email">Yehlulekile ukuthumela i-imeyili yokusetha kabusha</string>
+    <string name="email_field_empty">Ibhokisi le-imeyili alikwazi ukuba likhulu</string>
+    <string name="google_sign_in_failed">Ukungena nge-Google kwehlulekile: %1$s</string>
+    <string name="login_successful">Ukungena kuyimpumelelo</string>
+    <string name="biometric_auth_failed">Ukuqinisekisa kwe-biometric kuhlulekile, sicela uzame futhi</string>
+    <string name="auth_error">Iphutha le-verification: %1$s</string>
+    <string name="google_sign_in_failed_backend">Ukungena nge-Google kwehlulekile</string>
+    <string name="authentication_failed">Ukuqinisekiswa kuhlulekile</string>
+
+
 </resources>

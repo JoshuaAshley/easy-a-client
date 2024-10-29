@@ -136,6 +136,20 @@
     <string name="toast_check_input_fields">Gaan asseblief die invoervelde na</string>
     <string name="toast_field_length_exceeded">%1$s kan nie langer as %2$d karakters wees nie</string>
 
+    <string name="invalid_login_credentials">Ongeldige aanmeldbewyse</string>
+    <string name="login_failed">Aanmelding het misluk: %1$s</string>
+    <string name="enter_email_password">Voer asseblief jou e-pos en wagwoord in</string>
+    <string name="reset_instructions_sent">Herstelinstruksies is na jou e-pos gestuur</string>
+    <string name="failed_to_send_reset_email">Kon nie e-pos vir wagwoordherstel stuur nie</string>
+    <string name="email_field_empty">E-pos veld kan nie leeg wees nie</string>
+    <string name="google_sign_in_failed">Google-aanmelding het misluk: %1$s</string>
+    <string name="login_successful">Aanmelding suksesvol</string>
+    <string name="biometric_auth_failed">Biometriese verifikasie het misluk, probeer weer</string>
+    <string name="auth_error">Verifikasie fout: %1$s</string>
+    <string name="google_sign_in_failed_backend">Google-aanmelding het misluk</string>
+    <string name="authentication_failed">Verifikasie het misluk</string>
+
+
 
 
 </resources>

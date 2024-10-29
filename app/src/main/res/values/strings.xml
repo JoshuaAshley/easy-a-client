@@ -138,6 +138,19 @@
     <string name="toast_check_input_fields">Please check the input fields</string>
     <string name="toast_field_length_exceeded">%1$s cannot be longer than %2$d characters</string>
 
+    <string name="invalid_login_credentials">Invalid login credentials</string>
+    <string name="login_failed">Login failed: %1$s</string>
+    <string name="enter_email_password">Please enter your email and password</string>
+    <string name="reset_instructions_sent">Reset instructions sent to your email</string>
+    <string name="failed_to_send_reset_email">Failed to send reset email</string>
+    <string name="email_field_empty">Email field cannot be empty</string>
+    <string name="google_sign_in_failed">Google sign-in failed: %1$s</string>
+    <string name="login_successful">Login successful</string>
+    <string name="biometric_auth_failed">Biometric authentication failed, please retry</string>
+    <string name="auth_error">Authentication error: %1$s</string>
+    <string name="google_sign_in_failed_backend">Google Sign-In failed</string>
+    <string name="authentication_failed">Authentication Failed</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
