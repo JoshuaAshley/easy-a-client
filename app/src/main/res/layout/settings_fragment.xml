@@ -14,17 +14,18 @@
 
         <!-- Language Section -->
         <TextView
+            android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:paddingBottom="16dp"
             android:layout_marginBottom="20dp"/>
 
         <!-- Language Section -->
         <TextView
+            android:id="@+id/languageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Language"
@@ -43,6 +44,7 @@
 
         <!-- Notifications Section -->
         <TextView
+            android:id="@+id/notificationsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -69,6 +71,7 @@
 
         <!-- Theme Section -->
         <TextView
+            android:id="@+id/themeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -96,6 +99,7 @@
 
         <!-- Biometric Authentication Section -->
         <TextView
+            android:id="@+id/biometricTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

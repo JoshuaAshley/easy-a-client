@@ -57,6 +57,11 @@ class HomeFragment : Fragment(), OnPaperClickListener {
             eventButtonClicked(this)
         }
 
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            dateTextView.setTextColor(resources.getColor(R.color.black))
+        }
+
         readData()
 
         return view

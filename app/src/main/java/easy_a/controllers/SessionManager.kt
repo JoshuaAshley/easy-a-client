@@ -71,6 +71,29 @@ class SessionManager(context: Context) {
         sharedPreferences.edit().putBoolean("timer_paused", paused).apply()
     }
 
+    fun getLanguage(): String? {
+        return sharedPreferences.getString("language", null)
+    }
+
+    fun isNotifications(): Boolean {
+        return sharedPreferences.getBoolean("notifications", false)
+    }
+
+    fun isDarkMode(): Boolean {
+        val mode = sharedPreferences.getString("theme", "dark")
+
+        if (mode == "light")
+        {
+            return false
+        }
+
+        return true
+    }
+
+    fun isBiometricAuthentication(): Boolean {
+        return sharedPreferences.getBoolean("biometricAuthentication", false)
+    }
+
     // Clear user session (use this for logging out)
     fun clearSession() {
         val editor = sharedPreferences.edit()

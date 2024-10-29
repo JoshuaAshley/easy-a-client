@@ -11,10 +11,12 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -78,9 +80,26 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
             // Load the profile picture using Picasso.
             loadProfilePicture(profilePictureUrl)
 
-            scheduleEventWorker()
+            if (sessionManager.isNotifications()) {
+                scheduleEventWorker()
+                scheduleSyncWorker()
+            }
+        }
 
-            scheduleSyncWorker()
+        val mainLayout = findViewById<FrameLayout>(R.id.main)
+        val topBar = findViewById<ConstraintLayout>(R.id.top_bar)
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set light mode colors
+            mainLayout.setBackgroundColor(resources.getColor(R.color.white))
+            topBar.setBackgroundColor(resources.getColor(R.color.easy_a_blue))
+            bottomNavigation.setBackgroundColor(resources.getColor(R.color.easy_a_blue))
+        } else {
+            // Set dark mode colors
+            mainLayout.setBackgroundColor(resources.getColor(R.color.dark_gray))
+            topBar.setBackgroundColor(resources.getColor(R.color.black))
+            bottomNavigation.setBackgroundColor(resources.getColor(R.color.black))
         }
 
         //set to this on startup

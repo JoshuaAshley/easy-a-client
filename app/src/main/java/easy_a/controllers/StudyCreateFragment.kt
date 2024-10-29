@@ -56,10 +56,23 @@ class StudyCreateFragment : Fragment() {
         editDescription = view.findViewById(R.id.editDescription)
         btnDueDate = view.findViewById(R.id.btnDueDate)
 
+        val title = view.findViewById<TextView>(R.id.titleTextView)
+        val name = view.findViewById<TextView>(R.id.nameTextView)
+        val description = view.findViewById<TextView>(R.id.descriptionTextView)
+
         val firstName = sessionManager.getFirstName() ?: ""
         val lastName = sessionManager.getLastName() ?: ""
         val fullName = firstName + " " + lastName
         val email = sessionManager.getEmail() ?: ""
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            title.setTextColor(resources.getColor(R.color.black))
+            name.setTextColor(resources.getColor(R.color.black))
+            description.setTextColor(resources.getColor(R.color.black))
+            editPaperName.background = resources.getDrawable(R.drawable.textfield_light)
+            editDescription.background = resources.getDrawable(R.drawable.textfield_light)
+        }
 
         username.text = if (firstName.isEmpty()) email else fullName
 

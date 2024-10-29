@@ -7,10 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.View
+import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.NestedScrollView
 import easy_a.application.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -38,6 +42,7 @@ class RegisterScreen : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +69,23 @@ class RegisterScreen : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        sessionManager = SessionManager(this)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            findViewById<NestedScrollView>(R.id.mainLayout).setBackgroundColor(resources.getColor(R.color.white))
+            findViewById<ImageView>(R.id.logoImage).setImageDrawable(resources.getDrawable(R.drawable.easy_a_logo_dark))
+            findViewById<TextView>(R.id.titleTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.emailTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.passwordTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.confirmPasswordTextView).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.dividerText).setTextColor(resources.getColor(R.color.black))
+            findViewById<TextView>(R.id.signUpText).setTextColor(resources.getColor(R.color.black))
+            findViewById<EditText>(R.id.email).background = resources.getDrawable(R.drawable.textfield_light)
+            findViewById<EditText>(R.id.password).background = resources.getDrawable(R.drawable.textfield_light)
+            findViewById<EditText>(R.id.confirmPassword).background = resources.getDrawable(R.drawable.textfield_light)
+        }
     }
 
     // Called when "Already have an account?" is clicked

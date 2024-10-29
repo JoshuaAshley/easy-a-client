@@ -19,6 +19,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -50,6 +52,8 @@ class EZFragment : Fragment() {
     private lateinit var pickImageLauncher: ActivityResultLauncher<String>
     private lateinit var takePictureLauncher: ActivityResultLauncher<Intent>
 
+    private lateinit var sessionManager: SessionManager
+
     private val sampleResponses = listOf(
         "I'm here to help you with your Android development!",
         "Yes, I can assist with building chat bots.",
@@ -76,6 +80,16 @@ class EZFragment : Fragment() {
         val messageInput = view.findViewById<EditText>(R.id.messageInput)
         val sendButton = view.findViewById<ImageButton>(R.id.sendButton)
         val uploadFileButton = view.findViewById<ImageButton>(R.id.uploadFileButton)
+
+        val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
+
+        sessionManager = SessionManager(requireContext())
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            titleTextView.setTextColor(resources.getColor(R.color.black))
+            messageInput.background = resources.getDrawable(R.drawable.textfield_light)
+        }
 
         initImagePickers()
 

@@ -82,6 +82,17 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         val btnNextMonth = view.findViewById<ImageButton>(R.id.btnNextMonth)
         val monthTitle = view.findViewById<TextView>(R.id.monthTitle)
 
+        val title = view.findViewById<TextView>(R.id.titleTextView)
+        val add = view.findViewById<TextView>(R.id.addTextView)
+        val event = view.findViewById<TextView>(R.id.eventName)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            title.setTextColor(resources.getColor(R.color.black))
+            add.setTextColor(resources.getColor(R.color.black))
+            event.background = resources.getDrawable(R.drawable.textfield_light)
+        }
+
         eventName = view.findViewById(R.id.eventName)
         btnDueDate = view.findViewById(R.id.btnDueDate)
 

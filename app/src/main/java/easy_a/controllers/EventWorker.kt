@@ -39,33 +39,35 @@ class EventWorker(appContext: Context, workerParams: WorkerParameters) : Worker(
         val url = "https://easy-a-api-dbfghva5hkaqgsdc.southafricanorth-01.azurewebsites.net/api/Event/list/$uid/date/$tomorrowDate"
         val request = Request.Builder().url(url).build()
 
-        val client = OkHttpClient()
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                e.printStackTrace()
-            }
+        if (sessionManager.isNotifications()) {
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    e.printStackTrace()
+                }
 
-            override fun onResponse(call: Call, response: Response) {
-                response.body?.string()?.let { responseData ->
-                    val json = JSONObject(responseData)
-                    val events = json.getJSONArray("eventList")
+                override fun onResponse(call: Call, response: Response) {
+                    response.body?.string()?.let { responseData ->
+                        val json = JSONObject(responseData)
+                        val events = json.getJSONArray("eventList")
 
-                    if (events.length() > 0) {
-                        // If there are events for tomorrow, send a notification
-                        for (i in 0 until events.length()) {
+                        if (events.length() > 0) {
+                            // If there are events for tomorrow, send a notification
+                            for (i in 0 until events.length()) {
 
-                            val event = events.getJSONObject(i)
+                                val event = events.getJSONObject(i)
 
-                            val eventName = event.getString("eventName")
+                                val eventName = event.getString("eventName")
 
-                            Log.d("NotificationTest", eventName)
+                                Log.d("NotificationTest", eventName)
 
-                            sendPushNotification("Reminder", "Event '$eventName' is due tomorrow!")
+                                sendPushNotification("Reminder", "Event '$eventName' is due tomorrow!")
+                            }
                         }
                     }
                 }
-            }
-        })
+            })
+        }
 
         return Result.success()
     }

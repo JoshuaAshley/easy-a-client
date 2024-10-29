@@ -48,7 +48,14 @@ class ProgressChartFragment : Fragment() {
         val fullName = "$firstName $lastName"
         val email = sessionManager.getEmail() ?: ""
 
+        val titleTextView = view.findViewById<TextView>(R.id.titleTextView)
+
         username.text = if (firstName.isEmpty()) email else fullName
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            titleTextView.setTextColor(resources.getColor(R.color.black))
+        }
 
         readChart() // Fetch and display chart data
 

@@ -25,6 +25,7 @@ class StudyListFragment : Fragment(), OnPaperClickListener {
     private lateinit var adapter: StudyPaperAdapter // Declare the adapter
 
     private lateinit var username: TextView
+    private lateinit var paperName: TextView
     private lateinit var startpaper: Button
     private lateinit var sessionManager: SessionManager
 
@@ -36,6 +37,10 @@ class StudyListFragment : Fragment(), OnPaperClickListener {
         val view = inflater.inflate(R.layout.study_list_fragment, container, false)
 
         username = view.findViewById(R.id.username)
+
+        val title = view.findViewById<TextView>(R.id.titleTextView)
+        val add = view.findViewById<TextView>(R.id.addTextView)
+        val list = view.findViewById<TextView>(R.id.listTextView)
 
         sessionManager = SessionManager(requireContext())
 
@@ -51,6 +56,13 @@ class StudyListFragment : Fragment(), OnPaperClickListener {
         adapter = StudyPaperAdapter(papers, this) // Initialize adapter with empty list
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(context)
+
+        if (!sessionManager.isDarkMode()) {
+            // Set all text elements to black for light mode
+            title.setTextColor(resources.getColor(R.color.black))
+            add.setTextColor(resources.getColor(R.color.black))
+            list.setTextColor(resources.getColor(R.color.black))
+        }
 
         readData() // Load papers from the API
 
