@@ -48,6 +48,13 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Load language from SharedPreferences
+        val sharedPreferences = getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+
+        // Set the language before super.onCreate()
+        LanguageHelper.setLocale(this, languageCode)
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.main_screen)
