@@ -189,4 +189,11 @@
 
     <string name="notification_permission_denied">Imvume yesaziso inqatshiwe</string>
 
+    <string name="toast_event_name_required">Sicela ufake igama lomcimbi.</string>
+    <string name="toast_event_due_date_required">Sicela ufake usuku lomcimbi.</string>
+    <string name="toast_event_saved_locally">Umcimbi ulondolozwe endaweni. Uzovumelanisa lapho uxhumekile.</string>
+    <string name="toast_event_created_successfully">Umcimbi udalwe ngempumelelo!</string>
+    <string name="toast_event_creation_failed">Ukudalwa komcimbi kwehlulekile: %1$s</string>
+    <string name="toast_error_message">Iphutha: %1$s</string>
+
 </resources>

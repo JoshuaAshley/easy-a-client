@@ -192,6 +192,14 @@
 
     <string name="notification_permission_denied">Notification permission denied</string>
 
+    <string name="toast_event_name_required">Please enter an event name.</string>
+    <string name="toast_event_due_date_required">Please enter an event due date.</string>
+    <string name="toast_event_saved_locally">Event saved locally. Will sync when connected.</string>
+    <string name="toast_event_created_successfully">Event created successfully!</string>
+    <string name="toast_event_creation_failed">Failed to create event: %1$s</string>
+    <string name="toast_error_message">Error: %1$s</string>
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

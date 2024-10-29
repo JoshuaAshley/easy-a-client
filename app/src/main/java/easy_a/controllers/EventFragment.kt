@@ -143,11 +143,11 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         // Validate inputs
         when {
             eventName.isEmpty() -> {
-                Toast.makeText(requireContext(), "Please enter an event name.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.toast_event_name_required), Toast.LENGTH_SHORT).show()
                 return
             }
             eventDueDate.isEmpty() -> {
-                Toast.makeText(requireContext(), "Please enter an event due date.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.toast_event_due_date_required), Toast.LENGTH_SHORT).show()
                 return
             }
         }
@@ -165,7 +165,7 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         } else {
             // Offline: Save locally
             saveEventLocally(event)
-            Toast.makeText(requireContext(), "Event saved locally. Will sync when connected.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.toast_event_saved_locally), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -190,15 +190,15 @@ class EventFragment : Fragment(), CalendarAdapter.OnDayClickListener {
         ).enqueue(object : Callback<EventResult> {
             override fun onResponse(call: Call<EventResult>, response: Response<EventResult>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(requireContext(), "Event created successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.toast_event_created_successfully), Toast.LENGTH_SHORT).show()
                     navigateToFragment(HomeFragment())
                 } else {
-                    Toast.makeText(requireContext(), "Failed to create event: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.toast_event_creation_failed, response.message()), Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<EventResult>, t: Throwable) {
-                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.toast_error_message, t.message), Toast.LENGTH_SHORT).show()
             }
         })
     }

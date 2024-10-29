@@ -191,4 +191,11 @@
 
     <string name="notification_permission_denied">Kennisgewing toestemming geweier</string>
 
+    <string name="toast_event_name_required">Voer asseblief \'n gebeurtenisnaam in.</string>
+    <string name="toast_event_due_date_required">Voer asseblief \'n gebeurtenis sperdatum in.</string>
+    <string name="toast_event_saved_locally">Gebeure plaaslik gestoor. Sal sinchroniseer wanneer gekoppel.</string>
+    <string name="toast_event_created_successfully">Gebeure suksesvol geskep!</string>
+    <string name="toast_event_creation_failed">Kon nie gebeurtenis skep nie: %1$s</string>
+    <string name="toast_error_message">Fout: %1$s</string>
+
 </resources>
