@@ -4,15 +4,24 @@
 
 ## Table of Contents
 
+1. [PlayStore](#playstore)
+2. [Video Demonstration](#video-demonstartion)
 1. [Features](#features)
 2. [EasyA API](#easya-api)
 3. [EasyA Swagger](#easya-swagger)
 4. [Installation](#installation)
 1. [Usage](#usage)
 2. [Support](#support)
-2. [Video Demonstration](#video-demonstartion)
 3. [Figma](#figma)
 4. [Authors](#authors)
+
+## PlayStore
+
+[App Link](https://play.google.com/store/apps/details?id=easy_a.application)
+
+## Video Demonstration
+
+[Part 3](https://www.youtube.com/watch?v=cWbzKnMoIVw)
 
 ## Features
 
@@ -29,6 +38,15 @@
 - **Progress Chart**: Users can track how much time they have studied for each question paper.
 - **Profile Settings**: User can update thier profile picture along with personal details.
 - **Ez Chat Bot**: Users can use the Ai Study Assistant to help them with anything they are struggling with.
+
+### Part 3 Features
+
+- **Settings Added**:
+- **Biometric Authentication Added**:
+- **Language Settings**:
+- **Offline Events Syncing**:
+- **Themes**:
+- **Notifications**:
 
 ## EasyA API
 
@@ -63,17 +81,18 @@ After installing the app,
 - **Progress Chart**: You can track how much time they have studied for each question paper.
 - **Profile**: You can customise your User Profile by adding additional information like a Profile Picture, Name, Gender and Birthday.
 - **EZ Chat Bot**: If you are struggling with answers any questions or need more practice examples just message EZ.
+- **Settings Added**:
+- **Biometric Authentication Added**:
+- **Language Settings**:
+- **Offline Events Syncing**:
+- **Themes**:
+- **Notifications**:
   
 For more details on how to use each feature, visit the Help section within the app.
 
 ## Support
 
 For support, please email TeamProActive225@gmail.com
-
-## Video Demonstration
-
-[Part 2](https://youtu.be/bOCmzsksDwM)
-
 
 ## Figma
 
