@@ -351,12 +351,11 @@ class LoginScreen : AppCompatActivity() {
 
                     editor.apply()
 
-                    Toast.makeText(this@LoginScreen, getString(R.string.welcome_user, user?.email ?: ""), Toast.LENGTH_SHORT).show()
-
-
-                    // Navigate to the main screen
-                    val intent = Intent(this@LoginScreen, MainScreen::class.java)
-                    startActivity(intent)
+                    if (user?.biometricAuthentication == false) {
+                        proceedToMainScreen()
+                    } else {
+                        showBiometricPrompt()
+                    }
                 } else {
                     // Handle errors from backend
                     Log.e("RegisterScreen", "Google Sign-In backend response: ${response.errorBody()?.string()}")
