@@ -26,7 +26,7 @@
         android:roundIcon="@mipmap/ic_easy_a_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.SplashScreen"
-        android:configChanges="locale|layoutDirection"
+        android:configChanges="locale|layoutDirection|screenSize|orientation"
         tools:targetApi="31">
 
         <activity

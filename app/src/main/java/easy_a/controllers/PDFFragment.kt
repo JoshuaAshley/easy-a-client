@@ -148,7 +148,7 @@ class PDFFragment : Fragment() {
             currentPageIndex++
             showPage(currentPageIndex)
         } else {
-            Toast.makeText(requireContext(), "You are already on the last page", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.last_page_message), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -157,7 +157,7 @@ class PDFFragment : Fragment() {
             currentPageIndex--
             showPage(currentPageIndex)
         } else {
-            Toast.makeText(requireContext(), "You are already on the first page", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.first_page_message), Toast.LENGTH_SHORT).show()
         }
     }
 

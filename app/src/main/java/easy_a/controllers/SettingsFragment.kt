@@ -18,6 +18,8 @@ import easy_a.models.SettingsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import easy_a.controllers.LanguageHelper
+
 
 class SettingsFragment : Fragment() {
 
@@ -79,13 +81,21 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setInitialSettings() {
-        // Set initial values
-        val language = sessionManager.getLanguage()
-        if (language != null) {
-            val languagePosition = resources.getStringArray(R.array.language_array).indexOf(language)
-            if (languagePosition >= 0) {
-                spinnerLanguage.setSelection(languagePosition)
-            }
+        // Get saved language code or default to "en"
+        val languageCode = sharedPreferences.getString("language", "en")
+        val languageArray = resources.getStringArray(R.array.language_array)
+
+        // Map language code to display name for the spinner
+        val languageName = when (languageCode) {
+            "af" -> "Afrikaans"
+            "zu" -> "Zulu"
+            else -> "English"
+        }
+
+        // Set spinner selection based on saved language
+        val languagePosition = languageArray.indexOf(languageName)
+        if (languagePosition >= 0) {
+            spinnerLanguage.setSelection(languagePosition)
         }
 
         switchNotifications.isChecked = sessionManager.isNotifications()
@@ -94,40 +104,72 @@ class SettingsFragment : Fragment() {
     }
 
     private fun saveSettings() {
-        // Get updated values from the UI
-        val uid = sessionManager.getUid() ?: return  // Ensure uid is not null
+        val uid = sessionManager.getUid() ?: return // Ensure uid is not null
         val language = spinnerLanguage.selectedItem.toString()
         val notifications = switchNotifications.isChecked
         val theme = if (switchDarkMode.isChecked) "dark" else "light"
         val biometricAuthentication = if (switchBiometric.isChecked) "true" else "false"
 
+        // Map selected language to its code
+        val languageCode = when (language) {
+            "Afrikaans" -> "af"
+            "Zulu" -> "zu"
+            else -> "en"
+        }
+
         // Make API call to update settings
-        RetrofitClient.apiService.updateSystemSettings(uid, language, notifications, theme, biometricAuthentication)
-            .enqueue(object : Callback<SettingsResponse> {
-                override fun onResponse(
-                    call: Call<SettingsResponse>,
-                    response: Response<SettingsResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(requireContext(), "Settings saved successfully", Toast.LENGTH_SHORT).show()
+        RetrofitClient.apiService.updateSystemSettings(
+            uid, languageCode, notifications, theme, biometricAuthentication
+        ).enqueue(object : Callback<SettingsResponse> {
+            override fun onResponse(
+                call: Call<SettingsResponse>,
+                response: Response<SettingsResponse>
+            ) {
+                if (response.isSuccessful) {
+                    // Update locale context immediately after the language is changed
+                    LanguageHelper.setLocale(requireContext(), languageCode)
 
-                        val editor = sharedPreferences.edit()
+                    // Use the updated context to get the localized string for the Toast message
+                    val updatedContext = requireContext()
+                    Toast.makeText(updatedContext, updatedContext.getString(R.string.user_updated_successfully), Toast.LENGTH_SHORT).show()
 
-                        // Save the new values in SharedPreferences
-                        editor.putString("language", language)
-                        editor.putBoolean("notifications", notifications)
-                        editor.putString("theme", theme)
-                        editor.putBoolean("biometricAuthentication", switchBiometric.isChecked)
-
-                        editor.apply()
-                    } else {
-                        Toast.makeText(requireContext(), "Failed to save settings", Toast.LENGTH_SHORT).show()
+                    // Save the new settings in SharedPreferences
+                    sharedPreferences.edit().apply {
+                        putString("language", languageCode)
+                        putBoolean("notifications", notifications)
+                        putString("theme", theme)
+                        putBoolean("biometricAuthentication", switchBiometric.isChecked)
+                        apply()
                     }
-                }
 
-                override fun onFailure(call: Call<SettingsResponse>, t: Throwable) {
-                    Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    // Recreate the activity to apply the changes to UI
+                    requireActivity().recreate() // Recreate to apply changes
+                    recreateAllFragments()
+                } else {
+                    Toast.makeText(requireContext(), R.string.toast_update_failed, Toast.LENGTH_SHORT).show()
                 }
-            })
+            }
+
+            override fun onFailure(call: Call<SettingsResponse>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun recreateAllFragments() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.fragments.forEach { fragment ->
+            if (fragment != null) {
+                val transaction = fragmentManager.beginTransaction()
+                transaction.detach(fragment)
+                transaction.commitAllowingStateLoss()
+
+                fragmentManager.executePendingTransactions()  // Ensure detachment is applied
+
+                val reattachTransaction = fragmentManager.beginTransaction()
+                reattachTransaction.attach(fragment)
+                reattachTransaction.commitAllowingStateLoss()
+            }
+        }
     }
 }

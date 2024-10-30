@@ -102,11 +102,7 @@ class EZFragment : Fragment() {
             var userMessage = messageInput.text.toString()
 
             if (userMessage.isNotEmpty() && selectedFileUri != null) {
-                Toast.makeText(
-                    requireContext(),
-                    "Please either enter a message OR upload an image. Not Both.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(requireContext(), getString(R.string.enter_message_or_image), Toast.LENGTH_SHORT).show()
             }
 
             // Send text, file, or both
@@ -133,8 +129,7 @@ class EZFragment : Fragment() {
                     }
                 }
             } else {
-                Toast.makeText(requireContext(), "Please enter a message or select a file.", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireContext(), getString(R.string.enter_message_or_file), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -217,10 +212,10 @@ class EZFragment : Fragment() {
                     selectedFileUri = imageUri
 
                     // Display a toast with the selected file information
-                    Toast.makeText(requireContext(), "Image selected: $imageUri", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.image_selected, imageUri.toString()), Toast.LENGTH_SHORT).show()
                 } ?: run {
                     // In case no image was selected, notify the user
-                    Toast.makeText(requireContext(), "No image selected", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.no_image_selected), Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -235,10 +230,10 @@ class EZFragment : Fragment() {
                     selectedFileUri = bitmapToUri(imageBitmap)
 
                     // Display a toast with the file URI information
-                    Toast.makeText(requireContext(), "Image captured: $selectedFileUri", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.image_captured, selectedFileUri.toString()), Toast.LENGTH_SHORT).show()
                 } else {
                     // In case the picture was not taken, notify the user
-                    Toast.makeText(requireContext(), "No image captured", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.no_image_captured), Toast.LENGTH_SHORT).show()
                 }
             }
 

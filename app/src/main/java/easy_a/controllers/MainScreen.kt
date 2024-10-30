@@ -48,6 +48,13 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Load language from SharedPreferences
+        val sharedPreferences = getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+
+        // Set the language before super.onCreate()
+        LanguageHelper.setLocale(this, languageCode)
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.main_screen)
@@ -176,7 +183,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 scheduleEventWorker()
             } else {
                 // Permission denied, handle accordingly
-                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.notification_permission_denied), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -256,7 +263,7 @@ class MainScreen : AppCompatActivity(), ProfileUpdateListener {
                 .error(R.drawable.avatar)        // Fallback image in case of error
                 .resize(desiredSize, desiredSize) // Resize the image to desired size
                 .into(profileIcon)
-        // Load image into the profileIcon
+            // Load image into the profileIcon
         } else {
             // If URL is null or empty, show the default avatar
             profileIcon.setImageResource(R.drawable.avatar)

@@ -111,27 +111,27 @@ class StudyCreateFragment : Fragment() {
         // Validate inputs
         when {
             questionPaperName.isEmpty() -> {
-                Toast.makeText(requireContext(), "Please enter a paper name.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.please_enter_paper_name), Toast.LENGTH_SHORT).show()
                 return
             }
             questionPaperName.length > 50 -> {
-                Toast.makeText(requireContext(), "Paper name cannot exceed 50 characters.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.paper_name_cannot_exceed), Toast.LENGTH_SHORT).show()
                 return
             }
             questionPaperDescription.isEmpty() -> {
-                Toast.makeText(requireContext(), "Please enter a description.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.please_enter_description), Toast.LENGTH_SHORT).show()
                 return
             }
             questionPaperDueDate == ("Select a Due Date") -> {
-                Toast.makeText(requireContext(), "Please select a due date.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.please_select_due_date), Toast.LENGTH_SHORT).show()
                 return
             }
             questionPaperDescription.length > 150 -> {
-                Toast.makeText(requireContext(), "Description cannot exceed 150 characters.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.description_cannot_exceed), Toast.LENGTH_SHORT).show()
                 return
             }
             selectedPDFFile == null -> {
-                Toast.makeText(requireContext(), "Please upload a PDF file.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.please_upload_pdf), Toast.LENGTH_SHORT).show()
                 return
             }
         }
@@ -159,15 +159,15 @@ class StudyCreateFragment : Fragment() {
         ).enqueue(object : Callback<QuestionPaperResponse> {
             override fun onResponse(call: Call<QuestionPaperResponse>, response: Response<QuestionPaperResponse>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(requireContext(), "Study paper created successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.study_paper_created_successfully), Toast.LENGTH_SHORT).show()
                     navigateToFragment(StudyListFragment())
                 } else {
-                    Toast.makeText(requireContext(), "Failed to create study paper: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.failed_to_create_study_paper, response.message()), Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<QuestionPaperResponse>, t: Throwable) {
-                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.error_message, t.message), Toast.LENGTH_SHORT).show()
                 Log.d("UpdateUserRequest", "File: ${t.message}") // Log the filename
             }
         })
@@ -212,7 +212,7 @@ class StudyCreateFragment : Fragment() {
                     val btnUploadPDF: Button = view?.findViewById(R.id.btnUploadPDF) ?: return
                     btnUploadPDF.text = fileName // Set button text to the file name
                 } else {
-                    Toast.makeText(requireContext(), "Failed to get file name", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), getString(R.string.failed_to_get_file_name), Toast.LENGTH_SHORT).show()
                 }
             }
         }

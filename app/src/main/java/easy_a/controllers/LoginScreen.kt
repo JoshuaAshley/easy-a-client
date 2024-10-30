@@ -59,6 +59,9 @@ class LoginScreen : AppCompatActivity() {
 
         // Initialize SharedPreferences to store and retrieve login credentials
         sharedPreferences = getSharedPreferences("com.example.easy_a", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") ?: "en"
+        // Set the language before super.onCreate()
+        LanguageHelper.setLocale(this, languageCode)
 
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -173,16 +176,16 @@ class LoginScreen : AppCompatActivity() {
                                 showBiometricPrompt()
                             }
                         } else {
-                            Toast.makeText(this@LoginScreen, "Invalid login credentials", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginScreen, getString(R.string.invalid_login_credentials), Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                        Toast.makeText(this@LoginScreen, "Login failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginScreen, getString(R.string.login_failed, t.message), Toast.LENGTH_SHORT).show()
                     }
                 })
         } else {
-            Toast.makeText(this, "Please enter your email and password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.enter_email_password), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -225,23 +228,15 @@ class LoginScreen : AppCompatActivity() {
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful)
                             {  // Check if the email was sent successfully.
-                                Toast.makeText(
-                                    this,
-                                    "Reset instructions sent to your email",
-                                    Toast.LENGTH_LONG
-                                ).show()  // Show a success message.
+                                Toast.makeText(this, getString(R.string.reset_instructions_sent), Toast.LENGTH_LONG).show()
                             } else
                             {  // Handle the case where sending the email failed.
-                                Toast.makeText(
-                                    this,
-                                    "Failed to send reset email",
-                                    Toast.LENGTH_LONG
-                                ).show()  // Show an error message.
+                                Toast.makeText(this, getString(R.string.failed_to_send_reset_email), Toast.LENGTH_LONG).show()
                             }
                         }
                 } else
                 {  // If the email field is empty, prompt the user to fill it.
-                    Toast.makeText(this, "Email field cannot be empty", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.email_field_empty), Toast.LENGTH_LONG).show()
                 }
             }.setNegativeButton(
                 "Cancel",
@@ -270,13 +265,13 @@ class LoginScreen : AppCompatActivity() {
                 handleGoogleSignIn(account!!)
             } catch (e: ApiException) {
                 // Google Sign-In failed
-                Toast.makeText(this, "Google sign-in failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.google_sign_in_failed, e.message), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun proceedToMainScreen() {
-        Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.login_successful), Toast.LENGTH_SHORT).show()
         val intent = Intent(this@LoginScreen, MainScreen::class.java)
         startActivity(intent)
         finish()
@@ -293,12 +288,12 @@ class LoginScreen : AppCompatActivity() {
 
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
-                Toast.makeText(this@LoginScreen, "Biometric authentication failed, please retry", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginScreen, getString(R.string.biometric_auth_failed), Toast.LENGTH_SHORT).show()
             }
 
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
-                Toast.makeText(this@LoginScreen, "Authentication error: $errString", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginScreen, getString(R.string.auth_error, errString), Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -331,7 +326,7 @@ class LoginScreen : AppCompatActivity() {
                     registerUserWithGoogle(uid, email, firstName, lastName, profilePicture)
                 } else {
                     // Sign in failed
-                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginScreen, getString(R.string.google_sign_in_failed_backend), Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -356,7 +351,8 @@ class LoginScreen : AppCompatActivity() {
 
                     editor.apply()
 
-                    Toast.makeText(this@LoginScreen, "Welcome ${user?.email}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginScreen, getString(R.string.welcome_user, user?.email ?: ""), Toast.LENGTH_SHORT).show()
+
 
                     // Navigate to the main screen
                     val intent = Intent(this@LoginScreen, MainScreen::class.java)
@@ -364,13 +360,13 @@ class LoginScreen : AppCompatActivity() {
                 } else {
                     // Handle errors from backend
                     Log.e("RegisterScreen", "Google Sign-In backend response: ${response.errorBody()?.string()}")
-                    Toast.makeText(this@LoginScreen, "Google Sign-In failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginScreen, getString(R.string.google_sign_in_failed_backend), Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                 // Network or other unexpected errors
-                Toast.makeText(this@LoginScreen, "Google Sign-In failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginScreen, getString(R.string.google_sign_in_failed_backend), Toast.LENGTH_SHORT).show()
             }
         })
     }

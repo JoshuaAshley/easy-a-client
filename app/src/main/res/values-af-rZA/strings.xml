@@ -116,4 +116,86 @@
     <string name="next_button">Volgende</string>
     <string name="view_help_button">Sien Hulp</string>
 
+    <string name="settings_title">Instellings</string>
+    <string name="language_label">Taal</string>
+    <string name="notifications_label">Kennisgewings</string>
+    <string name="receive_notifications">Ontvang Kennisgewings</string>
+    <string name="theme_label">Tema</string>
+    <string name="dark_mode">Donker Modus</string>
+    <string name="biometric_label">Biometriese Verifikasie</string>
+    <string name="enable_biometric">Aktiveer Biometriese Verifikasie</string>
+    <string name="save_buttons">Stoor</string>
+    <string name="toast_user_updateds">Instellings suksesvol gestoor</string>
+
+    <string name="first_name_labels">Voornaam</string>
+    <string name="last_name_labels">Van</string>
+    <string name="toast_user_updated">Gebruiker suksesvol bygewerk</string>
+    <string name="toast_update_failed">Kon nie gebruiker bywerk nie: %1$s</string>
+    <string name="toast_failure_message">Fout: %1$s</string>
+    <string name="toast_user_not_logged_in">Gebruiker is nie aangemeld nie</string>
+    <string name="toast_check_input_fields">Gaan asseblief die invoervelde na</string>
+    <string name="toast_field_length_exceeded">%1$s kan nie langer as %2$d karakters wees nie</string>
+
+    <string name="invalid_login_credentials">Ongeldige aanmeldbewyse</string>
+    <string name="login_failed">Aanmelding het misluk: %1$s</string>
+    <string name="enter_email_password">Voer asseblief jou e-pos en wagwoord in</string>
+    <string name="reset_instructions_sent">Herstelinstruksies is na jou e-pos gestuur</string>
+    <string name="failed_to_send_reset_email">Kon nie e-pos vir wagwoordherstel stuur nie</string>
+    <string name="email_field_empty">E-pos veld kan nie leeg wees nie</string>
+    <string name="google_sign_in_failed">Google-aanmelding het misluk: %1$s</string>
+    <string name="login_successful">Aanmelding suksesvol</string>
+    <string name="biometric_auth_failed">Biometriese verifikasie het misluk, probeer weer</string>
+    <string name="auth_error">Verifikasie fout: %1$s</string>
+    <string name="google_sign_in_failed_backend">Google-aanmelding het misluk</string>
+    <string name="authentication_failed">Verifikasie het misluk</string>
+    <string name="welcome_user">Welkom %1$s</string>
+    <string name="user_updated_successfully">Gebruiker suksesvol bygewerk</string>
+
+
+    <string name="welcome_users">Welkom, %1$s</string>
+    <string name="registration_failed">Registrasie het misluk: %1$s</string>
+    <string name="fill_required_fields">Vul asseblief al die vereiste velde in</string>
+    <string name="google_sign_in_faileds">Google-aanmelding het misluk: %1$s</string>
+    <string name="authentication_faileds">Verifikasie het misluk</string>
+    <string name="email_exists">Registrasie het misluk: E-pos bestaan reeds.</string>
+    <string name="server_error">Bedienerfout. Probeer asseblief later weer.</string>
+    <string name="unknown_error">Registrasie het misluk: %1$s</string>
+
+    <string name="question_added_successfully">Vraag suksesvol bygevoeg!</string>
+    <string name="failed_to_add_question">Kon nie vraag byvoeg nie: %1$s</string>
+    <string name="api_call_failed">API-oproep het misluk: %1$s</string>
+    <string name="no_image_selected">Geen beeld gekies nie</string>
+    <string name="image_captured">Beeld geneem: %1$s</string>
+    <string name="no_image_captured">Geen beeld geneem nie</string>
+
+    <string name="enter_message_or_image">Voer asseblief óf \'n boodskap in óf laai \'n beeld op. Nie albei nie.</string>
+    <string name="enter_message_or_file">Voer asseblief \'n boodskap in of kies \'n lêer.</string>
+    <string name="image_selected">Beeld gekies: %1$s</string>
+
+    <string name="last_page_message">Jy is reeds op die laaste bladsy</string>
+    <string name="first_page_message">Jy is reeds op die eerste bladsy</string>
+
+    <string name="question_completed_success">Vraag suksesvol voltooi!</string>
+    <string name="time_logged_success">Tyd suksesvol aangeteken!</string>
+
+    <string name="please_enter_paper_name">Voer asseblief \'n vraestelnaam in.</string>
+    <string name="paper_name_cannot_exceed">Vraestelnaam mag nie langer as 50 karakters wees nie.</string>
+    <string name="please_enter_description">Voer asseblief \'n beskrywing in.</string>
+    <string name="please_select_due_date">Kies asseblief \'n sperdatum.</string>
+    <string name="description_cannot_exceed">Beskrywing mag nie langer as 150 karakters wees nie.</string>
+    <string name="please_upload_pdf">Laai asseblief \'n PDF-lêer op.</string>
+    <string name="study_paper_created_successfully">Studiestuk suksesvol geskep!</string>
+    <string name="failed_to_create_study_paper">Kon nie studiestuk skep nie: %1$s</string>
+    <string name="error_message">Fout: %1$s</string>
+    <string name="failed_to_get_file_name">Kon nie lêernaam kry nie.</string>
+
+    <string name="notification_permission_denied">Kennisgewing toestemming geweier</string>
+
+    <string name="toast_event_name_required">Voer asseblief \'n gebeurtenisnaam in.</string>
+    <string name="toast_event_due_date_required">Voer asseblief \'n gebeurtenis sperdatum in.</string>
+    <string name="toast_event_saved_locally">Gebeure plaaslik gestoor. Sal sinchroniseer wanneer gekoppel.</string>
+    <string name="toast_event_created_successfully">Gebeure suksesvol geskep!</string>
+    <string name="toast_event_creation_failed">Kon nie gebeurtenis skep nie: %1$s</string>
+    <string name="toast_error_message">Fout: %1$s</string>
+
 </resources>

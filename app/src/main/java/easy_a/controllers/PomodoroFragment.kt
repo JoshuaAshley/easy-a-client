@@ -111,7 +111,7 @@ class PomodoroFragment : Fragment() {
                 object : Callback<QuestionUpdateResult> {
                     override fun onResponse(call: Call<QuestionUpdateResult>, response: Response<QuestionUpdateResult>) {
                         if (response.isSuccessful) {
-                            Toast.makeText(requireContext(), "Question completed successfully!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), getString(R.string.question_completed_success), Toast.LENGTH_SHORT).show()
                             navigateToFragment(QuestionListFragment())
                         } else {
                             // Log the error if the response isn't successful
@@ -158,7 +158,7 @@ class PomodoroFragment : Fragment() {
                 object : Callback<QuestionUpdateResult> {
                     override fun onResponse(call: Call<QuestionUpdateResult>, response: Response<QuestionUpdateResult>) {
                         if (response.isSuccessful) {
-                            Toast.makeText(requireContext(), "Time logged successfully!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), getString(R.string.time_logged_success), Toast.LENGTH_SHORT).show()
                             navigateToFragment(QuestionListFragment())
                         } else {
                             // Log the error if the response isn't successful

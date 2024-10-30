@@ -114,4 +114,86 @@
     <string name="previous_button">Esedlule</string>
     <string name="next_button">Olandelayo</string>
     <string name="view_help_button">Buka Usizo</string>
+
+    <string name="settings_title">Izilungiselelo</string>
+    <string name="language_label">Ulimi</string>
+    <string name="notifications_label">Izaziso</string>
+    <string name="receive_notifications">Thola Izaziso</string>
+    <string name="theme_label">Itimu</string>
+    <string name="dark_mode">Imodi Emnyama</string>
+    <string name="biometric_label">Ukuqinisekiswa Kwezokuphepha</string>
+    <string name="enable_biometric">Vumela Ukuqinisekiswa Kwezokuphepha</string>
+    <string name="save_buttons">Londoloza</string>
+    <string name="toast_user_updateds">Izilungiselelo zigcinwe ngempumelelo</string>
+
+    <string name="first_name_labels">Igama lokuqala</string>
+    <string name="last_name_labels">Isibongo</string>
+    <string name="toast_user_updated">Umsebenzisi ubuyekeziwe ngempumelelo</string>
+    <string name="toast_update_failed">Ukubuyekezwa komsebenzisi kuhlulekile: %1$s</string>
+    <string name="toast_failure_message">Iphutha: %1$s</string>
+    <string name="toast_user_not_logged_in">Umsebenzisi akangene ngemvume</string>
+    <string name="toast_check_input_fields">Sicela uhlole amasimu okufaka</string>
+    <string name="toast_field_length_exceeded">%1$s angeke ibe ngaphezu kuka %2$d izinhlamvu</string>
+
+    <string name="invalid_login_credentials">Ama-akhawunti wokungena angalungile</string>
+    <string name="login_failed">Ukungena kwehlulekile: %1$s</string>
+    <string name="enter_email_password">Sicela ufake i-imeyili nephasiwedi yakho</string>
+    <string name="reset_instructions_sent">Imiyalelo yokusetha kabusha ithunyelwe ku-imeyili yakho</string>
+    <string name="failed_to_send_reset_email">Yehlulekile ukuthumela i-imeyili yokusetha kabusha</string>
+    <string name="email_field_empty">Ibhokisi le-imeyili alikwazi ukuba likhulu</string>
+    <string name="google_sign_in_failed">Ukungena nge-Google kwehlulekile: %1$s</string>
+    <string name="login_successful">Ukungena kuyimpumelelo</string>
+    <string name="biometric_auth_failed">Ukuqinisekisa kwe-biometric kuhlulekile, sicela uzame futhi</string>
+    <string name="auth_error">Iphutha le-verification: %1$s</string>
+    <string name="google_sign_in_failed_backend">Ukungena nge-Google kwehlulekile</string>
+    <string name="authentication_failed">Ukuqinisekiswa kuhlulekile</string>
+    <string name="welcome_user">Siyakwamukela %1$s</string>
+    <string name="user_updated_successfully">Umsebenzisi ubuyekezwe ngempumelelo</string>
+
+    <string name="welcome_users">Siyakwamukela, %1$s</string>
+    <string name="registration_failed">Ukubhalisa kwehlulekile: %1$s</string>
+    <string name="fill_required_fields">Sicela ugcwalise wonke amasimu adingekayo</string>
+    <string name="google_sign_in_faileds">Ukungena kwe-Google kwehlulekile: %1$s</string>
+    <string name="authentication_faileds">Ukuqinisekiswa kwehlulekile</string>
+    <string name="email_exists">Ukubhalisa kwehlulekile: I-imeyili isivele ikhona.</string>
+    <string name="server_error">Iphutha lesiphakeli. Sicela uzame futhi kamuva.</string>
+    <string name="unknown_error">Ukubhalisa kwehlulekile: %1$s</string>
+
+    <string name="question_added_successfully">Umbuzo ungeziwe ngempumelelo!</string>
+    <string name="failed_to_add_question">Kwehlulekile ukwengeza umbuzo: %1$s</string>
+    <string name="api_call_failed">Ukucela kwe-API kwehlulekile: %1$s</string>
+    <string name="no_image_selected">Azikho izithombe ezikhethiwe</string>
+    <string name="image_captured">Isithombe sithathiwe: %1$s</string>
+    <string name="no_image_captured">Azikho izithombe ezithathiwe</string>
+
+    <string name="enter_message_or_image">Sicela ufake umyalezo noma ulayishe isithombe. Hhayi kokubili.</string>
+    <string name="enter_message_or_file">Sicela ufake umyalezo noma ukhethe ifayela.</string>
+    <string name="image_selected">Isithombe esikhethiwe: %1$s</string>
+
+    <string name="last_page_message">Usuvele usekhasi lokugcina</string>
+    <string name="first_page_message">Usuvele usekhasi lokuqala</string>
+
+    <string name="question_completed_success">Umbuzo uphele ngempumelelo!</string>
+    <string name="time_logged_success">Isikhathi sibhalwe ngempumelelo!</string>
+
+    <string name="please_enter_paper_name">Sicela ufake igama lephepha.</string>
+    <string name="paper_name_cannot_exceed">Igama lephepha alikwazi ukudlula izinhlamvu eziyi-50.</string>
+    <string name="please_enter_description">Sicela ufake incazelo.</string>
+    <string name="please_select_due_date">Sicela ukhethe usuku oluphelayo.</string>
+    <string name="description_cannot_exceed">Incazelo ayikwazi ukudlula izinhlamvu eziyi-150.</string>
+    <string name="please_upload_pdf">Sicela ulayishe ifayela le-PDF.</string>
+    <string name="study_paper_created_successfully">Iphepha lokufunda lidalwe ngempumelelo!</string>
+    <string name="failed_to_create_study_paper">Yehlulekile ukudala iphepha lokufunda: %1$s</string>
+    <string name="error_message">Iphutha: %1$s</string>
+    <string name="failed_to_get_file_name">Yehlulekile ukuthola igama lefayela.</string>
+
+    <string name="notification_permission_denied">Imvume yesaziso inqatshiwe</string>
+
+    <string name="toast_event_name_required">Sicela ufake igama lomcimbi.</string>
+    <string name="toast_event_due_date_required">Sicela ufake usuku lomcimbi.</string>
+    <string name="toast_event_saved_locally">Umcimbi ulondolozwe endaweni. Uzovumelanisa lapho uxhumekile.</string>
+    <string name="toast_event_created_successfully">Umcimbi udalwe ngempumelelo!</string>
+    <string name="toast_event_creation_failed">Ukudalwa komcimbi kwehlulekile: %1$s</string>
+    <string name="toast_error_message">Iphutha: %1$s</string>
+
 </resources>
