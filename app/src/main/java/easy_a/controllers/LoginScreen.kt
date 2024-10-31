@@ -133,8 +133,6 @@ class LoginScreen : AppCompatActivity() {
                             // Format date of birth
                             val dateOfBirthString = user?.dateOfBirth // This can be null
 
-
-
                             val formattedDateOfBirth = if (dateOfBirthString != null && dateOfBirthString != "") {
                                 formatDateOfBirth(dateOfBirthString)
                             } else {
@@ -155,9 +153,6 @@ class LoginScreen : AppCompatActivity() {
                             editor.putBoolean("notifications", user?.notifications ?: false)
                             editor.putString("theme", user?.theme ?: "dark")
                             editor.putBoolean("biometricAuthentication", user?.biometricAuthentication ?: false)
-
-
-
 
                             if (rememberMe) {
                                 editor.putString("savedEmail", inputEmail)
@@ -351,7 +346,7 @@ class LoginScreen : AppCompatActivity() {
 
                     editor.apply()
 
-                    if (user?.biometricAuthentication == false) {
+                    if (user?.biometricAuthentication == false || user?.biometricAuthentication == null) {
                         proceedToMainScreen()
                     } else {
                         showBiometricPrompt()
