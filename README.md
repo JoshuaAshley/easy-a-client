@@ -11,9 +11,10 @@
 3. [EasyA Swagger](#easya-swagger)
 4. [Installation](#installation)
 1. [Usage](#usage)
-2. [Support](#support)
-3. [Figma](#figma)
-4. [Authors](#authors)
+2. [Playstore Tutorial](#playstore-tutorial)
+3. [Support](#support)
+4. [Figma](#figma)
+5. [Authors](#authors)
 
 ## PlayStore
 
@@ -89,6 +90,8 @@ After installing the app,
 - **Notifications**:
   
 For more details on how to use each feature, visit the Help section within the app.
+
+## PlayStore Tutorial
 
 ## Support
 
