@@ -42,12 +42,12 @@
 
 ### Part 3 Features
 
-- **Settings Added**:
-- **Biometric Authentication Added**:
-- **Language Settings**:
-- **Offline Events Syncing**:
-- **Themes**:
-- **Notifications**:
+- **Settings Added**: Users can now access settings where they can change notifications, language, theme and delete their account.
+- **Biometric Authentication Added**: Users can now login in using biometrics like fingerprint or face id.
+- **Language Settings**: Users can switch between english, zulu and afrikaans. Their language will also automatically change based on their system settings.
+- **Offline Events Syncing**: Users can now utilise some features offline and it will be added when they are connected back to the interet.
+- **Themes**: Users can now switch between Dark and White mode.
+- **Notifications**: Users now have access to real time event based notifications.
 
 ## EasyA API
 
@@ -82,12 +82,12 @@ After installing the app,
 - **Progress Chart**: You can track how much time they have studied for each question paper.
 - **Profile**: You can customise your User Profile by adding additional information like a Profile Picture, Name, Gender and Birthday.
 - **EZ Chat Bot**: If you are struggling with answers any questions or need more practice examples just message EZ.
-- **Settings Added**:
-- **Biometric Authentication Added**:
-- **Language Settings**:
-- **Offline Events Syncing**:
-- **Themes**:
-- **Notifications**:
+- **Settings Added**: You can now change settings like notifications, language, theme and delete their account.
+- **Biometric Authentication Added**: You can now login in using biometrics like fingerprint or face id.
+- **Language Settings**: You can switch between english, zulu and afrikaans.
+- **Offline Events Syncing**: You can now utilise some features offline and it will be added once you are connected back to the interet.
+- **Themes**: You can now switch between Dark and White mode.
+- **Notifications**: You now have access to real time event based notifications.
   
 For more details on how to use each feature, visit the Help section within the app.
 
