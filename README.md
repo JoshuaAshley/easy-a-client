@@ -93,6 +93,41 @@ For more details on how to use each feature, visit the Help section within the a
 
 ## PlayStore Tutorial
 
+1. Prepare Your App for Release:
+- In Android Studio, switch to the Release build variant.
+- Generate a signed APK or App Bundle (.aab) by selecting Build > Generate Signed Bundle / APK.
+- Complete the wizard to create a signed release build.
+
+2. Sign Up / Log In to Google Play Console:
+- Go to the Google Play Console and sign in.
+- If it’s your first time, pay the one-time developer registration fee and complete the setup.
+
+3. Create a New Application:
+- Select All Apps in the menu, then click Create App.
+- Enter the app details, such as title and default language, and confirm settings.
+
+4. Complete the Store Listing:
+- Fill out the App Information section with required details: description, screenshots, app icon, feature graphics, and videos if available.
+- Add Categorization (e.g., category, content rating) and Contact Details.
+
+5. Set Up the App Content:
+- Go through each section under App Content to meet Google Play policies (privacy policy, app access, content rating, target audience, and data safety).
+
+6. Upload Your App Bundle (.aab):
+- In the Release section, select Production and then Create New Release.
+- Upload the generated .aab file from Android Studio.
+
+7. Review and Roll Out the Release:
+- Review the release summary, making sure everything is correct.
+- Click Rollout to Production to submit your app for review.
+
+8. Wait for Google’s Review:
+- Once submitted, Google will review your app. This process may take a few hours to several days.
+- You’ll receive an email once it’s approved and published.
+
+9. Monitor and Update:
+- Use the Dashboard to monitor app performance and make updates as needed.
+
 ## Support
 
 For support, please email TeamProActive225@gmail.com
